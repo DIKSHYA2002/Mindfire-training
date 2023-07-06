@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Registration Form</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+  *{
+   box-sizing: border-box;
+  }
+   
+    form {
+        width: 70%;
+        height: 100vh;
+        margin: auto;
+        border: 2px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: left;
+
+    }
+ input, select{
+    width: 50%;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+   border: none;
+    border-bottom: 1px black solid;
+    outline: none;
+ }
+ label{
+    margin-left: 0rem;
+    width: 20%;
+ }
+ 
+    .input-field {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        margin: 0.1rem;
+    }
+.section-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+    .address{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 55%;
+    }
+    .personal-details {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+       justify-content: space-evenly;
+       text-align: left;
+       margin-left: 1rem;
+     margin-right: 1rem;
+    }
+    #heading{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+      
+    }
+    .profile img{
+        margin: auto;
+        background-color: black;
+        width: 30%;
+        
+    }
+    .profile {
+        text-align: center;
+      
+    }
+    .present{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .address .input-field label{
+       margin-right: 1.2rem;
+     
+    }
+    #sameas{
+      width: auto;
+    }
+   h1,h3{
+    margin: auto;
+    text-align: center;
+   }
+   .buttons{
+         display: flex;
+         flex-direction: row;
+         gap: 1rem;
+
+       }
+       input[type="submit"] , input[type="reset"]{
+        width: 100%;
+        
+       }
+    .head-text{
+      margin-bottom: 5%;
+      background-color: black;
+      color: white;
+    
+    }
+    .red{
+        color: red;
+    }
+    hr{
+        width: 2px;
+        background-color: black;
+    }
+    @media only screen and (max-width: 1000px) {
+        form{
+            height: 190vh;
+            width: 100%;
+        }
+        .personal-details , .address {
+        display: flex;
+        flex-direction: column;
+       width: 100%;
+       justify-content: space-evenly;
+       text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+       }
+       .address{
+        margin-top: 0.5rem;
+       }
+       .present{
+        margin-top: 1rem;
+
+       }
+       .permanent{
+        margin-top: 1rem;
+       }
+       .buttons{
+        margin-top: 1rem;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-evenly;
+
+       }
+       input[type="submit"] , input[type="reset"]{
+        width: 100%;
+       }
+         
+    }
+
+ 
+</style>
+
+<body>
+    <form action="">
+        <div class="personal-details">
+            <div id="heading">
+                <div class="head-text"><h1>Registration-form</h1></div>
+                <div class="profile">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt=""
+                       >
+                </div>
+              
+            </div>
+            <div  class="head-text">
+                <h3 >Personal-details</h3>
+            </div> 
+                <div class="input-field">
+                    <label for="full-name">First Name<span class="red">*</span>:</label>
+                    <input type="text" name="full-name" id="full-name">
+                </div>
+                <div class="input-field">
+                    <label for="last-name">Last Name<span class="red">*</span>:</label>
+                    <input type="text" name="last-name" id="last-name">
+                </div>
+                <div class="input-field">
+                    <label for="DOB"><i class='bx bxs-calendar'></i><span class="red">*</span>:</label>
+                    <input type="date" name="DOB" id="DOB">
+                </div>
+                <div class="input-field">
+                    <label for="gender">Gender <span class="red">*</span>:</label>
+                    <div>
+                        <label for="male"><i class='bx bx-male'></i>Male:</label>
+                        <input type="radio" name="gender" id="male">
+                    </div>
+                    <div>
+                        <label for="female"><i class='bx bx-female'></i>Female:</label>
+                        <input type="radio" name="gender" id="female">
+                    </div>
+                    <div>
+                        <label for="others"><i class='bx bx-male-female'></i>Others:</label>
+                        <input type="radio" name="gender" id="others">
+                    </div>
+                
+            </div>     
+            <div class="input-field">
+                <label for="image">Profile-picture<span class="red">*</span>:</label>
+                <input type="file" name="image" id="image" onchange="previewFile()">
+            </div>
+            <div class="contact-details">
+                <div class="input-field">
+                    <label for="email"><i class='bx bx-at'></i>*</span>:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="input-field">
+                    <label for="phone"><i class='bx bx-phone'></i><span class="red">*</span>:</label>
+                    <input type="number" name="phone" id="phone">
+                </div>
+               
+            </div>
+        </div>
+      
+        <div class="address">
+            <div class="present">
+                <div  class="head-text">
+                    <h3>Present-address</h3>
+                </div>
+                <div class="section-input">
+                    <div class="input-field">
+                        <label for="line1">line-1<span class="red">*</span>:</label>
+                        <input type="text" name="present-line1" id="present-line1">
+                    </div>
+                    <div class="input-field">
+                        <label for="line2">line-2:</label>
+                        <input type="text" name="present-line2" id="present-line2">
+                    </div>
+                </div>
+                <div class="section-input">
+                    <div class="input-field">
+                        <label for="city"> City <span class="red">*</span>:</label>
+                        <select name="city-names" id="city-names">
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="country"> Country<span class="red">*</span> :</label>
+                        <select name="country-names" id="country-names" onchange="changeCountry()">
+                        </select>
+                    </div>
+                </div>
+                <div class="section-input">
+                    <div class="input-field">
+                        <label for="state"> State<span class="red">*</span>:</label>
+                        <select name="state-names" id="state-names" onchange="changeState(this.value)">
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="pincode"> pincode<span class="red">*</span> :</label>
+                        <input type="text" name="pincode" id="pincode">
+                    </div>
+                </div>
+                
+              
+               
+            </div>
+
+
+            <div class="permanent">
+
+                <div class="head-text">
+                    <h3>Permanent-Address (Same as present <span><input type="checkbox" name="sameas" id="sameas" onchange="presenttopermanent(this.checked)"></span>)</h3>
+                </div>
+
+                  <div class="section-input">
+                    <div class="input-field">
+                        <label for="perm-line1">line-1<span class="red">*</span>:</label>
+                        <input type="text" name="perm-line1" id="perm-line1">
+                    </div>
+                    <div class="input-field">
+                        <label for="perm-line2">line-2:</label>
+                        <input type="text" name="perm-line2" id="perm-line2">
+                    </div>
+                  </div>
+                  <div class="section-input">
+                    <div class="input-field">
+                        <label for="city-names2"> City <span class="red">*</span>:</label>
+                        <select name="city-names2" id="city-names2">
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="country-names2"> Country<span class="red">*</span>:</label>
+                        <select name="country-names2" id="country-names2" onchange="changeCountryPermanent()">
+                        </select>
+                    </div>
+                  </div>
+
+           <div class="section-input">
+
+            <div class="input-field">
+                <label for="state-names2" onchange="changeStatePermanent(this.value1)">
+                    State<span class="red">*</span>:</label>
+                <select name="state-names2" id="state-names2">
+                </select>
+            </div>
+            <div class="input-field">
+                <label for="pincode"> pincode<span class="red">*</span>:</label>
+                <input type="text" name="pincode" id="pincode">
+            </div>
+           </div>
+               
+                
+
+
+
+            </div>
+            <div class="section-input">
+                <div class="input-field">
+                    <label for="hobbies">hobbies:</label>
+                        <input list="hobby" name="hobbies" id="hobbies">
+                        <datalist id="hobbyList">
+                            <option value="Dancing">
+                            <option value="Singing">
+                            <option value="Painting">
+                            <option value="Play Instrument">
+                            <option value="trecking">
+                        </datalist>
+                </div>
+                <div class="input-field">
+                    <label for="subscribe">Subscribe:</label>
+                    <input type="checkbox" name="subscribe" id="subscribe">
+                </div>
+            </div>
+            <div class="buttons">
+                <div>
+                    <input type="submit" value="submit">
+                </div>
+                <div>
+                    <input type="reset" value="reset">
+                </div>
+            </div>
+        </div>
+
+       
+    </form>
+
+    <script>
+        const user = {
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            DOB: "",
+            Phone: "",
+            Gender: "",
+            hobbies: "",
+            Subscribed: "",
+            present_country: "",
+            present_line1: "",
+            present_line2: "",
+            present_state: "",
+            present_city: ""
+        }
+        let form = document.querySelector('form');
+        form.addEventListener('submit', formsubmit);
+        function formsubmit(e) {
+            const firstname = document.getElementById('full-name').value;
+            const lastname = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const dob = document.getElementById('DOB').value;
+            const gender = (document.querySelector('input[name="gender"]:checked')) ? document.querySelector('input[name="gender"]:checked').id : "";
+            const phone = document.getElementById('phone').value;
+          
+            // const hobbies = document.getElementById("hobbies").value;
+            const subscribe = document.getElementById("subscribe").checked;
+            const present_line1 = document.getElementById("present-line1").value;
+            const present_line2 = document.getElementById("present-line2").value;
+            const present_country = document.getElementById("country-names").value;
+            const present_city = document.getElementById("city-names").value;
+            const present_state = document.getElementById("state-names").value;
+
+            user.FirstName = firstname;
+            user.LastName = lastname;
+            user.Email = email;
+            user.DOB = dob;
+            user.Phone = phone;
+            user.Gender = gender;
+            user.hobbies = hobbies;
+            user.Subscribed = subscribe;
+            user.present_city = present_city;
+            user.present_country = present_country;
+            user.present_state = present_state;
+            user.present_line1 = present_line1;
+            user.present_line2 = present_line2;
+            document.getElementById('full-name').style.border = (user.FirstName == "") ? ("1px red solid") : ("1px green solid");
+            document.getElementById('last-name').style.border = (user.LastName == "") ? ("1px red solid") : ("1px green solid")
+            document.getElementById('email').style.border = (user.Email == "") ? ("1px red solid") : ("1px green solid");
+            document.getElementById('DOB').style.border = (user.DOB == "") ? ("1px red solid") : ("1px green solid")
+
+            document.getElementById('phone').style.border = (user.Phone == "") ? ("1px red solid") : ("1px green solid")
+            // document.getElementById('hobbies').style.border = (user.hobbies == "") ? ("1px red solid") : ("1px green solid")
+            if (firstname == "" || lastname == "" || email == "" || dob == "" || gender == "" || phone == "" || emergency == "") {
+                alert("complete the form!!")
+            }
+            else {
+                alert("submitted succesfully!!")
+            }
+            console.log(user);
+            e.preventDefault();
+          
+        }
+    </script>
+
+</body>
+
+</html>
