@@ -11,86 +11,77 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
   *{
    box-sizing: border-box;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
   }
-   
     form {
         width: 70%;
-        height: 100vh;
         margin: auto;
-        border: 2px solid black;
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-evenly;
         text-align: left;
 
     }
  input, select{
     width: 50%;
-    padding: 0.5rem;
-    margin-left: 0.5rem;
-   border: none;
-    border-bottom: 1px black solid;
+    padding: 3%;
+    margin-left: 1%;  
     outline: none;
  }
+
  label{
-    margin-left: 0rem;
     width: 20%;
  }
- 
-    .input-field {
+   .input-field {
         display: flex;
         flex-direction: row;
         width: 100%;
         align-items: center;
-        margin: 0.1rem;
+        margin: 1%;
     }
 .section-input{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-left: 5%;
 }
     .address{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        width: 55%;
     }
     .personal-details {
         display: flex;
         flex-direction: column;
-        width: 40%;
        justify-content: space-evenly;
        text-align: left;
-       margin-left: 1rem;
-     margin-right: 1rem;
+       margin-bottom: 15%;
+    }
+    img{
+        width: 20%;
+       
     }
     #heading{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        text-align: left;
-      
-    }
-    .profile img{
-        margin: auto;
-        background-color: black;
-        width: 30%;
-        
-    }
-    .profile {
         text-align: center;
-      
+     margin-bottom: 5%;  
     }
+
+  
     .present{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        margin-bottom: 5%;
     }
     .address .input-field label{
-       margin-right: 1.2rem;
+       margin-right: 2%;
      
     }
     #sameas{
@@ -101,65 +92,57 @@
     text-align: center;
    }
    .buttons{
-         display: flex;
-         flex-direction: row;
-         gap: 1rem;
+          margin-left: 35%;
+        margin-right: 25%;
 
        }
        input[type="submit"] , input[type="reset"]{
-        width: 100%;
-        
+       margin: 2rem;
+       width: 90%;
+        background-color: black;
+        color: white;
        }
     .head-text{
       margin-bottom: 5%;
-      background-color: black;
+      background-color: rgb(85, 85, 85);
       color: white;
-    
+      padding: 2%;
     }
     .red{
         color: red;
     }
-    hr{
-        width: 2px;
-        background-color: black;
-    }
-    @media only screen and (max-width: 1000px) {
-        form{
-            height: 190vh;
-            width: 100%;
-        }
-        .personal-details , .address {
+    .g{
         display: flex;
-        flex-direction: column;
-       width: 100%;
-       justify-content: space-evenly;
-       text-align: center;
-        margin-left: 5%;
-        margin-right: 5%;
-       }
-       .address{
-        margin-top: 0.5rem;
-       }
-       .present{
-        margin-top: 1rem;
-
-       }
-       .permanent{
-        margin-top: 1rem;
-       }
-       .buttons{
-        margin-top: 1rem;
-         display: flex;
-         flex-direction: row;
-         justify-content: space-evenly;
-
-       }
-       input[type="submit"] , input[type="reset"]{
+        flex-direction: row;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0.5rem;
+    }
+   
+    @media only screen and (max-width: 800px) {
+        form {
         width: 100%;
-       }
-         
+
+    }
+        .section-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+     margin-left: 4rem;
+     margin-bottom: 2rem;
     }
 
+    .g{
+        display: flex;
+        flex-direction: row;
+        gap: 0.2rem;
+        align-items: center;
+        margin: 0.5rem;
+    }
+    }
+
+    
  
 </style>
 
@@ -169,14 +152,11 @@
             <div id="heading">
                 <div class="head-text"><h1>Registration-form</h1></div>
                 <div class="profile">
-                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt=""
-                       >
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" >
                 </div>
-              
             </div>
-            <div  class="head-text">
-                <h3 >Personal-details</h3>
-            </div> 
+          
+            <div class="section-input">
                 <div class="input-field">
                     <label for="full-name">First Name<span class="red">*</span>:</label>
                     <input type="text" name="full-name" id="full-name">
@@ -185,41 +165,61 @@
                     <label for="last-name">Last Name<span class="red">*</span>:</label>
                     <input type="text" name="last-name" id="last-name">
                 </div>
+            </div>
+            <div class="section-input">
                 <div class="input-field">
                     <label for="DOB"><i class='bx bxs-calendar'></i><span class="red">*</span>:</label>
                     <input type="date" name="DOB" id="DOB">
                 </div>
                 <div class="input-field">
                     <label for="gender">Gender <span class="red">*</span>:</label>
-                    <div>
-                        <label for="male"><i class='bx bx-male'></i>Male:</label>
-                        <input type="radio" name="gender" id="male">
+                    <div class="g">
+                        <label for="others"><i class='bx bx-male'></i></label>
+                        <span>M:</span> 
+                        <input type="radio" name="gender" id="others">
                     </div>
-                    <div>
-                        <label for="female"><i class='bx bx-female'></i>Female:</label>
-                        <input type="radio" name="gender" id="female">
+                    <div class="g">
+                        <label for="others"><i class='bx bx-female'></i></label>
+                        <span>F:</span> 
+                        <input type="radio" name="gender" id="others">
                     </div>
-                    <div>
-                        <label for="others"><i class='bx bx-male-female'></i>Others:</label>
+                    <div class="g">
+                        <label for="others"><i class='bx bx-male-female'></i></label>
+                        <span>O:</span> 
                         <input type="radio" name="gender" id="others">
                     </div>
                 
-            </div>     
-            <div class="input-field">
-                <label for="image">Profile-picture<span class="red">*</span>:</label>
-                <input type="file" name="image" id="image" onchange="previewFile()">
+            </div>    
+            </div> 
+            <div class="section-input">
+                <div class="input-field">
+                    <label for="image">Picture<span class="red">*</span>:</label>
+                    <input type="file" name="image" id="image" onchange="previewFile()">
+                </div>
+                <div class="input-field">
+                   <label for="bloodGroup">
+                    Blood<span class="red">*</span>:
+                   </label>
+                   <input type="text" name="" id="">
+                </div>
             </div>
-            <div class="contact-details">
-                <div class="input-field">
-                    <label for="email"><i class='bx bx-at'></i>*</span>:</label>
-                    <input type="email" name="email" id="email">
-                </div>
-                <div class="input-field">
-                    <label for="phone"><i class='bx bx-phone'></i><span class="red">*</span>:</label>
-                    <input type="number" name="phone" id="phone">
-                </div>
+            <div class="section-input">
                
+                    <div class="input-field">
+                        <label for="email"><i class='bx bx-at'></i>*</span>:</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="input-field">
+                        <label for="phone"><i class='bx bx-phone'></i><span class="red">*</span>:</label>
+                        <input type="number" name="phone" id="phone">
+                    </div>
+                   
+                
             </div>
+            </div>
+                
+               
+          
         </div>
       
         <div class="address">
@@ -330,15 +330,19 @@
                     <label for="subscribe">Subscribe:</label>
                     <input type="checkbox" name="subscribe" id="subscribe">
                 </div>
+               
             </div>
-            <div class="buttons">
-                <div>
-                    <input type="submit" value="submit">
-                </div>
-                <div>
-                    <input type="reset" value="reset">
+            <div class="section-input buttons">
+                <div class="input-field">
+                    <div>
+                        <input type="submit" value="submit">
+                    </div>
+                    <div>
+                        <input type="reset" value="reset">
+                    </div>
                 </div>
             </div>
+           
         </div>
 
        

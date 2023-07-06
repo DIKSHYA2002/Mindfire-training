@@ -1,0 +1,316 @@
+    /* .personal-form{
+        
+    }
+  
+    #heading{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+      
+    }
+    .profile img{
+        margin: auto;
+        background-color: black;
+        width: 20%;
+        
+    }
+    .profile {
+        text-align: center;
+      
+    }
+    .present{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .address .input-field label{
+       margin-right: 1.2rem;
+    }
+    #sameas{
+      width: auto;
+    }
+   h1,h3{
+    margin: auto;
+    text-align: center;
+   }
+   .buttons{
+         display: flex;
+         flex-direction: row;
+         gap: 1rem;
+
+       }
+       input[type="submit"] , input[type="reset"]{
+        width: 100%;
+        
+       }
+    .head-text{
+      margin-bottom: 5%;
+      background-color: black;
+      color: white;
+    
+    }
+    .red{
+        color: red;
+    }
+    hr{
+        width: 2px;
+        background-color: black;
+    } */
+    */
+    /* @media only screen and (max-width: 1000px) {
+        form{
+            height: 190vh;
+            width: 100%;
+        }
+        .personal-details , .address {
+        display: flex;
+        flex-direction: column;
+       width: 100%;
+       justify-content: space-evenly;
+       text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+       }
+       .address{
+        margin-top: 0.5rem;
+       }
+       .present{
+        margin-top: 1rem;
+
+       }
+       .permanent{
+        margin-top: 1rem;
+       }
+       .buttons{
+        margin-top: 1rem;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-evenly;
+       }
+       input[type="submit"] , input[type="reset"]{
+        width: 100%;
+       }
+    } */
+       /* input, select{
+    width: 50%;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+
+    border-bottom: 1px black solid;
+    outline: none;
+ } */
+    /* label{
+    margin-left: 0rem;
+    width: 20%;
+ }
+  */
+    /* .input-field {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        margin: 0.1rem;
+    } */
+    /* .section-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+} */
+    /* .address{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 55%;
+    }*/
+
+    <div class="contact-details">
+    <div class="input-field">
+        <label for="email"><i class='bx bx-at'></i>*</span>:</label>
+        <input type="email" name="email" id="email">
+    </div>
+    <div class="input-field">
+        <label for="phone"><i class='bx bx-phone'></i><span class="red">*</span>:</label>
+        <input type="number" name="phone" id="phone">
+    </div>
+   
+</div> 
+
+<div class="address">
+<div class="present">
+    <div  class="head-text">
+        <h3>Present-address</h3>
+    </div>
+    <div class="section-input">
+        <div class="input-field">
+            <label for="line1">line-1<span class="red">*</span>:</label>
+            <input type="text" name="present-line1" id="present-line1">
+        </div>
+        <div class="input-field">
+            <label for="line2">line-2:</label>
+            <input type="text" name="present-line2" id="present-line2">
+        </div>
+    </div>
+    <div class="section-input">
+        <div class="input-field">
+            <label for="city"> City <span class="red">*</span>:</label>
+            <select name="city-names" id="city-names">
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="country"> Country<span class="red">*</span> :</label>
+            <select name="country-names" id="country-names" onchange="changeCountry()">
+            </select>
+        </div>
+    </div>
+    <div class="section-input">
+        <div class="input-field">
+            <label for="state"> State<span class="red">*</span>:</label>
+            <select name="state-names" id="state-names" onchange="changeState(this.value)">
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="pincode"> pincode<span class="red">*</span> :</label>
+            <input type="text" name="pincode" id="pincode">
+        </div>
+    </div>
+    
+  
+   
+</div>
+
+
+<div class="permanent">
+
+    <div class="head-text">
+        <h3>Permanent-Address (Same as present <span><input type="checkbox" name="sameas" id="sameas" onchange="presenttopermanent(this.checked)"></span>)</h3>
+    </div>
+
+      <div class="section-input">
+        <div class="input-field">
+            <label for="perm-line1">line-1<span class="red">*</span>:</label>
+            <input type="text" name="perm-line1" id="perm-line1">
+        </div>
+        <div class="input-field">
+            <label for="perm-line2">line-2:</label>
+            <input type="text" name="perm-line2" id="perm-line2">
+        </div>
+      </div>
+      <div class="section-input">
+        <div class="input-field">
+            <label for="city-names2"> City <span class="red">*</span>:</label>
+            <select name="city-names2" id="city-names2">
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="country-names2"> Country<span class="red">*</span>:</label>
+            <select name="country-names2" id="country-names2" onchange="changeCountryPermanent()">
+            </select>
+        </div>
+      </div>
+
+<div class="section-input">
+
+<div class="input-field">
+    <label for="state-names2" onchange="changeStatePermanent(this.value1)">
+        State<span class="red">*</span>:</label>
+    <select name="state-names2" id="state-names2">
+    </select>
+</div>
+<div class="input-field">
+    <label for="pincode"> pincode<span class="red">*</span>:</label>
+    <input type="text" name="pincode" id="pincode">
+</div>
+</div>
+   
+    
+
+
+
+</div>
+<div class="section-input">
+    <div class="input-field">
+        <label for="hobbies">hobbies:</label>
+            <input list="hobby" name="hobbies" id="hobbies">
+            <datalist id="hobbyList">
+                <option value="Dancing">
+                <option value="Singing">
+                <option value="Painting">
+                <option value="Play Instrument">
+                <option value="trecking">
+            </datalist>
+    </div>
+    <div class="input-field">
+        <label for="subscribe">Subscribe:</label>
+        <input type="checkbox" name="subscribe" id="subscribe">
+    </div>
+</div>
+<div class="buttons">
+    <div>
+        <input type="submit" value="submit">
+    </div>
+    <div>
+        <input type="reset" value="reset">
+    </div>
+</div>
+</div>
+
+
+
+<div id="heading-top">
+<div class="profile">
+   
+   
+</div>
+</div>
+<div class="personal-details">
+
+<div class="head-text">
+    <h3>Personal-details</h3>
+</div>
+<div class="input-field">
+    <label for="full-name">First Name<span class="red">*</span>:</label>
+    <input type="text" name="full-name" id="full-name">
+</div>
+
+</div>
+
+
+
+
+  @media only screen and (max-width: 1000px) {
+        form{
+            height: 190vh;
+            width: 100%;
+        }
+        .personal-details , .address {
+        display: flex;
+        flex-direction: column;
+       width: 100%;
+       justify-content: space-evenly;
+       text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+       }
+       .address{
+        margin-top: 0.5rem;
+       }
+       .present{
+        margin-top: 1rem;
+
+       }
+       .permanent{
+        margin-top: 1rem;
+       }
+       .buttons{
+        margin-top: 1rem;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-evenly;
+
+       }
+       input[type="submit"] , input[type="reset"]{
+        width: 100%;
+       }
+         
+    }
