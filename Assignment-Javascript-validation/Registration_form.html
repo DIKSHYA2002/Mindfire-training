@@ -208,12 +208,11 @@
                     <label for="subscribe">Subscribe:</label>
                     <input type="checkbox" name="subscribe" id="subscribe">
                 </div>
-
             </div>
             <div class="input-field-group buttons">
                 <div class="input-field">
                     <div>
-                        <input type="submit" value="submit">
+                        <input type="submit" value="submit" id="btn-submit">
                     </div>
                     <div>
                         <input type="reset" value="reset">
@@ -221,15 +220,14 @@
                 </div>
             </div>
         </div>
-        <div class="form-container details-after-submition">
-           <div class="header">
-            <div class="head-text">
-                <h1>Submitted:Details</h1>
-            </div>
-           </div>
-           <div class="info" id="info">
-
-           </div>
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content" id="modalContent">
+                  <span class="close">&times;</span>
+                  <a>Form Submitted Successfuly</a>
+                  <p></p>
+                </div>
+              </div>
         </div>
     </form>
     <script src="Registration-script.js"></script>

@@ -1,3 +1,4 @@
+
 let BearerToken = "";
 getApiKey();
 function previewFile() {
@@ -38,7 +39,6 @@ function previewFile() {
         options2.value =  present_state;
         options2.innerText = present_state;
         document.getElementById('stateNamesPermanent').appendChild(options2);
-
         document.getElementById('stateNamesPermanent').value = present_state;
         document.getElementById('inputPermanentCity').value = present_city;
         document.getElementById('inputPermanentLine1').disabled=true;
@@ -96,11 +96,11 @@ document.querySelector('form').addEventListener('submit', formsubmit);
                 document.getElementById(id).style.border= '2px green solid';
             }
           }
-    }
-      const onlySelects = document.querySelectorAll('select');
+    } 
+     const onlySelects = document.querySelectorAll('select');
       for (let index = 0; index < onlySelects.length; index++) 
       {
-        if(onlySelects[index].value ==="")
+        if(onlySelects[index].value === "")
         {
             let id = onlySelects[index].id;
             document.getElementById(id).style.border= '2px red solid';
@@ -121,28 +121,55 @@ document.querySelector('form').addEventListener('submit', formsubmit);
                 Phone: inputPhone.value,
                 BloodGroup: inputDropdownBloodGroup.value,
                 Gender: 'female',
-       
-                presentAddress:
-                {
-                    present_country: countryNamesPresent.value,
-                    present_line1: inputPresentLine1.value,
-                    present_line2: inputPresentLine2.value,
-                    present_state: stateNamesPresent.value,
-                    present_city:  inputCityPresent.value,
-                    present_pincode:inputPresentPincode.value
-                },
-                permanentAddress:
-                {
-                    permanent_country: countryNamesPermanent.value,
-                    permanent_line1: inputPermanentLine1.value,
-                    permanent_line2: inputPermanentLine2.value,
-                    permanent_state: stateNamesPermanent.value,
-                    permanent_city: inputPermanentCity.value,
-                    permanent_pincode: inputPermanentPincode.value
-                },
                 hobbies: inputHobbies.value,
                 Subscribed: subscribe.checked,
-         }
+    }
+    
+                  const presentAddress ={
+                      present_country: countryNamesPresent.value,
+                        present_line1: inputPresentLine1.value,
+                        present_line2: inputPresentLine2.value,
+                        present_state: stateNamesPresent.value,
+                        present_city:  inputCityPresent.value,
+                        present_pincode:inputPresentPincode.value
+                  }
+
+
+                        const permanentAddress={
+                          permanent_country: countryNamesPermanent.value,
+                              permanent_line1: inputPermanentLine1.value,
+                              permanent_line2: inputPermanentLine2.value,
+                              permanent_state: stateNamesPermanent.value,
+                              permanent_city: inputPermanentCity.value,
+                              permanent_pincode: inputPermanentPincode.value
+                        }
+                      var modal = document.getElementById("myModal");
+                      var btn = document.getElementById("btn-submit");
+                      var span = document.getElementsByClassName("close")[0];
+                      // When the user clicks on the button, open the modal
+                      btn.onclick = function() {
+                        document.querySelector('#modalContent p').innerHTML=''
+                        modal.style.display = "block";
+                        let Titles = Object.keys(user);
+                         Titles.forEach(element => {
+                          document.querySelector('#modalContent p').innerHTML += `<div class="input-field">${element}: ${user[element]}</div><br><br>`
+                          });
+                    
+                      }
+                          
+                      // When the user clicks on <span> (x), close the modal
+                      span.onclick = function() {
+                        modal.style.display = "none";
+                      }
+                      // When the user clicks anywhere outside of the modal, close it
+                      window.onclick = function(event) {
+                        if (event.target == modal) {
+                          modal.style.display = "none";
+                        }
+                      }
+
+
+
       
     console.log(user);
     e.preventDefault();
@@ -249,7 +276,6 @@ document.querySelector('form').addEventListener('submit', formsubmit);
  document.getElementById('inputPresentLine2').addEventListener('change', changeLine(inputPresentLine2 , inputPermanentLine2 ));
  document.getElementById('inputPresentPincode').addEventListener('change', changeLine(inputPresentPincode , inputPermanentPincode));
  document.getElementById('inputCityPresent').addEventListener('change', changeLine(inputCityPresent , inputPermanentCity ));
-
  document.getElementById('countryNamesPresent').addEventListener('click',getCountries(countryNamesPresent));
  document.getElementById('countryNamesPermanent').addEventListener('click',getCountries(countryNamesPermanent));
  document.getElementById('stateNamesPresent').addEventListener('click', getStates(countryNamesPresent , stateNamesPresent))
@@ -257,5 +283,4 @@ document.querySelector('form').addEventListener('submit', formsubmit);
 
  document.getElementById('inputCityPresent').addEventListener('change', getCity(stateNamesPresent,inputCityPresent))
  document.getElementById('inputPermanentCity').addEventListener('change', getCity(stateNamesPermanent , inputPermanentCity))
-
 document.getElementById('sameas').addEventListener('change', presenttopermanent(sameas));
