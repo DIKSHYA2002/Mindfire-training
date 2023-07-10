@@ -170,7 +170,9 @@ input[type="reset"] {
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin-left: 15%;
+    margin-right: 15%;/* 15% from the top and centered */
+    margin-top: 5%;
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
@@ -190,3 +192,9 @@ input[type="reset"] {
     text-decoration: none;
     cursor: pointer;
   }
+#Heading-modal{
+    background-color: green;
+    color: white;
+    padding: 2%;
+    margin-bottom: 2%;
+}
