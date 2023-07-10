@@ -29,11 +29,11 @@
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputFirstName" id="labelFirstName">First Name<span class="red">*</span>:</label>
-                    <input type="text" name="inputFirstName" id="inputFirstName" onchange=" checkSpecialNumberforFirstName(this.value)">
+                    <input type="text" name="inputFirstName" id="inputFirstName" >
                 </div>
                 <div class="input-field">
                     <label for="inputLastName" id="labelLastName">Last Name<span class="red">*</span>:</label>
-                    <input type="text" name="inputLastName" id="inputLastName" onchange="checkSpecialNumberforLastName(this.value)">
+                    <input type="text" name="inputLastName" id="inputLastName">
                 </div>
             </div>
             <div class="input-field-group">
@@ -45,14 +45,13 @@
                 <div class="input-field">
                     <label for="inputGender" id="labelGender">Gender <span class="red">*</span>:</label>
                     <div class="gender-field">
-                        <label for="radioMale"><i class='bx bx-male'></i><span>M:</span></label>
-
-                        <input type="radio" name="inputGender" id="radioMale">
+                        <label for="Male"><i class='bx bx-male'></i><span>M:</span></label>
+                        <input type="radio" name="inputGender" id="Male">
                     </div>
                     <div class="gender-field">
-                        <label for="radioFemale"><i class='bx bx-female'></i> <span>F:</span></label>
+                        <label for="Female"><i class='bx bx-female'></i> <span>F:</span></label>
 
-                        <input type="radio" name="inputGender" id="radioFemale">
+                        <input type="radio" name="inputGender" id="Female">
                     </div>
                     <div class="gender-field">
                         <label for="others"><i class='bx bx-male-female'></i> <span>O:</span></label>
@@ -64,7 +63,7 @@
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputImage">Picture<span class="red">*</span>:</label>
-                    <input type="file" name="inputImage" id="inputImage" onchange="previewFile()">
+                    <input type="file" name="inputImage" id="inputImage" >
                 </div>
                 <div class="input-field">
                     <label for="inputDropdownBloodGroup" id="labelBloodGroup">
@@ -93,8 +92,6 @@
                             class="red">*</span>:</label>
                     <input type="number" name="inputPhone" id="inputPhone">
                 </div>
-
-
             </div>
         </div>
         </div>
@@ -112,22 +109,20 @@
                     </div>
                     <div class="input-field">
                         <label for="inputPresentLine2" id="present-label-line2">line-2:</label>
-                        <input type="text" name="inputPresentLine2" id="inputPresentLine2"
-                           >
+                        <input type="text" name="inputPresentLine2" id="inputPresentLine2" >
                     </div>
                 </div>
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="inputDropdownCountry" id="labelPresentCountry"> Country<span class="red">*</span>
                             :</label>
-                        <select name="country-names" id="country-names-present" onchange="changeCountry()"
-                            onclick="changeCountry()">
+                        <select name="country-names" id="countryNamesPresent">
                             <option value="">Select Country</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <label for="state-names-present" id="labelPresentState"> State<span class="red">*</span>:</label>
-                        <select name="state-names-present" id="state-names-present" onchange="changeStates(this.value)">
+                        <select name="state-names-present" id="stateNamesPresent">
                             <option value="">Select State</option>
                         </select>
                     </div>
@@ -142,7 +137,7 @@
                     <div class="input-field">
                         <label for="inputPresentPincode" id="labelPresentPincode"> pincode<span class="red">*</span>
                             :</label>
-                        <input type="text" name="inputPresentPincode" id="inputPresentPincode">
+                        <input type="text" name="inputPresentPincode" id="inputPresentPincode" >
                     </div>
                 </div>
             </div>
@@ -150,8 +145,8 @@
             <div class="container-permanent-address">
 
                 <div class="header-text">
-                    <h3>Permanent-Address (Same as present <span><input type="checkbox" name="sameas" id="sameas"
-                                onchange="presenttopermanent(this.checked)"></span>)</h3>
+                    <h3>Permanent-Address <label for="sameas">(Same as present </label><span><input type="checkbox" name="sameas" id="sameas"
+                                ></span>)</h3>
                 </div>
 
                 <div class="input-field-group">
@@ -169,15 +164,14 @@
                     <div class="input-field">
                         <label for="country-names-permanent" id="labelPermanentCountry">Country<span
                                 class="red">*</span>:</label>
-                        <select name="country-names-permanent" id="country-names-permanent" onchange="changeCountryPermanent()"
-                            onclick="changeCountryPermanent()">
+                        <select name="country-names-permanent" id="countryNamesPermanent">
                             <option value="">Select Country</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <label for="state-names-permanent" id="labelPermanentState">
                             State<span class="red">*</span>:</label>
-                        <select name="state-names-permanent" id="state-names-permanent" onchange="changeStatePermanent(this.value)">
+                        <select name="state-names-permanent" id="stateNamesPermanent" >
                             <option value="">Select State</option>
                         </select>
                     </div>
