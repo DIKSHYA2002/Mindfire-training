@@ -12,11 +12,15 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
-  *{
-   box-sizing: border-box;
-   font-family: 'Raleway', sans-serif;
-   font-weight: 600;
-  }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+    }
+
     form {
         width: 70%;
         margin: auto;
@@ -27,310 +31,331 @@
         text-align: left;
 
     }
- input, select{
-    width: 50%;
-    padding: 3%;
-    margin-left: 1%;  
-    outline: none;
- }
 
- label{
-    width: 20%;
- }
-   .input-field {
+    input,
+    select {
+        width: 50%;
+        padding: 3%;
+        margin-left: 1%;
+        outline: none;
+    }
+
+    label {
+        width: 30%;
+    }
+
+    .input-field {
         display: flex;
         flex-direction: row;
         width: 100%;
         align-items: center;
-        margin: 1%;
     }
-.section-input{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-left: 5%;
-}
-    .address{
+
+    .section-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 3%;
+    }
+
+    .address {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        margin: 9%;
     }
+
     .personal-details {
-        display: flex;
-        flex-direction: column;
-       justify-content: space-evenly;
-       text-align: left;
-       margin-bottom: 15%;
+        margin-bottom: 10%;
     }
-    img{
+
+    img {
         width: 20%;
-       
+
     }
-    #heading{
+
+    #heading {
         display: flex;
         flex-direction: column;
         text-align: center;
-     margin-bottom: 5%;  
+        margin-bottom: 5%;
     }
-
-  
-    .present{
+    .present {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         margin-bottom: 5%;
     }
-    .address .input-field label{
-       margin-right: 2%;
-     
+
+    .address .input-field label {
+        margin-right: 2%;
+
     }
-    #sameas{
-      width: auto;
+
+    #sameas {
+        width: auto;
     }
-   h1,h3{
-    margin: auto;
-    text-align: center;
-   }
-   .buttons{
-          margin-left: 35%;
+
+    h1,
+    h3 {
+        margin: auto;
+        text-align: center;
+    }
+
+    .buttons {
+        margin-left: 35%;
         margin-right: 25%;
 
-       }
-       input[type="submit"] , input[type="reset"]{
-       margin: 2rem;
-       width: 90%;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        margin: 2rem;
+        width: 90%;
         background-color: black;
         color: white;
-       }
-    .head-text{
-      margin-bottom: 5%;
-      background-color: rgb(24, 24, 24);
-      color: white;
-      padding: 2%;
     }
-    .red{
+    .head-text {
+        margin-bottom: 5%;
+        background-color: rgb(24, 24, 24);
+        color: white;
+        padding: 2%;
+    }
+
+    .red {
         color: red;
     }
-    .g{
+
+    .g {
         display: flex;
         flex-direction: row;
         gap: 0.5rem;
         align-items: center;
         margin: 0.5rem;
     }
-   
-    @media only screen and (max-width: 800px) {
+
+    @media only screen and (max-width: 1200px) {
         form {
-        width: 100%;
+            width: 100%;
 
-    }
-        .section-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 1rem;
-     margin-left: 4rem;
-     margin-bottom: 2rem;
-    }
+        }
 
-    .g{
-        display: flex;
-        flex-direction: row;
-        gap: 0.2rem;
-        align-items: center;
-        margin: 0.5rem;
-    }
-    }
+        .section-input {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 1rem;
+            margin-left: 4rem;
+            margin-bottom: 2rem;
+        }
 
-    
- 
+        .g {
+            display: flex;
+            flex-direction: row;
+            gap: 0.2rem;
+            align-items: center;
+            margin: 0.5rem;
+        }
+    }
 </style>
 
 <body>
     <form action="">
-        <div class="personal-details">
+        <div class="address">
             <div id="heading">
-                <div class="head-text"><h1>Registration-form</h1></div>
+                <div class="head-text">
+                    <h1>Registration-form</h1>
+                </div>
                 <div class="profile">
-                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" >
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                        alt="">
                 </div>
             </div>
-          
+
             <div class="section-input">
                 <div class="input-field">
-                    <label for="full-name">First Name<span class="red">*</span>:</label>
+                    <label for="full-name" id="label-first">First Name<span class="red">*</span>:</label>
                     <input type="text" name="full-name" id="full-name">
                 </div>
                 <div class="input-field">
-                    <label for="last-name">Last Name<span class="red">*</span>:</label>
+                    <label for="last-name" id="label-last">Last Name<span class="red">*</span>:</label>
                     <input type="text" name="last-name" id="last-name">
                 </div>
             </div>
             <div class="section-input">
                 <div class="input-field">
-                    <label for="DOB"><i class='bx bxs-calendar'></i><span class="red">*</span>:</label>
+                    <label for="DOB"><i class='bx bxs-calendar' id="label-dob"></i><span class="red">*</span>:</label>
                     <input type="date" name="DOB" id="DOB">
                 </div>
                 <div class="input-field">
-                    <label for="gender">Gender <span class="red">*</span>:</label>
+                    <label for="gender" id="label-gender">Gender <span class="red">*</span>:</label>
                     <div class="g">
                         <label for="others"><i class='bx bx-male'></i></label>
-                        <span>M:</span> 
+                        <span>M:</span>
                         <input type="radio" name="gender" id="others">
                     </div>
                     <div class="g">
                         <label for="others"><i class='bx bx-female'></i></label>
-                        <span>F:</span> 
+                        <span>F:</span>
                         <input type="radio" name="gender" id="others">
                     </div>
                     <div class="g">
                         <label for="others"><i class='bx bx-male-female'></i></label>
-                        <span>O:</span> 
+                        <span>O:</span>
                         <input type="radio" name="gender" id="others">
                     </div>
-                
-            </div>    
-            </div> 
+
+                </div>
+            </div>
             <div class="section-input">
                 <div class="input-field">
                     <label for="image">Picture<span class="red">*</span>:</label>
                     <input type="file" name="image" id="image" onchange="previewFile()">
                 </div>
                 <div class="input-field">
-                   <label for="bloodGroup">
-                    Blood<span class="red">*</span>:
-                   </label>
-                   <input type="text" name="" id="">
+                    <label for="bloodGroup" id="label-blood">
+                        Blood<span class="red">*</span>:
+                    </label>
+                    <select name="blood" id="blood">
+                        <option value=""></option>
+                        <option value="A+ve">A+ve</option>
+                        <option value="A+ve">B+ve</option>
+                        <option value="A+ve">O+ve</option>
+                        <option value="A+ve">AB+ve</option>
+                        <option value="A+ve">AB-ve</option>
+                        <option value="A+ve">O-ve</option>
+                        <option value="A+ve">A-ve</option>
+                        <option value="A+ve">B-ve</option>
+                    </select>
                 </div>
             </div>
             <div class="section-input">
-               
-                    <div class="input-field">
-                        <label for="email"><i class='bx bx-at'></i>*</span>:</label>
-                        <input type="email" name="email" id="email">
-                    </div>
-                    <div class="input-field">
-                        <label for="phone"><i class='bx bx-phone'></i><span class="red">*</span>:</label>
-                        <input type="number" name="phone" id="phone">
-                    </div>
-                   
-                
+                <div class="input-field">
+                    <label for="email" id="label-email"><i class='bx bx-at'></i>*</span>:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="input-field">
+                    <label for="phone" id="label-phone"><i class='bx bx-phone'></i><span class="red">*</span>:</label>
+                    <input type="number" name="phone" id="phone">
+                </div>
+
+
             </div>
-            </div>
-                
-               
-          
         </div>
-      
+        </div>
+
         <div class="address">
             <div class="present">
-                <div  class="head-text">
+                <div class="head-text">
                     <h3>Present-address</h3>
                 </div>
                 <div class="section-input">
                     <div class="input-field">
-                        <label for="line1">line-1<span class="red">*</span>:</label>
-                        <input type="text" name="present-line1" id="present-line1">
+                        <label for="line1" id="present-label-line1">line-1<span class="red">*</span>:</label>
+                        <input type="text" name="present-line1" id="present-line1" onchange="changeLine1(this.value)">
                     </div>
                     <div class="input-field">
-                        <label for="line2">line-2:</label>
-                        <input type="text" name="present-line2" id="present-line2">
+                        <label for="line2" id="present-label-line2">line-2:</label>
+                        <input type="text" name="present-line2" id="present-line2" onchange="changeLine2(this.value)">
                     </div>
                 </div>
                 <div class="section-input">
                     <div class="input-field">
-                        <label for="city"> City <span class="red">*</span>:</label>
+                        <label for="country" id="label-present-country"> Country<span class="red">*</span> :</label>
+                        <select name="country-names" id="country-names" onchange="changeCountry()" onclick="changeCountry()">
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="state"  id="label-present-state"> State<span class="red">*</span>:</label>
+                        <select name="state-names" id="state-names" onchange=" changeState(this.value)">
+                        </select>
+                    </div>
+                    
+                    
+                </div>
+                <div class="section-input">
+                    <div class="input-field">
+                        <label for="city" id="label-present-city" > City <span class="red">*</span>:</label>
                         <select name="city-names" id="city-names">
                         </select>
                     </div>
                     <div class="input-field">
-                        <label for="country"> Country<span class="red">*</span> :</label>
-                        <select name="country-names" id="country-names" onchange="changeCountry()">
-                        </select>
-                    </div>
-                </div>
-                <div class="section-input">
-                    <div class="input-field">
-                        <label for="state"> State<span class="red">*</span>:</label>
-                        <select name="state-names" id="state-names" onchange="changeState(this.value)">
-                        </select>
-                    </div>
-                    <div class="input-field">
-                        <label for="pincode"> pincode<span class="red">*</span> :</label>
+                        <label for="pincode" id="label-present-pincode"> pincode<span class="red">*</span> :</label>
                         <input type="text" name="pincode" id="pincode">
                     </div>
                 </div>
-                
-              
-               
+
+
+
             </div>
 
 
             <div class="permanent">
 
                 <div class="head-text">
-                    <h3>Permanent-Address (Same as present <span><input type="checkbox" name="sameas" id="sameas" onchange="presenttopermanent(this.checked)"></span>)</h3>
+                    <h3>Permanent-Address (Same as present <span><input type="checkbox" name="sameas" id="sameas"
+                                onchange="presenttopermanent(this.checked)"></span>)</h3>
                 </div>
 
-                  <div class="section-input">
+                <div class="section-input">
                     <div class="input-field">
-                        <label for="perm-line1">line-1<span class="red">*</span>:</label>
+                        <label for="perm-line1" id="label-perm-line1">line-1<span class="red">*</span>:</label>
                         <input type="text" name="perm-line1" id="perm-line1">
                     </div>
                     <div class="input-field">
                         <label for="perm-line2">line-2:</label>
                         <input type="text" name="perm-line2" id="perm-line2">
                     </div>
-                  </div>
-                  <div class="section-input">
+                </div>
+                <div class="section-input">
                     <div class="input-field">
-                        <label for="city-names2"> City <span class="red">*</span>:</label>
+                        <label for="country-names2" id="label-perm-country">Country<span class="red">*</span>:</label>
+                        <select name="country-names2" id="country-names2" onchange="changeCountryPermanent()"
+                            onclick="changeCountryPermanent()">
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="state-names2"  id="label-perm-state">
+                            State<span class="red">*</span>:</label>
+                        <select name="state-names2" id="state-names2" onchange="changeStatePermanent(this.value1)">
+                        </select>
+                    </div>
+                   
+                   
+                </div>
+
+                <div class="section-input">
+
+                    <div class="input-field">
+                        <label for="city-names2" id="label-perm-city">City<span class="red">*</span>:</label>
                         <select name="city-names2" id="city-names2">
                         </select>
                     </div>
                     <div class="input-field">
-                        <label for="country-names2"> Country<span class="red">*</span>:</label>
-                        <select name="country-names2" id="country-names2" onchange="changeCountryPermanent()">
-                        </select>
+                        <label for="pincode" id="label-perm-pincode"> pincode<span class="red">*</span>:</label>
+                        <input type="text" name="pincode" id="pincode">
                     </div>
-                  </div>
-
-           <div class="section-input">
-
-            <div class="input-field">
-                <label for="state-names2" onchange="changeStatePermanent(this.value1)">
-                    State<span class="red">*</span>:</label>
-                <select name="state-names2" id="state-names2">
-                </select>
-            </div>
-            <div class="input-field">
-                <label for="pincode"> pincode<span class="red">*</span>:</label>
-                <input type="text" name="pincode" id="pincode">
-            </div>
-           </div>
-               
-                
-
+                </div>
 
 
             </div>
             <div class="section-input">
                 <div class="input-field">
                     <label for="hobbies">hobbies:</label>
-                        <input list="hobby" name="hobbies" id="hobbies">
-                        <datalist id="hobbyList">
-                            <option value="Dancing">
-                            <option value="Singing">
-                            <option value="Painting">
-                            <option value="Play Instrument">
-                            <option value="trecking">
-                        </datalist>
+                    <input list="hobbyList" name="hobbies" id="hobbies">
+                    <datalist id="hobbyList">
+                        <option value="Dancing">
+                        <option value="Singing">
+                        <option value="Painting">
+                        <option value="Play Instrument">
+                        <option value="trecking">
+                    </datalist>
                 </div>
                 <div class="input-field">
                     <label for="subscribe">Subscribe:</label>
                     <input type="checkbox" name="subscribe" id="subscribe">
                 </div>
-               
+
             </div>
             <div class="section-input buttons">
                 <div class="input-field">
@@ -342,19 +367,21 @@
                     </div>
                 </div>
             </div>
-           
+
         </div>
 
-       
+
     </form>
 
     <script>
+        
         const user = {
             FirstName: "",
             LastName: "",
             Email: "",
             DOB: "",
             Phone: "",
+            BloodGroup: "",
             Gender: "",
             hobbies: "",
             Subscribed: "",
@@ -371,47 +398,78 @@
             const lastname = document.getElementById('last-name').value;
             const email = document.getElementById('email').value;
             const dob = document.getElementById('DOB').value;
-            const gender = (document.querySelector('input[name="gender"]:checked')) ? document.querySelector('input[name="gender"]:checked').id : "";
             const phone = document.getElementById('phone').value;
-          
-            // const hobbies = document.getElementById("hobbies").value;
-            const subscribe = document.getElementById("subscribe").checked;
-            const present_line1 = document.getElementById("present-line1").value;
-            const present_line2 = document.getElementById("present-line2").value;
-            const present_country = document.getElementById("country-names").value;
-            const present_city = document.getElementById("city-names").value;
-            const present_state = document.getElementById("state-names").value;
+            const bloodgroup = document.getElementById('blood').value;
+            const line1 = document.getElementById('present-line1').value;
+            const line2 = document.getElementById('present-line2').value;
+            const presentcountry = document.getElementById('country-names').value;
+            const presentstate = document.getElementById('state-names').value;
+            const presentcity = document.getElementById('city-names').value;
+            const presentpincode = document.getElementsByName('pincode')[0].value;
+            const permline1 = document.getElementById('perm-line1').value;
+            const permline2 = document.getElementById('perm-line2').value;
+            const permstate = document.getElementById('state-names2').value;
+            const permcity = document.getElementById('city-names2').value;
+            const permcountry = document.getElementById('country-names2').value;
+            const permpincode = document.getElementsByName('pincode')[1].value;
+            const gender = (document.querySelector('input[name="gender"]:checked')) ? document.querySelector('input[name="gender"]:checked').id : "";
+                document.getElementById('full-name').style.border = (firstname == "")? '2px red solid':'2px green solid';
+                document.querySelector('#label-first').style.color = (firstname=="")?'red':'green';
+                document.getElementById('full-name').placeholder = (firstname=="")?'this field is required':'';
+            
+                document.getElementById('last-name').style.border = (lastname == "")? '2px red solid':'2px green solid';
+                document.querySelector('#label-last').style.color = (lastname=="")?'red':'green';
+                document.getElementById('last-name').placeholder = (lastname=="")?'this field is required':'';
 
-            user.FirstName = firstname;
-            user.LastName = lastname;
-            user.Email = email;
-            user.DOB = dob;
-            user.Phone = phone;
-            user.Gender = gender;
-            user.hobbies = hobbies;
-            user.Subscribed = subscribe;
-            user.present_city = present_city;
-            user.present_country = present_country;
-            user.present_state = present_state;
-            user.present_line1 = present_line1;
-            user.present_line2 = present_line2;
-            document.getElementById('full-name').style.border = (user.FirstName == "") ? ("1px red solid") : ("1px green solid");
-            document.getElementById('last-name').style.border = (user.LastName == "") ? ("1px red solid") : ("1px green solid")
-            document.getElementById('email').style.border = (user.Email == "") ? ("1px red solid") : ("1px green solid");
-            document.getElementById('DOB').style.border = (user.DOB == "") ? ("1px red solid") : ("1px green solid")
 
-            document.getElementById('phone').style.border = (user.Phone == "") ? ("1px red solid") : ("1px green solid")
-            // document.getElementById('hobbies').style.border = (user.hobbies == "") ? ("1px red solid") : ("1px green solid")
-            if (firstname == "" || lastname == "" || email == "" || dob == "" || gender == "" || phone == "" || emergency == "") {
-                alert("complete the form!!")
-            }
-            else {
-                alert("submitted succesfully!!")
-            }
+                document.getElementById('email').style.border = (email == "")? '2px red solid':'2px green solid';
+                document.querySelector('#label-email').style.color = (email=="")?'red':'green';
+                document.getElementById('email').placeholder = (email=="")?'this field is required':'';
+               
+                document.getElementById('DOB').style.border = (dob == "")? '2px red solid':'2px green solid';
+                document.querySelector('#label-dob').style.color = (dob=="")?'red':'green';
+              
+                document.getElementById('phone').style.border = (phone == "")? '2px red solid':'2px green solid';
+                document.getElementById('phone').placeholder = (phone=="")?'this field is required':'';
+                document.getElementById('label-phone').style.color = (phone=="")?'red':'green';;
+               
+                document.getElementById('blood').style.border = (bloodgroup == "")? '2px red solid':'2px green solid';
+                document.getElementById('label-blood').style.color = (bloodgroup=="")?'red':'green';
+
+                document.getElementById('present-line1').style.border =(line1 == "")? '2px red solid':'2px green solid';
+                document.getElementById('present-line1').placeholder = (line1=="")?'this field is required':'';
+                document.getElementById('present-label-line1').style.color =  (line1=="")?'red':'green';
+        
+                document.getElementsByName('pincode')[0].style.border = (presentpincode == "")? '2px red solid':'2px green solid';
+                document.getElementsByName('pincode')[0].placeholder = (presentpincode=="")?'this field is required':'';
+                document.getElementById('label-present-pincode').style.color = (presentpincode=="")?'red':'green';
+                document.getElementById('label-gender').style.color = (gender=="")?'red':'green';
+                document.getElementById('country-names').style.border=(presentcountry == "")? '2px red solid':'2px green solid';;
+                document.getElementById('label-present-country').style.color=(presentcountry=="")?'red':'green';
+                document.getElementById('state-names').style.border=(presentstate == "")? '2px red solid':'2px green solid';;
+                document.getElementById('label-present-state').style.color=(presentstate=="")?'red':'green';
+                document.getElementById('city-names').style.border=(presentcity == "")? '2px red solid':'2px green solid';;
+                document.getElementById('label-present-city').style.color=(presentcity=="")?'red':'green';
+            //    //code for permanent
+                document.getElementById('perm-line1').style.border =(permline1 == "")? '2px red solid':'2px green solid';
+                document.getElementById('perm-line1').placeholder = (permline1=="")?'this field is required':'';
+                document.getElementById('label-perm-line1').style.color =  (permline1=="")?'red':'green';
+        
+                document.getElementsByName('pincode')[1].style.border = (permpincode == "")? '2px red solid':'2px green solid';
+                document.getElementsByName('pincode')[1].placeholder = (permpincode=="")?'this field is required':'';
+                document.getElementById('label-perm-pincode').style.color = (permpincode=="")?'red':'green';
+                document.getElementById('country-names2').style.border=(permcountry == "")? '2px red solid':'2px green solid';
+                document.getElementById('label-perm-country').style.color=(permcountry=="")?'red':'green';
+                document.getElementById('state-names2').style.border=(permstate == "")? '2px red solid':'2px green solid';
+                document.getElementById('label-perm-state').style.color=(permstate=="")?'red':'green';
+                document.getElementById('city-names2').style.border=(permcity == "")? '2px red solid':'2px green solid';
+                document.getElementById('label-perm-city').style.color=(permcity=="")?'red':'green';
             console.log(user);
             e.preventDefault();
-          
+    
         }
+       
+       
     </script>
 
 </body>

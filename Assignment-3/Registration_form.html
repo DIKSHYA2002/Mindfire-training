@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Registration_form_css.css">
+    <title>Registration Form</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <form action="" id="registrationForm">
+        <div class="form-container">
+            <!-- header-part-html -->
+            <div class="header">
+                <div class="header-text">
+                    <h1>Registration-form</h1>
+                </div>
+                <div class="header-profile-container">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                        alt="" onchange="previewFile()">
+                </div>
+            </div>
+
+            <!-- personal-detail-part -->
+
+            <div class="input-field-group">
+                <div class="input-field">
+                    <label for="inputFirstName" id="labelFirstName">First Name<span class="red">*</span>:</label>
+                    <input type="text" name="inputFirstName" id="inputFirstName" onchange=" checkSpecialNumberforFirstName(this.value)">
+                </div>
+                <div class="input-field">
+                    <label for="inputLastName" id="labelLastName">Last Name<span class="red">*</span>:</label>
+                    <input type="text" name="inputLastName" id="inputLastName" onchange="checkSpecialNumberforLastName(this.value)">
+                </div>
+            </div>
+            <div class="input-field-group">
+                <div class="input-field">
+                    <label for="inputDateOfBirth"><i class='bx bxs-calendar' id="label-dob"></i><span
+                            class="red">*</span>:</label>
+                    <input type="date" name="inputDateOfBirth" id="inputDateOfBirth"  max="2010-01-01">
+                </div>
+                <div class="input-field">
+                    <label for="inputGender" id="labelGender">Gender <span class="red">*</span>:</label>
+                    <div class="gender-field">
+                        <label for="radioMale"><i class='bx bx-male'></i><span>M:</span></label>
+
+                        <input type="radio" name="inputGender" id="radioMale">
+                    </div>
+                    <div class="gender-field">
+                        <label for="radioFemale"><i class='bx bx-female'></i> <span>F:</span></label>
+
+                        <input type="radio" name="inputGender" id="radioFemale">
+                    </div>
+                    <div class="gender-field">
+                        <label for="others"><i class='bx bx-male-female'></i> <span>O:</span></label>
+                        <input type="radio" name="inputGender" id="others">
+                    </div>
+
+                </div>
+            </div>
+            <div class="input-field-group">
+                <div class="input-field">
+                    <label for="inputImage">Picture<span class="red">*</span>:</label>
+                    <input type="file" name="inputImage" id="inputImage" onchange="previewFile()">
+                </div>
+                <div class="input-field">
+                    <label for="inputDropdownBloodGroup" id="labelBloodGroup">
+                        Blood<span class="red">*</span>:
+                    </label>
+                    <select name="inputDropdownBloodGroup" id="inputDropdownBloodGroup">
+                        <option value="">Select Blood Group</option>
+                        <option value="A+ve">A+ve</option>
+                        <option value="A+ve">B+ve</option>
+                        <option value="A+ve">O+ve</option>
+                        <option value="A+ve">AB+ve</option>
+                        <option value="A+ve">AB-ve</option>
+                        <option value="A+ve">O-ve</option>
+                        <option value="A+ve">A-ve</option>
+                        <option value="A+ve">B-ve</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-field-group">
+                <div class="input-field">
+                    <label for="inputEmail" id="labelEmail"><i class='bx bx-at'></i>*</span>:</label>
+                    <input type="email" name="inputEmail" id="inputEmail">
+                </div>
+                <div class="input-field">
+                    <label for="inputPhone" id="labelPhone"><i class='bx bx-phone'></i><span
+                            class="red">*</span>:</label>
+                    <input type="number" name="inputPhone" id="inputPhone">
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+        <div class="form-container">
+            <!-- present-address-details -->
+            <div class="container-present-address">
+                <div class="header-text">
+                    <h3>Present-address</h3>
+                </div>
+                <div class="input-field-group">
+                    <div class="input-field">
+                        <label for="inputPresentLine1" id="labelPresentLine1">line-1<span class="red">*</span>:</label>
+                        <input type="text" name="inputPresentLine1" id="inputPresentLine1"
+                           >
+                    </div>
+                    <div class="input-field">
+                        <label for="inputPresentLine2" id="present-label-line2">line-2:</label>
+                        <input type="text" name="inputPresentLine2" id="inputPresentLine2"
+                           >
+                    </div>
+                </div>
+                <div class="input-field-group">
+                    <div class="input-field">
+                        <label for="inputDropdownCountry" id="labelPresentCountry"> Country<span class="red">*</span>
+                            :</label>
+                        <select name="country-names" id="country-names-present" onchange="changeCountry()"
+                            onclick="changeCountry()">
+                            <option value="">Select Country</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="state-names-present" id="labelPresentState"> State<span class="red">*</span>:</label>
+                        <select name="state-names-present" id="state-names-present" onchange="changeStates(this.value)">
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-field-group">
+                    <div class="input-field">
+                        <label for="city-names-present" id="label-present-city"> City <span class="red">*</span>:</label>
+                        <input list="city-names-present" placeholder="Enter City" id="inputCityPresent">
+                        <datalist name="city-names-present" id="city-names-present">
+                        </datalist>
+                    </div>
+                    <div class="input-field">
+                        <label for="inputPresentPincode" id="labelPresentPincode"> pincode<span class="red">*</span>
+                            :</label>
+                        <input type="text" name="inputPresentPincode" id="inputPresentPincode">
+                    </div>
+                </div>
+            </div>
+            <!-- permanent-address-details -->
+            <div class="container-permanent-address">
+
+                <div class="header-text">
+                    <h3>Permanent-Address (Same as present <span><input type="checkbox" name="sameas" id="sameas"
+                                onchange="presenttopermanent(this.checked)"></span>)</h3>
+                </div>
+
+                <div class="input-field-group">
+                    <div class="input-field">
+                        <label for="inputPermanentLine1" id="labelPermanentLine1">line-1<span
+                                class="red">*</span>:</label>
+                        <input type="text" name="inputPermanentLine1" id="inputPermanentLine1">
+                    </div>
+                    <div class="input-field">
+                        <label for="inputPermanentLine2">line-2:</label>
+                        <input type="text" name="inputPermanentLine2" id="inputPermanentLine2">
+                    </div>
+                </div>
+                <div class="input-field-group">
+                    <div class="input-field">
+                        <label for="country-names-permanent" id="labelPermanentCountry">Country<span
+                                class="red">*</span>:</label>
+                        <select name="country-names-permanent" id="country-names-permanent" onchange="changeCountryPermanent()"
+                            onclick="changeCountryPermanent()">
+                            <option value="">Select Country</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="state-names-permanent" id="labelPermanentState">
+                            State<span class="red">*</span>:</label>
+                        <select name="state-names-permanent" id="state-names-permanent" onchange="changeStatePermanent(this.value)">
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-field-group">
+                    <div class="input-field">
+                        <label for="city-names-permanent" id="labelPermanentCity">City<span class="red">*</span>:</label>
+                        <input list="city-names-permanent" id="inputPermanentCity" placeholder="Enter City" >
+                        <datalist name="city-names-permanent"   id="city-names-permanent">
+                            </datalist>
+                    </div>
+                    <div class="input-field">
+                        <label for="inputPermanentPincode" id="labelPermanentPincode"> pincode<span
+                                class="red">*</span>:</label>
+                        <input type="text" name="inputPermanentPincode" id="inputPermanentPincode">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="input-field-group">
+                <div class="input-field">
+                    <label for="inputHobbies">hobbies:</label>
+                    <input list="hobbyList" name="inputHobbies" id="inputHobbies">
+                    <datalist id="hobbyList">
+                        <option value="Dancing">
+                        <option value="Singing">
+                        <option value="Painting">
+                        <option value="Play Instrument">
+                        <option value="trecking">
+                    </datalist>
+                </div>
+                <div class="input-field">
+                    <label for="subscribe">Subscribe:</label>
+                    <input type="checkbox" name="subscribe" id="subscribe">
+                </div>
+
+            </div>
+            <div class="input-field-group buttons">
+                <div class="input-field">
+                    <div>
+                        <input type="submit" value="submit">
+                    </div>
+                    <div>
+                        <input type="reset" value="reset">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="Registration-script.js"></script>
+</body>
+
+</html>
