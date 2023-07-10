@@ -224,8 +224,6 @@ document.querySelector('form').addEventListener('submit', formsubmit);
  {
      return function()
      {
-        //    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-        //    const check =( /[0-9]/.test(obj.value)) || (specialChars.test(obj.value));
            obj.style.border = ( obj.value=="") ? '2px red solid' : '2px green solid';
            obj.placeholder = (obj.value =='' && obj.type=='text') ? 'this field is required' : '';
     }
