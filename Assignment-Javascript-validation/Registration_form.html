@@ -20,27 +20,27 @@
                 </div>
                 <div class="header-profile-container">
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                        alt="" onchange="previewFile()">
+                        alt="" onchange="previewFile()"  class="validateOnChange">
                 </div>
             </div>
 
             <!-- personal-detail-part -->
-
+            <div class="information">Fields marked with <span class="red">*</span> are required </div>
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputFirstName" id="labelFirstName">First Name<span class="red">*</span>:</label>
-                    <input type="text" name="inputFirstName" id="inputFirstName" >
+                    <input type="text" name="inputFirstName" id="inputFirstName" class="validateOnChange" >
                 </div>
                 <div class="input-field">
                     <label for="inputLastName" id="labelLastName">Last Name<span class="red">*</span>:</label>
-                    <input type="text" name="inputLastName" id="inputLastName">
+                    <input type="text" name="inputLastName" id="inputLastName" class="validateOnChange">
                 </div>
             </div>
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputDateOfBirth"><i class='bx bxs-calendar' id="label-dob"></i><span
                             class="red">*</span>:</label>
-                    <input type="date" name="inputDateOfBirth" id="inputDateOfBirth"  max="2010-01-01">
+                    <input type="date" name="inputDateOfBirth" id="inputDateOfBirth"  max="2010-01-01" class="validateOnChange">
                 </div>
                 <div class="input-field">
                     <label for="inputGender" id="labelGender">Gender <span class="red">*</span>:</label>
@@ -63,7 +63,7 @@
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputImage">Picture<span class="red">*</span>:</label>
-                    <input type="file" name="inputImage" id="inputImage" >
+                    <input type="file" name="inputImage" id="inputImage"  >
                 </div>
                 <div class="input-field">
                     <label for="inputDropdownBloodGroup" id="labelBloodGroup">
@@ -85,12 +85,12 @@
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputEmail" id="labelEmail"><i class='bx bx-at'></i>*</span>:</label>
-                    <input type="email" name="inputEmail" id="inputEmail">
+                    <input type="email" name="inputEmail" id="inputEmail" class="validateOnChange">
                 </div>
                 <div class="input-field">
                     <label for="inputPhone" id="labelPhone"><i class='bx bx-phone'></i><span
                             class="red">*</span>:</label>
-                    <input type="number" name="inputPhone" id="inputPhone">
+                    <input type="number" name="inputPhone" id="inputPhone" class="validateOnChange">
                 </div>
             </div>
         </div>
@@ -104,12 +104,12 @@
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="inputPresentLine1" id="labelPresentLine1">line-1<span class="red">*</span>:</label>
-                        <input type="text" name="inputPresentLine1" id="inputPresentLine1"
+                        <input type="text" name="inputPresentLine1" id="inputPresentLine1" class="validateOnChange"
                            >
                     </div>
                     <div class="input-field">
                         <label for="inputPresentLine2" id="present-label-line2">line-2:</label>
-                        <input type="text" name="inputPresentLine2" id="inputPresentLine2" >
+                        <input type="text" name="inputPresentLine2" id="inputPresentLine2" class="validateOnChange" >
                     </div>
                 </div>
                 <div class="input-field-group">
@@ -130,14 +130,14 @@
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="city-names-present" id="label-present-city"> City <span class="red">*</span>:</label>
-                        <input list="city-names-present" placeholder="Enter City" id="inputCityPresent">
-                        <datalist name="city-names-present" id="city-names-present">
+                        <input list="city-names-present" placeholder="Enter City" id="inputCityPresent" class="validateOnChange">
+                        <datalist name="city-names-present" id="citynamespresentDatalist">
                         </datalist>
                     </div>
                     <div class="input-field">
                         <label for="inputPresentPincode" id="labelPresentPincode"> pincode<span class="red">*</span>
                             :</label>
-                        <input type="text" name="inputPresentPincode" id="inputPresentPincode" >
+                        <input type="text" name="inputPresentPincode" id="inputPresentPincode" class="validateOnChange" >
                     </div>
                 </div>
             </div>
@@ -153,11 +153,11 @@
                     <div class="input-field">
                         <label for="inputPermanentLine1" id="labelPermanentLine1">line-1<span
                                 class="red">*</span>:</label>
-                        <input type="text" name="inputPermanentLine1" id="inputPermanentLine1">
+                        <input type="text" name="inputPermanentLine1" id="inputPermanentLine1" class="validateOnChange">
                     </div>
                     <div class="input-field">
                         <label for="inputPermanentLine2">line-2:</label>
-                        <input type="text" name="inputPermanentLine2" id="inputPermanentLine2">
+                        <input type="text" name="inputPermanentLine2" id="inputPermanentLine2" class="validateOnChange">
                     </div>
                 </div>
                 <div class="input-field-group">
@@ -179,14 +179,14 @@
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="city-names-permanent" id="labelPermanentCity">City<span class="red">*</span>:</label>
-                        <input list="city-names-permanent" id="inputPermanentCity" placeholder="Enter City" >
-                        <datalist name="city-names-permanent"   id="city-names-permanent">
+                        <input list="city-names-permanent" id="inputPermanentCity" placeholder="Enter City"  class="validateOnChange">
+                        <datalist name="city-names-permanent"   id="citynamespermanentDatalist">
                             </datalist>
                     </div>
                     <div class="input-field">
                         <label for="inputPermanentPincode" id="labelPermanentPincode"> pincode<span
                                 class="red">*</span>:</label>
-                        <input type="text" name="inputPermanentPincode" id="inputPermanentPincode">
+                        <input type="text" name="inputPermanentPincode" id="inputPermanentPincode" class="validateOnChange">
                     </div>
                 </div>
 
@@ -195,7 +195,7 @@
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputHobbies">hobbies:</label>
-                    <input list="hobbyList" name="inputHobbies" id="inputHobbies">
+                    <input list="hobbyList" name="inputHobbies" id="inputHobbies" class="validateOnChange">
                     <datalist id="hobbyList">
                         <option value="Dancing">
                         <option value="Singing">
@@ -206,7 +206,7 @@
                 </div>
                 <div class="input-field">
                     <label for="subscribe">Subscribe:</label>
-                    <input type="checkbox" name="subscribe" id="subscribe">
+                    <input type="checkbox" name="subscribe" id="subscribe" >
                 </div>
             </div>
             <div class="input-field-group buttons">

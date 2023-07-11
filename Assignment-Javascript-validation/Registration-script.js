@@ -1,6 +1,8 @@
-
+// API_TOKEN
 let BearerToken = "";
 getApiKey();
+
+//PICTURE_PREVIEW
 function previewFile() {
   var preview = document.querySelector('img');
   var file = document.querySelector('input[type=file]').files[0];
@@ -14,6 +16,8 @@ function previewFile() {
     preview.src = "";
   }
 }
+
+//ONCHANGE FUNCTION FROM  PRESENT TO PERMANENT
 function presenttopermanent(value) {
   return function () {
     if (value.checked == true) {
@@ -58,6 +62,8 @@ function presenttopermanent(value) {
 
 
 }
+
+//GET_API FUNCTION
 async function getApiKey() {
   await fetch('https://www.universal-tutorial.com/api/getaccesstoken', {
     method: 'GET',
@@ -74,6 +80,7 @@ async function getApiKey() {
     .catch(err => console.error(err));
 
 }
+//FORM_SUBMIT
 document.querySelector('form').addEventListener('submit', formsubmit);
 async function formsubmit(e) {
   let error = 0;
@@ -115,7 +122,7 @@ async function formsubmit(e) {
     if (error == 1) 
     {
       modal.style.display = "block";
-      document.querySelector('#modalContent p').innerHTML = '<h1> Please Complete the form</h1>';
+      document.querySelector('#modalContent p').innerHTML = '<h1 class="errormessage"> Please Complete the form</h1>';
     }
     else if(error==0){
       const user = {
@@ -175,6 +182,7 @@ async function formsubmit(e) {
   e.preventDefault();
 
 }
+//GET_COUNTRIES_API_CALL
 function getCountries(obj) {
 
   return async () => {
@@ -200,6 +208,8 @@ function getCountries(obj) {
 
 
 }
+
+//GET_STATES_API_CALL
 function getStates(obj1, obj2) {
   return async () => {
     const country = obj1.value;
@@ -223,8 +233,11 @@ function getStates(obj1, obj2) {
       .catch(err => console.error(err));
   }
 }
+
+//GET_CITY_API CALL
 function getCity(statename, city) {
   return async () => {
+    if(statename.value !== "")
     await fetch(`https://www.universal-tutorial.com/api/cities/${statename.value}`, {
       method: 'GET',
       headers: {
@@ -244,12 +257,16 @@ function getCity(statename, city) {
   }
 
 }
+
+//CHANGE INPUT_COLOUR AND VALIDATION
 function changeInput(obj) {
   return function () {
     obj.style.border = (obj.value == "") ? '2px red solid' : '2px green solid';
     obj.placeholder = (obj.value == '' && obj.type == 'text') ? 'this field is required' : '';
   }
 };
+
+//CHANGE WHENEVER SAME AS FIELD IS SELECTED (PRESENT TO PERMANENT)
 function changeLine(obj2, obj) {
   return function () {
     if (document.getElementById('sameas').checked) {
@@ -259,10 +276,21 @@ function changeLine(obj2, obj) {
     }
   }
 }
-document.getElementById('inputFirstName').addEventListener('change', changeInput(inputFirstName));
-document.getElementById('inputLastName').addEventListener('change', changeInput(inputLastName));
-document.getElementById('inputCityPresent').addEventListener('change', changeInput(inputCityPresent));
-document.getElementById('inputDateOfBirth').addEventListener('change', changeInput(inputDateOfBirth))
+//ITERATTING ALL THE INPUT FIELD AND VALIDATING
+const inputfieldselectors = document.querySelectorAll('.validateOnChange');
+for (let index = 0; index < inputfieldselectors.length; index++) 
+{
+  inputfieldselectors[index].addEventListener('change' , changeInput( inputfieldselectors[index]))
+}
+
+const  selectfields = document.querySelectorAll('select');
+for (let index = 0; index < selectfields.length; index++) 
+{
+  selectfields[index].addEventListener('change' , changeInput( selectfields[index]))
+}
+
+
+//ONCLICK AND ONCHANGE EVENTS
 document.getElementById('inputImage').addEventListener('change', previewFile);
 document.getElementById('inputPresentLine1').addEventListener('change', changeLine(inputPresentLine1, inputPermanentLine1));
 document.getElementById('inputPresentLine2').addEventListener('change', changeLine(inputPresentLine2, inputPermanentLine2));
@@ -272,7 +300,6 @@ document.getElementById('countryNamesPresent').addEventListener('click', getCoun
 document.getElementById('countryNamesPermanent').addEventListener('click', getCountries(countryNamesPermanent));
 document.getElementById('stateNamesPresent').addEventListener('click', getStates(countryNamesPresent, stateNamesPresent))
 document.getElementById('stateNamesPermanent').addEventListener('click', getStates(countryNamesPermanent, stateNamesPermanent))
-
-document.getElementById('inputCityPresent').addEventListener('change', getCity(stateNamesPresent, inputCityPresent))
-document.getElementById('inputPermanentCity').addEventListener('change', getCity(stateNamesPermanent, inputPermanentCity))
+document.getElementById('inputCityPresent').addEventListener('change', getCity(stateNamesPresent, citynamespresentDatalist))
+document.getElementById('inputPermanentCity').addEventListener('change', getCity(stateNamesPermanent, citynamespermanentDatalist))
 document.getElementById('sameas').addEventListener('change', presenttopermanent(sameas));

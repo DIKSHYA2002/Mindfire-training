@@ -198,3 +198,10 @@ input[type="reset"] {
     padding: 2%;
     margin-bottom: 2%;
 }
+.information{
+    margin-left: 3%;
+}
+.errormessage{
+color: red;
+ padding: 1.5%;
+}
