@@ -1,7 +1,6 @@
 // API_TOKEN
 let BearerToken = "";
 getApiKey();
-
 //PICTURE_PREVIEW
 function previewFile() {
   var preview = document.querySelector('img');
@@ -16,7 +15,6 @@ function previewFile() {
     preview.src = "";
   }
 }
-
 //ONCHANGE FUNCTION FROM  PRESENT TO PERMANENT
 function presenttopermanent(value) {
   return function () {
@@ -62,7 +60,6 @@ function presenttopermanent(value) {
 
 
 }
-
 //GET_API FUNCTION
 async function getApiKey() {
   await fetch('https://www.universal-tutorial.com/api/getaccesstoken', {
@@ -184,7 +181,6 @@ async function formsubmit(e) {
 }
 //GET_COUNTRIES_API_CALL
 function getCountries(obj) {
-
   return async () => {
     await fetch('https://www.universal-tutorial.com/api/countries/', {
       method: 'GET',
