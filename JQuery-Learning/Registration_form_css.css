@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+form {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+
+}
+
+input,
+select {
+    width: 50%;
+    padding: 3%;
+    margin-left: 1%;
+    outline: none;
+}
+
+label {
+    width: 30%;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.input-field-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1.5%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 9%;
+}
+
+.personal-details {
+    margin-bottom: 10%;
+}
+
+img {
+    width: 20%;
+
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.container-present-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+}
+
+.address .input-field label {
+    margin-right: 2%;
+
+}
+
+#sameas {
+    width: auto;
+}
+
+h1,
+h3 {
+    margin: auto;
+    text-align: center;
+}
+
+.buttons {
+    margin-left: 35%;
+    margin-right: 25%;
+
+}
+
+input[type="submit"],
+input[type="reset"] {
+    margin: 2rem;
+    width: 90%;
+    background-color: black;
+    color: white;
+}
+.header-text {
+    margin-bottom: 5%;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    padding: 2%;
+}
+
+.red {
+    color: red;
+}
+
+.gender-field {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0.5rem;
+}
+.gender-field label{
+    display: flex;
+    flex-direction: row;
+}
+/* for responsive design */
+@media only screen and (max-width: 1200px) {
+    form {
+        width: 100%;
+    }
+    .input-field-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 1rem;
+        margin-left: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .gender-field {
+        display: flex;
+        flex-direction: row;
+        gap: 0.2rem;
+        align-items: center;
+        margin: 0.5rem;
+    }
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+  }
+  .modal-content p{
+    display: flex;
+    flex-direction: column;
+  }
+  p #results{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  #results .input-field-group{
+    width: 40%;
+    background-color: rgb(214, 213, 213);
+    text-transform: uppercase;
+    font-weight: 700; 
+  }
+  #results .input-field-group .input-field{
+       display: flex;
+       flex-direction: row;
+     align-content: center;
+     width: 60%;
+     font-size: 13px;
+     font-weight: 800; 
+
+  }
+  #results .input-field-group .input-field-answer{
+        background-color: rgb(224, 223, 223);
+        padding:0.5rem ;
+        font-size: 15px;
+        width: 40%;
+  }
+   
+  #results .input-field-group .input-field{
+ 
+    padding: 0.5rem;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+#Heading-modal{
+    background-color: green;
+    color: white;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+.information{
+    margin-left: 3%;
+}
+.errormessage{
+color: red;
+ padding: 1.5%;
+}
+
+#results h3{
+    width: 100%;
+    text-align: left;
+    margin-left: 5%;
+    color: black;
+    margin-right: 5%;
+    padding: 1rem;
+}
+@media only screen and (max-width: 1200px) {
+
+
+    #results .input-field-group{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+       margin-left: 5%;
+       
+      }
+
+      #results .input-field-group .input-field{
+      width: 50%;
+      font-size: 15px;
+      font-weight: 800; 
+   }
+
+   #results .input-field-group .input-field-answer{
+    background-color: rgb(224, 223, 223);
+    padding:1rem ;
+    font-size: 15px;
+    width: 50%;
+}
+
+
+}
