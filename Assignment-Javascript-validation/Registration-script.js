@@ -89,7 +89,7 @@ async function formsubmit(e) {
 
     if (onlyInputs[index].type == 'text' || onlyInputs[index].type == "date" || onlyInputs[index].type == "number" || onlyInputs[index].type == "email") {
       if (onlyInputs[index].value === "") {
-        error = 1;
+        error=1;
         let id = onlyInputs[index].id;
         document.getElementById(id).style.border = '2px red solid';
        
@@ -103,16 +103,14 @@ async function formsubmit(e) {
   const onlySelects = document.querySelectorAll('select');
   for (let index = 0; index < onlySelects.length; index++) {
     if (onlySelects[index].value === "") {
-      error = 1;
+    error=1;
       let id = onlySelects[index].id;
       document.getElementById(id).style.border = '2px red solid';
-     
     }
     else {
       let id = onlySelects[index].id;
       document.getElementById(id).style.border = '2px green solid';
     }
-
   }
   var modal = document.getElementById("myModal");
   var btn = document.getElementById("btn-submit");
@@ -152,19 +150,21 @@ async function formsubmit(e) {
         permanent_pincode: inputPermanentPincode.value
       }
       modal.style.display = "block";
-      document.querySelector('#modalContent p').innerHTML = '<h1 id="Heading-modal">Form Submitted Succesfully</h1>'
+      document.querySelector('#modalContent p').innerHTML = '<h1 id="Heading-modal">Form Submitted Succesfully!</h1>'
       let Titles = Object.keys(user);
       let TitlesAddress = Object.keys(presentAddress);
       let TitlesAddress2 = Object.keys(permanentAddress);
-
+      document.querySelector('#modalContent p').innerHTML +=`<div id="results"></div>`
       Titles.forEach(element => {
-        document.querySelector('#modalContent p').innerHTML += `<div class="input-field">${element}: ${user[element]}</div><br><br>`
+        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${user[element]}</div></div>`
       });
+      document.querySelector('#modalContent p #results').innerHTML +=`<h3>Present Address:</h3>`
       TitlesAddress.forEach(element => {
-        document.querySelector('#modalContent p').innerHTML += `<div class="input-field">${element}: ${presentAddress[element]}</div><br><br>`
+        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${presentAddress[element]}</div></div>`
       });
+      document.querySelector('#modalContent p #results').innerHTML +=`<h3>Permanent Address:</h3>`
       TitlesAddress2.forEach(element => {
-        document.querySelector('#modalContent p').innerHTML += `<div class="input-field">${element}: ${permanentAddress[element]}</div><br><br>`
+        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${permanentAddress[element]}</div></div>`
       });
       console.log("no error");
     }

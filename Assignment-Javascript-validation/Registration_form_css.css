@@ -42,7 +42,7 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 3%;
+    margin: 1.5%;
 }
 
 .form-container {
@@ -162,12 +162,46 @@ input[type="reset"] {
     background-color: #fefefe;
     margin-left: 15%;
     margin-right: 15%;
-    margin-top: 5%;
     padding: 20px;
     border: 1px solid #888;
     width: 80%; 
   }
+  .modal-content p{
+    display: flex;
+    flex-direction: column;
+  }
+  p #results{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  #results .input-field-group{
+    width: 40%;
+    background-color: rgb(214, 213, 213);
+    text-transform: uppercase;
+    font-weight: 700; 
+  }
+  #results .input-field-group .input-field{
+       display: flex;
+       flex-direction: row;
+     align-content: center;
+     width: 60%;
+     font-size: 13px;
+     font-weight: 800; 
 
+  }
+  #results .input-field-group .input-field-answer{
+        background-color: rgb(224, 223, 223);
+        padding:0.5rem ;
+        font-size: 15px;
+        width: 40%;
+  }
+   
+  #results .input-field-group .input-field{
+ 
+    padding: 0.5rem;
+  }
   .close {
     color: #aaa;
     float: right;
@@ -193,4 +227,39 @@ input[type="reset"] {
 .errormessage{
 color: red;
  padding: 1.5%;
+}
+
+#results h3{
+    width: 100%;
+    text-align: left;
+    margin-left: 5%;
+    color: black;
+    margin-right: 5%;
+    padding: 1rem;
+}
+@media only screen and (max-width: 1200px) {
+
+
+    #results .input-field-group{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+       margin-left: 5%;
+       
+      }
+
+      #results .input-field-group .input-field{
+      width: 50%;
+      font-size: 15px;
+      font-weight: 800; 
+   }
+
+   #results .input-field-group .input-field-answer{
+    background-color: rgb(224, 223, 223);
+    padding:1rem ;
+    font-size: 15px;
+    width: 50%;
+}
+
+
 }
