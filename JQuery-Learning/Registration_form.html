@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+
+    <!-- jquery plugin -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
     <link rel="stylesheet" href="Registration_form_css.css">
     <title>Registration Form</title>
+    <!-- icons list -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
-    <form action="" id="registrationForm">
+    <form action="" id="registrationForm" >
         <div class="form-container">
             <!-- header-part-html -->
             <div class="header">
@@ -21,7 +27,7 @@
                 </div>
                 <div class="header-profile-container">
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                        alt="" onchange="previewFile()"  class="validateOnChange">
+                        alt="" onchange="previewFile()" >
                 </div>
             </div>
 
@@ -30,18 +36,18 @@
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputFirstName" id="labelFirstName">First Name<span class="red">*</span>:</label>
-                    <input type="text" name="inputFirstName" id="inputFirstName" class="validateOnChange" >
+                    <input type="text" name="inputFirstName" id="inputFirstName" fieldName = "First-Name" >
                 </div>
                 <div class="input-field">
                     <label for="inputLastName" id="labelLastName">Last Name<span class="red">*</span>:</label>
-                    <input type="text" name="inputLastName" id="inputLastName" class="validateOnChange">
+                    <input type="text" name="inputLastName" id="inputLastName" fieldName = "Last-Name">
                 </div>
             </div>
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputDateOfBirth"><i class='bx bxs-calendar' id="label-dob"></i><span
                             class="red">*</span>:</label>
-                    <input type="date" name="inputDateOfBirth" id="inputDateOfBirth"  max="2010-01-01" class="validateOnChange">
+                    <input type="date" name="inputDateOfBirth" id="inputDateOfBirth"  max="2010-01-01" fieldName = "Date-Of-Birth">
                 </div>
                 <div class="input-field">
                     <label for="inputGender" id="labelGender">Gender <span class="red">*</span>:</label>
@@ -70,28 +76,28 @@
                     <label for="inputDropdownBloodGroup" id="labelBloodGroup">
                         Blood<span class="red">*</span>:
                     </label>
-                    <select name="inputDropdownBloodGroup" id="inputDropdownBloodGroup" type="text">
-                        <option value="">Select Blood Group<option>
+                    <select name="inputDropdownBloodGroup" id="inputDropdownBloodGroup" type="text" fieldName = "Blood-Group">
+                        <option value="">Select Blood Group</option>
                         <option value="A+ve">A+ve</option>
-                        <option value="A+ve">B+ve</option>
-                        <option value="A+ve">O+ve</option>
-                        <option value="A+ve">AB+ve</option>
-                        <option value="A+ve">AB-ve</option>
-                        <option value="A+ve">O-ve</option>
-                        <option value="A+ve">A-ve</option>
-                        <option value="A+ve">B-ve</option>
+                        <option value="B+ve">B+ve</option>
+                        <option value="O+ve">O+ve</option>
+                        <option value="B+ve">AB+ve</option>
+                        <option value="AB+ve">AB-ve</option>
+                        <option value="O-ve">O-ve</option>
+                        <option value="A-ve">A-ve</option>
+                        <option value="B-ve">B-ve</option>
                     </select>
                 </div>
             </div>
             <div class="input-field-group">
                 <div class="input-field">
                     <label for="inputEmail" id="labelEmail"><i class='bx bx-at'></i>*</span>:</label>
-                    <input type="email" name="inputEmail" id="inputEmail" class="validateOnChange">
+                    <input type="email" name="inputEmail" id="inputEmail" fieldName = "Email">
                 </div>
                 <div class="input-field">
                     <label for="inputPhone" id="labelPhone"><i class='bx bx-phone'></i><span
                             class="red">*</span>:</label>
-                    <input type="number" name="inputPhone" id="inputPhone" class="validateOnChange">
+                    <input type="number" name="inputPhone" id="inputPhone" fieldName ="Phone-Number">
                 </div>
             </div>
         </div>
@@ -105,25 +111,25 @@
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="inputPresentLine1" id="labelPresentLine1">line-1<span class="red">*</span>:</label>
-                        <input type="text" name="inputPresentLine1" id="inputPresentLine1" class="validateOnChange"
+                        <input type="text" name="inputPresentLine1" id="inputPresentLine1" fieldName ="Present-Line1"
                            >
                     </div>
                     <div class="input-field">
                         <label for="inputPresentLine2" id="present-label-line2">line-2:</label>
-                        <input type="text" name="inputPresentLine2" id="inputPresentLine2" class="validateOnChange" >
+                        <input type="text" name="inputPresentLine2" id="inputPresentLine2" fieldName ="Present-Line2" >
                     </div>
                 </div>
                 <div class="input-field-group">
                     <div class="input-field">
-                        <label for="inputDropdownCountry" id="labelPresentCountry" > Country<span class="red">*</span>
+                        <label for="inputDropdownCountry" id="labelPresentCountry">Country<span class="red">*</span>
                             :</label>
-                        <select name="country-names" id="countryNamesPresent" type="text">
+                        <select name="country-names" id="countryNamesPresent" type="text" fieldName ="Present-Country-Name" >
                             <option value="">Select Country</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <label for="state-names-present" id="labelPresentState"> State<span class="red">*</span>:</label>
-                        <select name="state-names-present" id="stateNamesPresent" type="text">
+                        <select name="state-names-present" id="stateNamesPresent" type="text" fieldName ="Present-State-Name">
                             <option value="">Select State</option>
                         </select>
                     </div>
@@ -131,20 +137,19 @@
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="city-names-present" id="label-present-city"> City <span class="red">*</span>:</label>
-                        <input list="city-names-present" placeholder="Enter City" id="inputCityPresent" type="text" class="validateOnChange">
+                        <input list="citynamespresentDatalist" placeholder="Enter City" id="inputCityPresent" type="text" fieldName ="Present-City-Name">
                         <datalist name="city-names-present" id="citynamespresentDatalist">
                         </datalist>
                     </div>
                     <div class="input-field">
                         <label for="inputPresentPincode" id="labelPresentPincode"> pincode<span class="red">*</span>
                             :</label>
-                        <input type="text" name="inputPresentPincode" id="inputPresentPincode" class="validateOnChange" >
+                        <input type="text" name="inputPresentPincode" id="inputPresentPincode" class="validateOnChange" fieldName ="Present-Pincode" >
                     </div>
                 </div>
             </div>
             <!-- permanent-address-details -->
             <div class="container-permanent-address">
-
                 <div class="header-text">
                     <h3>Permanent-Address <label for="sameas">(Same as present </label><span><input type="checkbox" name="sameas" id="sameas"
                                 ></span>)</h3>
@@ -154,25 +159,25 @@
                     <div class="input-field">
                         <label for="inputPermanentLine1" id="labelPermanentLine1">line-1<span
                                 class="red">*</span>:</label>
-                        <input type="text" name="inputPermanentLine1" id="inputPermanentLine1" class="validateOnChange">
+                        <input type="text" name="inputPermanentLine1" id="inputPermanentLine1" fieldName = "Permanent-Line1">
                     </div>
                     <div class="input-field">
                         <label for="inputPermanentLine2">line-2:</label>
-                        <input type="text" name="inputPermanentLine2" id="inputPermanentLine2" class="validateOnChange">
+                        <input type="text" name="inputPermanentLine2" id="inputPermanentLine2" fieldName = "Permanent-Line2">
                     </div>
                 </div>
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="country-names-permanent" id="labelPermanentCountry">Country<span
                                 class="red">*</span>:</label>
-                        <select name="country-names-permanent" id="countryNamesPermanent" type="text">
+                        <select name="country-names-permanent" id="countryNamesPermanent" type="text" fieldName="Permanent-Country-Name">
                             <option value="">Select Country</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <label for="state-names-permanent" id="labelPermanentState">
                             State<span class="red">*</span>:</label>
-                        <select name="state-names-permanent" id="stateNamesPermanent" type="text">
+                        <select name="state-names-permanent" id="stateNamesPermanent" type="text" fieldName="Permanent-State-Name">
                             <option value="">Select State</option>
                         </select>
                     </div>
@@ -180,25 +185,23 @@
                 <div class="input-field-group">
                     <div class="input-field">
                         <label for="city-names-permanent" id="labelPermanentCity">City<span class="red">*</span>:</label>
-                        <input list="city-names-permanent" id="inputPermanentCity" 
+                        <input list="citynamespermanentDatalist" id="inputPermanentCity" 
                         type="text"
-                        placeholder="Enter City"  class="validateOnChange">
+                        placeholder="Enter City"  fieldName="Permanent-City-Name">
                         <datalist name="city-names-permanent"   id="citynamespermanentDatalist">
                             </datalist>
                     </div>
                     <div class="input-field">
                         <label for="inputPermanentPincode" id="labelPermanentPincode"> pincode<span
                                 class="red">*</span>:</label>
-                        <input type="text" name="inputPermanentPincode" id="inputPermanentPincode" class="validateOnChange">
+                        <input type="text" name="inputPermanentPincode" id="inputPermanentPincode" class="validateOnChange" fieldName="Permanent-Pincode">
                     </div>
                 </div>
-
-
             </div>
             <div class="input-field-group">
-                <div class="input-field">
+                 <div class="input-field">
                     <label for="inputHobbies">hobbies:</label>
-                    <input list="hobbyList" name="inputHobbies" id="inputHobbies" class="validateOnChange" type="text">
+                    <input list="hobbyList" name="inputHobbies" id="inputHobbies"class="multidatalist" multiple="multiple" type="email" title="add more hobbies separated by commas" fieldName="Hobby-List">
                     <datalist id="hobbyList">
                         <option value="Dancing">
                         <option value="Singing">
@@ -209,13 +212,13 @@
                 </div>
                 <div class="input-field">
                     <label for="subscribe">Subscribe:</label>
-                    <input type="checkbox" name="subscribe" id="subscribe" >
+                    <input type="checkbox" name="subscribe" id="subscribe" fieldName="Subscribed">
                 </div>
             </div>
             <div class="input-field-group buttons">
                 <div class="input-field">
                     <div>
-                        <input type="submit" value="submit" id="btn-submit">
+                        <input type="submit" value="submit" id="btn-submit" >
                     </div>
                     <div>
                         <input type="reset" value="reset">

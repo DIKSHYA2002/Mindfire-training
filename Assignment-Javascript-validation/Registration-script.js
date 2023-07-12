@@ -204,7 +204,6 @@ function getCountries(obj) {
 
 
 }
-
 //GET_STATES_API_CALL
 function getStates(obj1, obj2) {
   return async () => {
