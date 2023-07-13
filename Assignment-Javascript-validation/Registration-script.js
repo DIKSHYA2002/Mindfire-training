@@ -284,7 +284,6 @@ for (let index = 0; index < selectfields.length; index++)
   selectfields[index].addEventListener('change' , changeInput( selectfields[index]))
 }
 
-
 //ONCLICK AND ONCHANGE EVENTS
 document.getElementById('inputImage').addEventListener('change', previewFile);
 document.getElementById('inputPresentLine1').addEventListener('change', changeLine(inputPresentLine1, inputPermanentLine1));
