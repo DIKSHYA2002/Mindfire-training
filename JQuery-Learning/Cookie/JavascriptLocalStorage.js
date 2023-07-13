@@ -1,9 +1,11 @@
-const user = JSON.parse(localStorage.getItem('personalD'));
+const user = JSON.parse(document.cookie);
+console.log(user)
 const thumbnail = localStorage.getItem('user-image');
 
 if (thumbnail) {
-  $('#ImageResult').attr('src',thumbnail);
-} else 
+    $('#ImageResult').attr('src',thumbnail);
+    } 
+else 
 {
   $('#ImageResult').attr('src','https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');
 }

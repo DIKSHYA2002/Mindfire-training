@@ -17,12 +17,14 @@ $(document).ready(function () {
             .catch(err => console.error(err));
     }
       //PICTURE_PREVIEW
-    function previewFile() {
+    function previewFile() 
+    {
         var preview = document.querySelector('img');
         var file = document.querySelector('input[type=file]').files[0];
         var reader = new FileReader();
-      reader.onloadend = function () {
-        preview.src = reader.result;
+        reader.onloadend = 
+        function () {
+            preview.src = reader.result;
         }
     if (file) {
       reader.readAsDataURL(file);
@@ -177,7 +179,6 @@ $(document).ready(function () {
             error=1;
             $("#labelGender").css('color','red');
         }
-        let span = document.getElementsByClassName("close")[0];
         showModal();
         function showModal() {
             if (error == 1) {
@@ -192,9 +193,9 @@ $(document).ready(function () {
                 location.href = "Result.html";
             }
         }
-        span.onclick = function () {
+        $('span.close').first().on('click' ,function(){
             $('#myModal').css('display', 'none');
-        }
+        })
         window.onclick = function (event) {
             if (event.target == $('#myModal')) {
                 $('#myModal').css('display', 'none');

@@ -16,6 +16,7 @@ $(document).ready(function () {
             })
             .catch(err => console.error(err));
     }
+      //PICTURE_PREVIEW
     function previewFile() {
         var preview = document.querySelector('img');
         var file = document.querySelector('input[type=file]').files[0];
@@ -118,8 +119,7 @@ $(document).ready(function () {
           }
           else{
             var permanentFields = $('.container-permanent-address input[type="text"],.container-permanent-address select');  
-            for(var i = 0; i < permanentFields.length; i++)
-            {
+            for(var i = 0; i < permanentFields.length; i++){
                 $(permanentFields[i]).removeAttr('disabled');
             }
           }
@@ -171,6 +171,7 @@ $(document).ready(function () {
                 }
             }
         });
+        console.log($("input[name='Gender']:checked"))
         if($("input[name='Gender']:checked").attr('id') === undefined)
         {
             error=1;
@@ -187,31 +188,8 @@ $(document).ready(function () {
                 user['gender']=$("input[name='Gender']:checked").prop('id');
                 user['present-Address']= presentAddress;
                 user['permanent-Address']= permanentAddress;
-                localStorage.setItem('personalD', JSON.stringify(user));
-                $('#myModal').css('display', 'block');
-                document.querySelector('#modalContent p').innerHTML = '<h1 id="Heading-modal">Form Submitted Succesfully!</h1>'
-                let Titles = Object.keys(user);
-                document.querySelector('#modalContent p').innerHTML += `<div id="results"></div>`
-                Titles.forEach(element => {
-                   if(element== "present-Address")
-                   {
-                    document.querySelector('#modalContent p #results').innerHTML +=`<h3>Present Address:</h3>`
-                    let newt = Object.keys(user['present-Address'])
-                    newt.forEach(element=>{
-                        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${user['present-Address'][element]}</div></div>`
-                    }
-                    )
-                   }
-                 else  if(element== "permanent-Address")
-                   {
-                    document.querySelector('#modalContent p #results').innerHTML +=`<h3>Permanent Address:</h3>`
-                    let newt = Object.keys(user['permanent-Address'])
-                    newt.forEach(element=> document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${ user['permanent-Address'][element]}</div></div>` )
-                   }
-                     else  
-                        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${user[element]}</div></div>`
-                });
-                console.log("no error");
+                document.cookie = JSON.stringify(user);
+                location.href = "Result.html";
             }
         }
         span.onclick = function () {
