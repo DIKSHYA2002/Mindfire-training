@@ -16,6 +16,23 @@ $(document).ready(function () {
             })
             .catch(err => console.error(err));
     }
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+      reader.onloadend = function () {
+        preview.src = reader.result;
+        }
+    if (file) {
+      reader.readAsDataURL(file);
+      localStorage.removeItem('user-image');
+      reader.addEventListener('load', () => {
+        localStorage.setItem('user-image', reader.result);
+    });
+    } else {
+      preview.src = "";
+    }
+  }
     function getCountries(obj, obj1) {
         return async () => {
             await fetch('https://www.universal-tutorial.com/api/countries/', {
@@ -152,6 +169,11 @@ $(document).ready(function () {
                 }
             }
         });
+        if($("input[name='Gender']:checked").attr('id') === undefined)
+        {
+            error=1;
+            $("#labelGender").css('color','red');
+        }
         let span = document.getElementsByClassName("close")[0];
         showModal();
         function showModal() {
@@ -208,6 +230,7 @@ $(document).ready(function () {
                 })
 }
 });
+document.getElementById('inputImage').addEventListener('change', previewFile);
 $("#sameas").change(presenttopermanent(sameas));
 $(".multidatalist").focusin(function () { $(this).attr("type", "email"); });
 $(".multidatalist").focusout(function () { $(this).attr("type", "textbox"); });
