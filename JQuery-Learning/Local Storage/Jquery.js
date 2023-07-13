@@ -16,6 +16,24 @@ $(document).ready(function () {
             })
             .catch(err => console.error(err));
     }
+      //PICTURE_PREVIEW
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+      reader.onloadend = function () {
+        preview.src = reader.result;
+        }
+    if (file) {
+      reader.readAsDataURL(file);
+      localStorage.removeItem('user-image');
+      reader.addEventListener('load', () => {
+        localStorage.setItem('user-image', reader.result);
+    });
+    } else {
+      preview.src = "";
+    }
+  }
     function getCountries(obj, obj1) {
         return async () => {
             await fetch('https://www.universal-tutorial.com/api/countries/', {
@@ -134,6 +152,7 @@ $(document).ready(function () {
                else if ($(this).val() == '' && ($(this).attr('importantField')=='true') )
                 {
                     error=1;
+                    $(this).css('border','2px red solid');
                 }
                 else 
                 {
@@ -152,6 +171,12 @@ $(document).ready(function () {
                 }
             }
         });
+        console.log($("input[name='Gender']:checked"))
+        if($("input[name='Gender']:checked").attr('id') === undefined)
+        {
+            error=1;
+            $("#labelGender").css('color','red');
+        }
         let span = document.getElementsByClassName("close")[0];
         showModal();
         function showModal() {
@@ -164,30 +189,7 @@ $(document).ready(function () {
                 user['present-Address']= presentAddress;
                 user['permanent-Address']= permanentAddress;
                 localStorage.setItem('personalD', JSON.stringify(user));
-                $('#myModal').css('display', 'block');
-                document.querySelector('#modalContent p').innerHTML = '<h1 id="Heading-modal">Form Submitted Succesfully!</h1>'
-                let Titles = Object.keys(user);
-                document.querySelector('#modalContent p').innerHTML += `<div id="results"></div>`
-                Titles.forEach(element => {
-                   if(element== "present-Address")
-                   {
-                    document.querySelector('#modalContent p #results').innerHTML +=`<h3>Present Address:</h3>`
-                    let newt = Object.keys(user['present-Address'])
-                    newt.forEach(element=>{
-                        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${user['present-Address'][element]}</div></div>`
-                    }
-                    )
-                   }
-                 else  if(element== "permanent-Address")
-                   {
-                    document.querySelector('#modalContent p #results').innerHTML +=`<h3>Permanent Address:</h3>`
-                    let newt = Object.keys(user['permanent-Address'])
-                    newt.forEach(element=> document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${ user['permanent-Address'][element]}</div></div>` )
-                   }
-                     else  
-                        document.querySelector('#modalContent p #results').innerHTML += `<div class="input-field-group"><div class="input-field">${element}:</div><div class="input-field-answer">${user[element]}</div></div>`
-                });
-                console.log("no error");
+                location.href = "Result.html";
             }
         }
         span.onclick = function () {
@@ -208,6 +210,7 @@ $(document).ready(function () {
                 })
 }
 });
+document.getElementById('inputImage').addEventListener('change', previewFile);
 $("#sameas").change(presenttopermanent(sameas));
 $(".multidatalist").focusin(function () { $(this).attr("type", "email"); });
 $(".multidatalist").focusout(function () { $(this).attr("type", "textbox"); });
