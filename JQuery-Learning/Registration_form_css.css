@@ -236,6 +236,11 @@ color: red;
     margin-right: 5%;
     padding: 1rem;
 }
+#ResultImage{
+    margin-left: 40%;
+    margin-right: 40%;
+
+}
 
 @media only screen and (max-width: 1200px) {
 

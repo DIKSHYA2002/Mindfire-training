@@ -22,11 +22,14 @@ $(document).ready(function () {
         var reader = new FileReader();
       reader.onloadend = function () {
         preview.src = reader.result;
+        $('#ResultImage').attr('src', reader.result);
+      
         }
     if (file) {
       reader.readAsDataURL(file);
       localStorage.removeItem('user-image');
-      reader.addEventListener('load', () => {
+      reader.addEventListener('load', () => 
+    {
         localStorage.setItem('user-image', reader.result);
     });
     } else {
@@ -187,7 +190,6 @@ $(document).ready(function () {
                 user['gender']=$("input[name='Gender']:checked").prop('id');
                 user['present-Address']= presentAddress;
                 user['permanent-Address']= permanentAddress;
-                localStorage.setItem('personalD', JSON.stringify(user));
                 $('#myModal').css('display', 'block');
                 document.querySelector('#modalContent p').innerHTML = '<h1 id="Heading-modal">Form Submitted Succesfully!</h1>'
                 let Titles = Object.keys(user);
