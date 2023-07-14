@@ -127,13 +127,32 @@ function changeLine(obj2, obj) {
             $(option).text($(valuesSelectBox[i]).val());
             $(permanentFields[i]).append($(option)); 
             $(permanentFields[i]).attr('disabled' ,'disabled');
+            
             }
-          }
+            var permanentFields = $('.container-permanent-address input[type="text"],.container-permanent-address select');  
+            for(var i = 0; i < permanentFields.length; i++)
+            {
+                if($(permanentFields[i]).val()!=="")
+                {
+                    $(permanentFields[i]).css('border' ,'2px green solid');
+                }
+            }
+        }
           else{
             var permanentFields = $('.container-permanent-address input[type="text"],.container-permanent-address select');  
             for(var i = 0; i < permanentFields.length; i++)
             {
-                $(permanentFields[i]).removeAttr('disabled');
+                if($(permanentFields[i]).val()=="")
+                {
+                    $(permanentFields[i]).css('border' ,'2px red solid');
+                    $(permanentFields[i]).removeAttr('disabled');
+                }
+                else{
+                    $(permanentFields[i]).css('border' ,'2px green solid');
+                    $(permanentFields[i]).removeAttr('disabled');
+                }
+
+
             }
           }
       }
