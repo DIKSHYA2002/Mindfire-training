@@ -36,6 +36,16 @@ $(document).ready(function () {
       preview.src = "";
     }
   }
+  //CHANGE WHENEVER SAME AS FIELD IS SELECTED (PRESENT TO PERMANENT)
+function changeLine(obj2, obj) {
+    return function () {
+      if (document.getElementById('sameas').checked) {
+        obj.disabled = false;
+        obj.value = obj2.value;
+        obj.disabled = true;
+      }
+    }
+  }
     function getCountries(obj, obj1) {
         return async () => {
             await fetch('https://www.universal-tutorial.com/api/countries/', {
@@ -234,6 +244,10 @@ $(document).ready(function () {
                 })
 }
 });
+document.getElementById('inputPresentLine1').addEventListener('change', changeLine(inputPresentLine1, inputPermanentLine1));
+document.getElementById('inputPresentLine2').addEventListener('change', changeLine(inputPresentLine2, inputPermanentLine2));
+document.getElementById('inputPresentPincode').addEventListener('change', changeLine(inputPresentPincode, inputPermanentPincode));
+document.getElementById('inputCityPresent').addEventListener('change', changeLine(inputCityPresent, inputPermanentCity));
 document.getElementById('inputImage').addEventListener('change', previewFile);
 $("#sameas").change(presenttopermanent(sameas));
 $(".multidatalist").focusin(function () { $(this).attr("type", "email"); });

@@ -271,6 +271,7 @@ function changeLine(obj2, obj) {
     }
   }
 }
+
 //ITERATTING ALL THE INPUT FIELD AND VALIDATING
 const inputfieldselectors = document.querySelectorAll('.validateOnChange');
 for (let index = 0; index < inputfieldselectors.length; index++) 
