@@ -1,0 +1,74 @@
+CREATE TABLE `profileapplication`.`personaldata` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `FirstName` VARCHAR(45) NOT NULL,
+  `LastName` VARCHAR(45) NOT NULL,
+  `Email` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`userID`),
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
+
+CREATE TABLE `profileapplication`.`address` (
+  `userID` INT NOT NULL,
+  `Line1` VARCHAR(45) NULL,
+  `Line2` VARCHAR(45) NULL,
+  `CountryID` INT NOT NULL,
+  `StateID` INT NOT NULL,
+  `CityName` VARCHAR(45) NULL,
+  `Pincode` INT NOT NULL,
+  PRIMARY KEY (`userID`),
+  CONSTRAINT `user_ID_Personal`
+    FOREIGN KEY (`userID`)
+    REFERENCES `profileapplication`.`personaldata` (`userID`)
+    );
+
+CREATE TABLE `profileapplication`.`country` (
+  `countryID` INT NOT NULL AUTO_INCREMENT,
+  `countryName` VARCHAR(45) NOT NULL,
+  `countryAbr` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`countryID`));
+
+CREATE TABLE `profileapplication`.`user_role` (
+  `userID` INT NOT NULL,
+  `roleID` INT NOT NULL,
+  PRIMARY KEY (`userID`, `roleID`),
+  UNIQUE INDEX `userID_UNIQUE` (`userID` ASC) VISIBLE,
+  CONSTRAINT `userID_personal`
+  FOREIGN KEY (`userID`)
+  REFERENCES `profileapplication`.`personaldata` (`userID`)
+);
+
+CREATE TABLE `profileapplication`.`all_roles` (
+  `roleID` INT NOT NULL,
+  `RoleName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`roleID`),
+  UNIQUE INDEX `roleID_UNIQUE` (`roleID` ASC) VISIBLE,
+  UNIQUE INDEX `RoleName_UNIQUE` (`RoleName` ASC) VISIBLE);
+
+
+ALTER TABLE `profileapplication`.`user_role` 
+ADD CONSTRAINT `roleId_all_roles`
+  FOREIGN KEY (`roleID`)
+  REFERENCES `profileapplication`.`all_roles` (`roleID`)
+ ;
+
+
+ALTER TABLE `profileapplication`.`address` 
+CHANGE COLUMN `CountryID` `CountryID` INT NOT NULL ,
+CHANGE COLUMN `StateID` `StateID` INT NOT NULL ,
+CHANGE COLUMN `Pincode` `Pincode` INT NOT NULL ,
+ADD INDEX `country_ID_country_idx` (`CountryID` ASC) VISIBLE;
+;
+ALTER TABLE `profileapplication`.`address` 
+ADD CONSTRAINT `country_ID_country`
+  FOREIGN KEY (`CountryID`)
+  REFERENCES `profileapplication`.`country` (`countryID`)
+;
+
+ALTER TABLE `profileapplication`.`address` 
+ADD INDEX `state_id_idx` (`StateID` ASC) VISIBLE;
+;
+ALTER TABLE `profileapplication`.`address` 
+ADD CONSTRAINT `state_id`
+FOREIGN KEY (`StateID`)
+REFERENCES `profileapplication`.`state` (`stateID`);
+
+
