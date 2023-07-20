@@ -1,0 +1,8 @@
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\bin\Debug\LinqApp.exe.config
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\bin\Debug\LinqApp.exe
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\bin\Debug\LinqApp.pdb
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\obj\Debug\LinqApp.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\obj\Debug\LinqApp.csproj.SuggestedBindingRedirects.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\obj\Debug\LinqApp.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\obj\Debug\LinqApp.exe
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\LinqApp\obj\Debug\LinqApp.pdb

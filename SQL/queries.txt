@@ -1,0 +1,52 @@
+create database User(to create a database)
+2. show database like '%something'
+3. Drop schema[if exists]'database_name';
+4. Drop database database_name;
+5. backup_database = 
+{
+     1- original db records are copies to temporary file
+     2- 
+}
+6- create table[if not exists] tablenaem{
+  column_definition1,  
+    column_definition2,  
+    ........,  
+    table_constraints
+}
+7- describe table_name;
+8- add a column 
+alter table table_name add registration_number varchar(30) after userID;
+9- multiple columns - 
+ ALTER TABLE table_name  
+ ADD new_column_name column_definition  
+ [ FIRST | AFTER column_name ],  
+ADD new_column_name column_definition  
+[ FIRST | AFTER column_name ],
+
+to change the column defination
+10-ALTER TABLE table_name  
+MODIFY column_name column_definition  
+[ FIRST | AFTER column_name ];  
+11-ALTER TABLE table_name  
+DROP COLUMN column_name;  
+12-ALTER TABLE table_name  
+CHANGE COLUMN old_name new_name   
+column_definition  
+[ FIRST | AFTER column_name ] 
+13-
+We cannot use the WHERE clause with this command so that filtering of records is not possible.
+We cannot rollback the deleted data after executing this command because the log is not maintained while performing this operation.
+We cannot use the truncate statement when a table is referenced by a foreign key or participates in an indexed view.
+The TRUNCATE command doesn't fire DELETE triggers associated with the table that is being truncated because it does not operate on individual rows.
+
+14- we can truncate tables with foreign key by using foreign key checks=0 then 1 after truncating
+15-DROP [ TEMPORARY ] TABLE [ IF EXISTS ] table_name [ RESTRICT | CASCADE ];  
+16-
+SELECT field_name1, field_name 2,... field_nameN   
+FROM table_name1, table_name2...  
+[WHERE condition]  
+[GROUP BY field_name(s)]  
+[HAVING condition]   
+[ORDER BY field_name(s)]  
+[OFFSET M ][LIMIT N];  
+

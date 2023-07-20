@@ -1,0 +1,8 @@
+
+19-07-2023
+15:54---> Created: D:\Mindfire-training\Example\New folder
+19-07-2023
+15:54
+---> Renamed:Old: D:\Mindfire-training\Example\New folder, New: D:\Mindfire-training\Example\hello 
+19-07-2023
+15:55---> Deleted: D:\Mindfire-training\Example\hello
