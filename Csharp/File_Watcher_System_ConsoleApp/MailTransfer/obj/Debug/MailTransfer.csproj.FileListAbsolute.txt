@@ -1,0 +1,8 @@
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\bin\Debug\MailTransfer.exe.config
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\bin\Debug\MailTransfer.exe
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\bin\Debug\MailTransfer.pdb
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\obj\Debug\MailTransfer.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\obj\Debug\MailTransfer.csproj.SuggestedBindingRedirects.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\obj\Debug\MailTransfer.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\obj\Debug\MailTransfer.exe
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\MailTransfer\obj\Debug\MailTransfer.pdb
