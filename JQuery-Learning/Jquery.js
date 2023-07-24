@@ -151,8 +151,6 @@ function changeLine(obj2, obj) {
                     $(permanentFields[i]).css('border' ,'2px green solid');
                     $(permanentFields[i]).removeAttr('disabled');
                 }
-
-
             }
           }
       }

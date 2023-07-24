@@ -1,0 +1,13 @@
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\obj\Debug\SQLtesting.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\obj\Debug\SQLtesting.csproj.SuggestedBindingRedirects.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\obj\Debug\SQLtesting.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\SQLtesting.exe.config
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\SQLtesting.exe
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\SQLtesting.pdb
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\EntityFramework.dll
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\EntityFramework.SqlServer.dll
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\EntityFramework.xml
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\bin\Debug\EntityFramework.SqlServer.xml
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\obj\Debug\SQLtesting.csproj.CopyComplete
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\obj\Debug\SQLtesting.exe
+D:\Mindfire-training\Csharp\File_Watcher_System_ConsoleApp\SQLtesting\obj\Debug\SQLtesting.pdb
