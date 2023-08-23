@@ -1,0 +1,143 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+body {
+    background-color: #1dd1a1;
+  
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+    margin: auto;
+   
+}
+.container{
+    background-color:white;
+    border-radius:1rem;
+    padding:2rem;
+    width:40%;
+    margin:auto;
+    margin-top:2%;
+}
+.login-container h1{
+    text-align:center;
+    font-size:1.5rem;
+    font-weight:400;
+}
+
+
+.container .input-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+}
+    .container .input-field.button {
+        flex-direction: row;
+        gap:1rem;
+    }
+    .input-field label {
+        width: 50%;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        padding-bottom: 0.5rem;
+        color: rgb(39, 39, 39);
+    }
+.input-field input {
+    padding: 0.5rem;
+    border: 1px black solid;
+    font-size: 1rem;
+    border-radius:10px;
+}
+
+.input-field input[type="button"] {
+    padding: 0.5rem;
+    width: 30%;
+    border-radius: 0.5rem;
+    background-color: black;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+#btnLogout 
+{
+    position:fixed;
+    left:80%;   
+}
+
+@media only screen and (max-width: 800px) {
+    #btnLogout {
+        position: fixed;
+        left: 80%;
+    }
+    .form-container {
+        margin-top: 0;
+    }
+
+    .container {
+        /* width:40%;*/
+        background-color: white;
+        border-radius: 1rem;
+        padding: 1rem;
+        width: 75%;
+        margin: auto;
+        margin-top: 5%;
+    }
+
+    .login-container h1 {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+    .container .input-field {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-evenly;
+        padding: 0.5rem;
+    }
+
+    .input-field label {
+        width: 50%;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        padding-bottom: 0.5rem;
+        color: rgb(39, 39, 39);
+    }
+
+    .input-field input {
+        padding: 0.5rem;
+        border: 1px black solid;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+        .input-field input[type="button"] {
+            padding: 0.5rem;
+            width: 100%;
+           
+            border-radius: 0.5rem;
+            background-color: black;
+            border: none;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+}
+
+
+
+

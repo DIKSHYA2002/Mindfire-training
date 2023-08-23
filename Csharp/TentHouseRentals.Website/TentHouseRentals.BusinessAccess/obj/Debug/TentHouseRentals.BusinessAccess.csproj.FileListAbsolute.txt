@@ -1,0 +1,17 @@
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\obj\Debug\TentHouseRentals.BusinessAccess.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\obj\Debug\TentHouseRentals.BusinessAccess.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.BusinessAccess.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.BusinessAccess.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.DALDB.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.Model.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.Utilities.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\EntityFramework.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.DALDB.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.DALDB.dll.config
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.Model.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.Utilities.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\TentHouseRentals.Utilities.dll.config
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\bin\Debug\EntityFramework.xml
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\obj\Debug\TentHouseRentals.BusinessAccess.csproj.CopyComplete
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\obj\Debug\TentHouseRentals.BusinessAccess.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.BusinessAccess\obj\Debug\TentHouseRentals.BusinessAccess.pdb

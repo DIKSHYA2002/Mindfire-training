@@ -1,0 +1,39 @@
+User Active with Id: 3
+10-08-2023
+13:23
+Message: test
+Stacktrace:
+
+
+User Active with Id: 3
+10-08-2023
+13:25
+Message: test
+Stacktrace:System.Exception: test
+   at EmployeeMangaement.DAL.DatabaseUsers.GetAllRoles() in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 60
+
+User Active with Id: 3
+10-08-2023
+14:01
+Message: test
+Stacktrace:System.Exception: test
+   at EmployeeMangaement.DAL.DatabaseUsers.GetAllRoles() in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 60
+
+User Active with Id: 3
+10-08-2023
+14:02
+Message: test
+Stacktrace:System.Exception: test
+   at EmployeeMangaement.DAL.DatabaseUsers.GetAllRoles() in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 60
+
+User Active with Id: 3
+10-08-2023
+16:48
+Message: Thread was being aborted.
+Stacktrace:System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagement.Web.UserLogin.Login(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\UserLogin.aspx.cs:line 31
+

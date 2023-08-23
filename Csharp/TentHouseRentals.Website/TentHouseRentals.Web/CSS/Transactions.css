@@ -1,0 +1,216 @@
+﻿.main-section{
+    width:90%;
+}
+.in-out-radio-buttons {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    width: 100%;
+    gap: 10px; 
+    font-size: 1.5rem;
+}
+.btn{
+    padding:0.5rem;
+    background-color:black;
+    color:white;
+}
+
+
+.input-field-in-section {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    gap: 1rem;
+}
+    .input-field-in-section button{
+        width:10%;
+    }
+
+    .input-field-in-section label{
+        display:flex;
+        align-items:center;
+    }
+
+
+
+    .input-field-in-section input, .input-field-in-section select {
+        padding: 0.5rem;
+        width: 20%;
+    }
+    .in-section {
+        display: none;
+        flex-direction: column;
+    }
+
+.in-out-radio-buttons input {
+    transform: scale(2);
+    margin: 1rem;
+    accent-color: #242526;
+}
+
+.out-section{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    width:100%;
+}
+.out-section-form {
+    width: 50%;
+}
+    .out-section-list {
+        width: 50%;
+        padding: 1rem;
+        overflow:auto;
+    }
+.transaction-individual.in, .transaction-individual-head.in {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 0.5rem;
+    
+}
+
+
+
+    .transaction-individual.in div, .transaction-individual-head.in div {
+        width: 25%;
+    }
+
+
+.transaction-individual-head.in {
+    background-color: #242526;
+    color: white;
+    padding: 0.5rem;
+}
+
+
+    .out-section-form {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-top: 2%;
+        background-color: white;
+        border-radius: 12px;
+        padding: 0.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    }
+
+.out-section-list {
+    width: 65%;
+    padding: 0.5rem;
+}
+.input-field{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+   font-size:1rem;
+   padding:0.5rem;
+}
+
+#btnAddTransaction {
+    padding: 1rem;
+    background-color: #1dd1a1;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 80%;
+}
+#btnSaveTransactions, #btnSaveInTransactionsIn {
+    background-color: #1dd1a1;
+    color: white;
+    border: none;
+    margin-bottom: 4%;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+}
+
+#btnAddTransaction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.75rem;
+}
+
+
+
+
+.input-field label{
+    width:50%;
+    display:flex;
+    align-items:center;
+}
+.input-field input{
+    width:50%;
+    padding:0.5rem;
+}
+
+
+@media only screen and (max-width: 850px) {
+    .input-field {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+
+        .input-field label {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-field input {
+            width: 50%;
+            padding: 0.2rem;
+        }
+
+    .out-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .out-section-list {
+        width: 100%;
+        padding: 1rem;
+        
+    }
+    .out-section-form {
+        display: flex;
+        flex-direction: column;
+        justify-content:space-evenly;
+        height: 50vh;
+        width: 100%;
+        margin: 2%;
+        background-color: white;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    }
+
+    .transaction-individual.in, .transaction-individual-head.in {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 0.5rem;
+        padding: 0.2rem;
+        font-size:0.7rem;
+    }
+
+        .transaction-individual.in div, .transaction-individual-head.in div {
+            width: 25%;
+        }
+
+
+    .transaction-individual-head.in {
+        background-color: #242526;
+        color: white;
+        padding: 0.5rem;
+    }
+
+
+}

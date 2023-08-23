@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TentHouseRentalModelStoreContainer" CdmEntityContainer="TentHouseRentalEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="TentHouseRentalModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="TentHouseRentalModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="PricePerDay" ColumnName="PricePerDay" />
+          <ScalarProperty Name="QuantityBooked" ColumnName="QuantityBooked" />
+          <ScalarProperty Name="QuantityPresent" ColumnName="QuantityPresent" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="TentHouseRentalModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TentHouseRentalModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTransactionsDetails">
+      <EntityTypeMapping TypeName="TentHouseRentalModel.ProductTransactionsDetail">
+        <MappingFragment StoreEntitySet="ProductTransactionsDetails">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="QuantityBooked" ColumnName="QuantityBooked" />
+          <ScalarProperty Name="QuantityPresent" ColumnName="QuantityPresent" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndividualTransactionDetails">
+      <EntityTypeMapping TypeName="TentHouseRentalModel.IndividualTransactionDetail">
+        <MappingFragment StoreEntitySet="IndividualTransactionDetail">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="TransactionInDate" ColumnName="TransactionInDate" />
+          <ScalarProperty Name="TransactionOutDate" ColumnName="TransactionOutDate" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

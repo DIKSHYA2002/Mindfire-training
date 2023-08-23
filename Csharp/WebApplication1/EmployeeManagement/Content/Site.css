@@ -1,0 +1,43 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+.login-page{
+    width:50%;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:50vh;
+    margin-top:5%;
+    border:2px black solid;
+    padding: 1rem;
+}
+
+.input-field{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly
+}
+    .input-field input[type="password"], .input-field input[type="email"], .input-field label, .input-field div {
+        width: 50%;
+        font-size:1.2rem;
+        padding:0.5rem;
+    }
+    .input-field div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+    .input-field input[type="button"]{
+        padding:0.5rem;
+        width: 30%;
+    }
+   

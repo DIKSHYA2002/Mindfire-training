@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Test1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_ID" />
+          </Key>
+          <Property Name="Company_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Company_About" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="countries">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CountryAbr" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Note_Text">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Note_ID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Note" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserCredentials">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="userEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPhone" Type="int" Nullable="false" />
+          <Property Name="userRoleID" Type="int" Nullable="false" />
+          <Property Name="userCountryID" Type="int" Nullable="false" />
+          <Property Name="userStateID" Type="int" Nullable="false" />
+          <Property Name="userCityID" Type="int" Nullable="false" />
+          <Property Name="userGender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userDateOfBirth" Type="date" Nullable="false" />
+          <Property Name="userBloodGroup" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Test1.dbo.userDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="userDetails">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="userEmail" />
+            <PropertyRef Name="CountryName" />
+            <PropertyRef Name="StateName" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="userName" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="userEmail" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="CountryName" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="StateName" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cities_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_States_States">
+          <End Role="countries" Type="Self.countries" Multiplicity="1" />
+          <End Role="States" Type="Self.States" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="States">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_States">
+          <End Role="States" Type="Self.States" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserCredentials">
+          <End Role="UserCredentials" Type="Self.UserCredentials" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserCredentials">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserRoles">
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRoles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Test1ModelStoreContainer">
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Note_Text" EntityType="Self.Note_Text" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCredentials" EntityType="Self.UserCredentials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userDetails" EntityType="Self.userDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [userDetails].[userID] AS [userID], 
+    [userDetails].[userName] AS [userName], 
+    [userDetails].[userEmail] AS [userEmail], 
+    [userDetails].[CountryName] AS [CountryName], 
+    [userDetails].[StateName] AS [StateName]
+    FROM [dbo].[userDetails] AS [userDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_States_States" Association="Self.FK_States_States">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="States" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cities" Association="Self.FK_Users_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_countries" Association="Self.FK_Users_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_States" Association="Self.FK_Users_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserCredentials" Association="Self.FK_Users_UserCredentials">
+            <End Role="UserCredentials" EntitySet="UserCredentials" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserRoles" Association="Self.FK_Users_UserRoles">
+            <End Role="UserRoles" EntitySet="UserRoles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Test1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Cities_States" FromRole="Cities" ToRole="States" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Cities" FromRole="Cities" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountryAbr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="States" Relationship="Self.FK_States_States" FromRole="countries" ToRole="States" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_countries" FromRole="countries" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_States" FromRole="States" ToRole="Cities" />
+          <NavigationProperty Name="country" Relationship="Self.FK_States_States" FromRole="States" ToRole="countries" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_States" FromRole="States" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserRoles" FromRole="UserRoles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPhone" Type="Int32" Nullable="false" />
+          <Property Name="userRoleID" Type="Int32" Nullable="false" />
+          <Property Name="userCountryID" Type="Int32" Nullable="false" />
+          <Property Name="userStateID" Type="Int32" Nullable="false" />
+          <Property Name="userCityID" Type="Int32" Nullable="false" />
+          <Property Name="userGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userDateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="userBloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Users_Cities" FromRole="Users" ToRole="Cities" />
+          <NavigationProperty Name="country" Relationship="Self.FK_Users_countries" FromRole="Users" ToRole="countries" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Users_States" FromRole="Users" ToRole="States" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_Users_UserRoles" FromRole="Users" ToRole="UserRoles" />
+          <NavigationProperty Name="UserCredential" Relationship="Test1Model.FK_Users_UserCredentials" FromRole="User" ToRole="UserCredential" />
+        </EntityType>
+        <EntityType Name="userDetail">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="userEmail" />
+            <PropertyRef Name="CountryName" />
+            <PropertyRef Name="StateName" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="userEmail" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CountryName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cities_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="Cities" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cities">
+          <End Role="Cities" Type="Self.City" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_States_States">
+          <End Role="countries" Type="Self.country" Multiplicity="1" />
+          <End Role="States" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="States">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_countries">
+          <End Role="countries" Type="Self.country" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_States">
+          <End Role="States" Type="Self.State" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="States">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserRoles">
+          <End Role="UserRoles" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRoles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Test2Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="userDetails" EntityType="Self.userDetail" />
+          <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cities" Association="Self.FK_Users_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_States_States" Association="Self.FK_States_States">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="States" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_countries" Association="Self.FK_Users_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_States" Association="Self.FK_Users_States">
+            <End Role="States" EntitySet="States" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserRoles" Association="Self.FK_Users_UserRoles">
+            <End Role="UserRoles" EntitySet="UserRoles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="GetStates" ReturnType="Collection(Test1Model.GetStates_Result)" />
+          <EntitySet Name="UserCredentials" EntityType="Test1Model.UserCredential" />
+          <AssociationSet Name="FK_Users_UserCredentials" Association="Test1Model.FK_Users_UserCredentials">
+            <End Role="UserCredential" EntitySet="UserCredentials" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Note_Text" EntityType="Test1Model.Note_Text" />
+          <EntitySet Name="Companies" EntityType="Test1Model.Company" />
+        </EntityContainer>
+        <ComplexType Name="GetStates_Result">
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="String" Name="CountryName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="stateName" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <EntityType Name="UserCredential">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Test1Model.FK_Users_UserCredentials" FromRole="UserCredential" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Users_UserCredentials">
+          <End Type="Test1Model.UserCredential" Role="UserCredential" Multiplicity="1" />
+          <End Type="Test1Model.User" Role="User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserCredential">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Note_Text">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Note_ID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_ID" />
+          </Key>
+          <Property Name="Company_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_About" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Test1ModelStoreContainer" CdmEntityContainer="Test2Entities1">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Test1Model.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="Test1Model.country">
+              <MappingFragment StoreEntitySet="countries">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryAbr" ColumnName="CountryAbr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="Test1Model.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="Test1Model.UserRole">
+              <MappingFragment StoreEntitySet="UserRoles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Test1Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userRoleID" ColumnName="userRoleID" />
+                <ScalarProperty Name="userCountryID" ColumnName="userCountryID" />
+                <ScalarProperty Name="userStateID" ColumnName="userStateID" />
+                <ScalarProperty Name="userCityID" ColumnName="userCityID" />
+                <ScalarProperty Name="userGender" ColumnName="userGender" />
+                <ScalarProperty Name="userDateOfBirth" ColumnName="userDateOfBirth" />
+                <ScalarProperty Name="userBloodGroup" ColumnName="userBloodGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userDetails">
+            <EntityTypeMapping TypeName="Test1Model.userDetail">
+              <MappingFragment StoreEntitySet="userDetails">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetStates" FunctionName="Test1Model.Store.GetStates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Test1Model.GetStates_Result">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="UserCredentials">
+            <EntityTypeMapping TypeName="Test1Model.UserCredential">
+              <MappingFragment StoreEntitySet="UserCredentials">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Note_Text">
+            <EntityTypeMapping TypeName="Test1Model.Note_Text">
+              <MappingFragment StoreEntitySet="Note_Text">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Note_ID" ColumnName="Note_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="Test1Model.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Company_About" ColumnName="Company_About" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

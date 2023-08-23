@@ -1,0 +1,7 @@
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\bin\Debug\TentHouseRentals.Utilities.dll.config
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\bin\Debug\TentHouseRentals.Utilities.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\bin\Debug\TentHouseRentals.Utilities.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\obj\Debug\TentHouseRentals.Utilities.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\obj\Debug\TentHouseRentals.Utilities.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\obj\Debug\TentHouseRentals.Utilities.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Utilities\obj\Debug\TentHouseRentals.Utilities.pdb

@@ -1,0 +1,18 @@
+TO-DO
+3. select-dropdown for states 
+4. Same as - jquery correction
+5- all validation
+6. modals 
+
+
+///website-employee managemetn
+todo
+1-login page
+2.signup page
+3- add sessionand all
+4. add dataype admin or not in database of userdeails
+5- homepage for employee- 1- edit,details, documetn uploads ,notes adder(no private message)
+6- homepage for admin - 1- user details(tab) , document upload tab , notes-dder(private)
+logout button
+7-
+

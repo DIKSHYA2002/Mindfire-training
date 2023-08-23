@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TentHouseRentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="QuantityPresent" Type="int" Nullable="false" />
+          <Property Name="QuantityBooked" Type="int" />
+          <Property Name="PricePerDay" Type="int" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionDateTime" Type="datetime" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TentHouseRental.dbo.IndividualTransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="IndividualTransactionDetail">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="TransactionOutDate" Type="datetime" Nullable="false" />
+          <Property Name="TransactionInDate" Type="datetime" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TentHouseRental.dbo.ProductTransactionsDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ProductTransactionsDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="QuantityPresent" />
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Quantity" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="QuantityPresent" Type="int" Nullable="false" />
+          <Property Name="QuantityBooked" Type="int" />
+          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="TransactionDateTime" Type="datetime" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Transactions_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Transactions1">
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="0..1" />
+          <End Role="Transactions1" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transactions">
+              <PropertyRef Name="TransactionID" />
+            </Principal>
+            <Dependent Role="Transactions1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TentHouseRentalModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndividualTransactionDetail" EntityType="Self.IndividualTransactionDetail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [IndividualTransactionDetail].[TransactionID] AS [TransactionID], 
+    [IndividualTransactionDetail].[TransactionOutDate] AS [TransactionOutDate], 
+    [IndividualTransactionDetail].[TransactionInDate] AS [TransactionInDate], 
+    [IndividualTransactionDetail].[CustomerID] AS [CustomerID], 
+    [IndividualTransactionDetail].[Type] AS [Type], 
+    [IndividualTransactionDetail].[Quantity] AS [Quantity], 
+    [IndividualTransactionDetail].[ProductID] AS [ProductID], 
+    [IndividualTransactionDetail].[ParentID] AS [ParentID]
+    FROM [dbo].[IndividualTransactionDetail] AS [IndividualTransactionDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ProductTransactionsDetails" EntityType="Self.ProductTransactionsDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ProductTransactionsDetails].[ID] AS [ID], 
+    [ProductTransactionsDetails].[Title] AS [Title], 
+    [ProductTransactionsDetails].[QuantityPresent] AS [QuantityPresent], 
+    [ProductTransactionsDetails].[QuantityBooked] AS [QuantityBooked], 
+    [ProductTransactionsDetails].[TransactionID] AS [TransactionID], 
+    [ProductTransactionsDetails].[ProductID] AS [ProductID], 
+    [ProductTransactionsDetails].[Type] AS [Type], 
+    [ProductTransactionsDetails].[TransactionDateTime] AS [TransactionDateTime], 
+    [ProductTransactionsDetails].[Quantity] AS [Quantity]
+    FROM [dbo].[ProductTransactionsDetails] AS [ProductTransactionsDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Transactions_Customers" Association="Self.FK_Transactions_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Products" Association="Self.FK_Transactions_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Transactions1" Association="Self.FK_Transactions_Transactions1">
+            <End Role="Transactions" EntitySet="Transactions" />
+            <End Role="Transactions1" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TentHouseRentalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TentHouseRentalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="TentHouseRentalModel.Customer" />
+          <EntitySet Name="Products" EntityType="TentHouseRentalModel.Product" />
+          <EntitySet Name="Transactions" EntityType="TentHouseRentalModel.Transaction" />
+          <EntitySet Name="Users" EntityType="TentHouseRentalModel.User" />
+          <EntitySet Name="ProductTransactionsDetails" EntityType="TentHouseRentalModel.ProductTransactionsDetail" />
+          <AssociationSet Name="FK_Transactions_Customers" Association="TentHouseRentalModel.FK_Transactions_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Products" Association="TentHouseRentalModel.FK_Transactions_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Transactions1" Association="TentHouseRentalModel.FK_Transactions_Transactions1">
+            <End Role="Transaction" EntitySet="Transactions" />
+            <End Role="Transaction1" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="IndividualTransactionDetails" EntityType="TentHouseRentalModel.IndividualTransactionDetail" />
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transactions" Relationship="TentHouseRentalModel.FK_Transactions_Customers" FromRole="Customer" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityPresent" Type="Int32" Nullable="false" />
+          <Property Name="QuantityBooked" Type="Int32" />
+          <Property Name="PricePerDay" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transactions" Relationship="TentHouseRentalModel.FK_Transactions_Products" FromRole="Product" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="TentHouseRentalModel.FK_Transactions_Customers" FromRole="Transaction" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="TentHouseRentalModel.FK_Transactions_Products" FromRole="Transaction" ToRole="Product" />
+          <NavigationProperty Name="Transactions1" Relationship="TentHouseRentalModel.FK_Transactions_Transactions1" FromRole="Transaction" ToRole="Transaction1" />
+          <NavigationProperty Name="Transaction1" Relationship="TentHouseRentalModel.FK_Transactions_Transactions1" FromRole="Transaction1" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductTransactionsDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="QuantityPresent" />
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Quantity" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityPresent" Type="Int32" Nullable="false" />
+          <Property Name="QuantityBooked" Type="Int32" />
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Transactions_Customers">
+          <End Type="TentHouseRentalModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="TentHouseRentalModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Products">
+          <End Type="TentHouseRentalModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="TentHouseRentalModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Transactions1">
+          <End Type="TentHouseRentalModel.Transaction" Role="Transaction" Multiplicity="0..1" />
+          <End Type="TentHouseRentalModel.Transaction" Role="Transaction1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="TransactionID" />
+            </Principal>
+            <Dependent Role="Transaction1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="IndividualTransactionDetail">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionOutDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="TransactionInDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TentHouseRentalModelStoreContainer" CdmEntityContainer="TentHouseRentalEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="TentHouseRentalModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="TentHouseRentalModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="PricePerDay" ColumnName="PricePerDay" />
+                <ScalarProperty Name="QuantityBooked" ColumnName="QuantityBooked" />
+                <ScalarProperty Name="QuantityPresent" ColumnName="QuantityPresent" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="TentHouseRentalModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TentHouseRentalModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTransactionsDetails">
+            <EntityTypeMapping TypeName="TentHouseRentalModel.ProductTransactionsDetail">
+              <MappingFragment StoreEntitySet="ProductTransactionsDetails">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="QuantityBooked" ColumnName="QuantityBooked" />
+                <ScalarProperty Name="QuantityPresent" ColumnName="QuantityPresent" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualTransactionDetails">
+            <EntityTypeMapping TypeName="TentHouseRentalModel.IndividualTransactionDetail">
+              <MappingFragment StoreEntitySet="IndividualTransactionDetail">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TransactionInDate" ColumnName="TransactionInDate" />
+                <ScalarProperty Name="TransactionOutDate" ColumnName="TransactionOutDate" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

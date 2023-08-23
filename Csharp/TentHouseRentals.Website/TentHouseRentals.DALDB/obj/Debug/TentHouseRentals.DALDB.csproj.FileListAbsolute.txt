@@ -1,0 +1,17 @@
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\obj\Debug\TentHouseRentals.DALDB.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\obj\Debug\TentHouseRentals.DALDB.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.DALDB.dll.config
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.DALDB.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.DALDB.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\EntityFramework.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\EntityFramework.SqlServer.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.Model.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.Utilities.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.Model.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.Utilities.pdb
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\TentHouseRentals.Utilities.dll.config
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\EntityFramework.xml
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\bin\Debug\EntityFramework.SqlServer.xml
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\obj\Debug\TentHouseRentals.DALDB.csproj.CopyComplete
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\obj\Debug\TentHouseRentals.DALDB.dll
+D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\obj\Debug\TentHouseRentals.DALDB.pdb

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Test1ModelStoreContainer" CdmEntityContainer="Test1Entities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="Test1Model.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Company_About" ColumnName="Company_About" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="Test1Model.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryAbr" ColumnName="CountryAbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files_Storage">
+      <EntityTypeMapping TypeName="Test1Model.Files_Storage">
+        <MappingFragment StoreEntitySet="Files_Storage">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Note_Text">
+      <EntityTypeMapping TypeName="Test1Model.Note_Text">
+        <MappingFragment StoreEntitySet="Note_Text">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Note_ID" ColumnName="Note_ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="To_ID" ColumnName="To_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Test1Model.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="Test1Model.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="Test1Model.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Test1Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userFirstName" ColumnName="userFirstName" />
+          <ScalarProperty Name="userLastName" ColumnName="userLastName" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+          <ScalarProperty Name="userPresentCountryID" ColumnName="userPresentCountryID" />
+          <ScalarProperty Name="userPresentStateID" ColumnName="userPresentStateID" />
+          <ScalarProperty Name="userGender" ColumnName="userGender" />
+          <ScalarProperty Name="userDateOfBirth" ColumnName="userDateOfBirth" />
+          <ScalarProperty Name="userPresentLine1" ColumnName="userPresentLine1" />
+          <ScalarProperty Name="userPresentLine2" ColumnName="userPresentLine2" />
+          <ScalarProperty Name="userPresentPincode" ColumnName="userPresentPincode" />
+          <ScalarProperty Name="userPermanentPincode" ColumnName="userPermanentPincode" />
+          <ScalarProperty Name="userPermanentLine1" ColumnName="userPermanentLine1" />
+          <ScalarProperty Name="userPermanentLine2" ColumnName="userPermanentLine2" />
+          <ScalarProperty Name="userPresentCity" ColumnName="userPresentCity" />
+          <ScalarProperty Name="userPermanentCity" ColumnName="userPermanentCity" />
+          <ScalarProperty Name="userHobbies" ColumnName="userHobbies" />
+          <ScalarProperty Name="userSubscribed" ColumnName="userSubscribed" />
+          <ScalarProperty Name="userPermanentCountryID" ColumnName="userPermanentCountryID" />
+          <ScalarProperty Name="userPermanentStateID" ColumnName="userPermanentStateID" />
+          <ScalarProperty Name="imagename" ColumnName="imagename" />
+          <ScalarProperty Name="imagedata" ColumnName="imagedata" />
+          <ScalarProperty Name="userpassword" ColumnName="userpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

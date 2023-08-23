@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Test1ModelStoreContainer" CdmEntityContainer="Test2Entities1">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Test1Model.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="Test1Model.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryAbr" ColumnName="CountryAbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="Test1Model.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="Test1Model.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Test1Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+          <ScalarProperty Name="userRoleID" ColumnName="userRoleID" />
+          <ScalarProperty Name="userCountryID" ColumnName="userCountryID" />
+          <ScalarProperty Name="userStateID" ColumnName="userStateID" />
+          <ScalarProperty Name="userCityID" ColumnName="userCityID" />
+          <ScalarProperty Name="userGender" ColumnName="userGender" />
+          <ScalarProperty Name="userDateOfBirth" ColumnName="userDateOfBirth" />
+          <ScalarProperty Name="userBloodGroup" ColumnName="userBloodGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userDetails">
+      <EntityTypeMapping TypeName="Test1Model.userDetail">
+        <MappingFragment StoreEntitySet="userDetails">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetStates" FunctionName="Test1Model.Store.GetStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Test1Model.GetStates_Result">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="UserCredentials">
+      <EntityTypeMapping TypeName="Test1Model.UserCredential">
+        <MappingFragment StoreEntitySet="UserCredentials">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Note_Text">
+      <EntityTypeMapping TypeName="Test1Model.Note_Text">
+        <MappingFragment StoreEntitySet="Note_Text">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Note_ID" ColumnName="Note_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="Test1Model.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Company_About" ColumnName="Company_About" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

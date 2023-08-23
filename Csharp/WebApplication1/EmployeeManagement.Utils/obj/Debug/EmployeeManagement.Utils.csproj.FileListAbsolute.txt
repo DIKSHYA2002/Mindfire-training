@@ -1,0 +1,7 @@
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\bin\Debug\EmployeeManagement.Utils.dll
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\bin\Debug\EmployeeManagement.Utils.pdb
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\obj\Debug\EmployeeManagement.Utils.csproj.AssemblyReference.cache
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\obj\Debug\EmployeeManagement.Utils.csproj.CoreCompileInputs.cache
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\obj\Debug\EmployeeManagement.Utils.dll
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\obj\Debug\EmployeeManagement.Utils.pdb
+D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\bin\Debug\EmployeeManagement.Utils.dll.config

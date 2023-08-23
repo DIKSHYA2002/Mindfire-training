@@ -1,0 +1,8 @@
+SELECT * FROM Customers;
+not case sensiitve
+semicolon-not required
+select distinct (distinct coolumn values) from the table 
+select count(distinct country) from customers(number of distinct countries)
+
+SELECT * FROM Products
+WHERE Price BETWEEN 50 AND 60;

@@ -1,0 +1,12 @@
+﻿
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+label{
+    width:100%;
+}
+input, #userroles {
+    width: 60%;
+}

@@ -1,0 +1,80 @@
+﻿.input-field {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: normal;
+    width: 60%;
+    height: 60px;
+}
+    .input-field button {
+        background-color: #242526;
+        color:white;
+        width:80px;
+        border-radius:12px;
+    }
+    .input-field input {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+        outline: none;
+    }
+.customer-lists {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+.customer {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    padding:0.5rem;
+}
+.customer div{
+    width:50%;
+}
+    .customer.head {
+        background-color: #242526;
+        color: white;
+    }
+
+.main-section {
+    margin: 1rem;
+    overflow-x:hidden;
+}
+@media only screen and (max-width: 850px) 
+{
+    .main-section {
+        overflow-x: hidden;
+        margin: 1rem;
+    }
+    .input-field {
+        position:static;
+        display: flex;
+        flex-direction: row;
+        justify-content: normal;
+        width: 60%;
+        height: 10vh;
+    }
+    .customer-lists {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3%;
+    }
+    .customer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 0.5rem;
+        font-size:0.75rem;
+    }
+
+}

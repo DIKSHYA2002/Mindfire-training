@@ -1,0 +1,118 @@
+﻿.report-action{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    width:100%;
+    justify-content:space-evenly;
+}
+
+ 
+    .report-action input {
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+        background-color: #1dd1a1;
+        border-radius:12px;
+        border:none;
+        color: white;
+    }
+    .report-action select{
+        width:20%;
+    }
+.report-page{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin:1rem;
+    width:100%;
+}
+
+.product-details img {
+    width: 265px;
+    height: 30vh;
+   /* object-fit: cover;*/
+   
+}
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1rem;
+    /*width: 30%;*/
+    margin: auto;
+    margin: 1rem;
+}
+
+/*.product-transaction-details {
+    width: 100%;
+    display: table;
+}*/
+.product-individuals-head {
+    background-color: #242526;
+    color: white;
+}
+/*.cell {
+    display: table-cell;
+    text-align :left;
+}
+.product-table-cells {
+    display: table-row;
+}
+.product-transaction-individuals-head {
+    display: table-header-group;
+    background-color: #242526;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+}
+.header-cell {
+    display: table-cell;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}*/
+
+.product-transaction-individuals.error {
+    text-align: center;
+    font-size: 20px;
+}
+@media only screen and (max-width: 1300px) {
+    .product-details img {
+        
+        height: 30vh;
+      
+    }
+    .report-action {
+        display: flex;
+        flex-direction: row;
+        gap:0.5rem;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+        .report-action select {
+            width: 90%;
+            margin:1rem;
+        }
+    .report-action {
+       margin: 0.3rem;
+    }
+   
+    .product-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 1rem;
+        margin:1rem;
+      
+    }
+    .report-page {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 1rem;
+        width: 90%;
+    }
+
+}

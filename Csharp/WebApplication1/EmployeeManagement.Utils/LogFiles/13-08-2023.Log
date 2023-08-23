@@ -1,0 +1,473 @@
+13-08-2023
+14:49
+Message: An error occurred while updating the entries. See the inner exception for details.
+Stacktrace:System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Users_States". The conflict occurred in database "Test1", table "dbo.States", column 'StateID'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at EmployeeMangaement.DAL.DatabaseUsers.SubmitUser(Employee user) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 287
+
+System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Users_States". The conflict occurred in database "Test1", table "dbo.States", column 'StateID'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+User Active with Id: 3
+13-08-2023
+19:27
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:27
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.About.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\About.aspx.cs:line 25
+
+User Active with Id: 3
+13-08-2023
+19:28
+Message: Value cannot be null.
+Parameter name: entity
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: entity
+   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at EmployeeMangaement.DAL.DatabaseUsers.DeleteUser(Int32 userId) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 262
+
+User Active with Id: 3
+13-08-2023
+19:28
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.DeleteUser(Int32 userId) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 269
+   at EmpployeeManagement.Business.AccessUserBusiness.DeleteUser(Int32 userId) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 183
+   at EmployeeManagement.Web.Dashboard.DeleteUser(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 159
+
+User Active with Id: 3
+13-08-2023
+19:30
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:30
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsUser(String email, String password) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 201
+
+User Active with Id: 3
+13-08-2023
+19:31
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsUser(String email, String password) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 220
+   at EmpployeeManagement.Business.AccessUserBusiness.IsUser(String email, String password) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 152
+   at EmployeeManagement.Web.UserLogin.Login(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\UserLogin.aspx.cs:line 24
+
+User Active with Id: 3
+13-08-2023
+19:32
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsUser(String email, String password) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 201
+
+User Active with Id: 3
+13-08-2023
+19:32
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsUser(String email, String password) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 220
+   at EmpployeeManagement.Business.AccessUserBusiness.IsUser(String email, String password) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 152
+   at EmployeeManagement.Web.UserLogin.Login(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\UserLogin.aspx.cs:line 24
+
+User Active with Id: 14
+13-08-2023
+19:33
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 14
+13-08-2023
+19:33
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.About.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\About.aspx.cs:line 25
+
+User Active with Id: 14
+13-08-2023
+19:34
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 14
+13-08-2023
+19:34
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.About.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\About.aspx.cs:line 25
+
+User Active with Id: 14
+13-08-2023
+19:35
+Message: Sequence contains no elements
+Stacktrace:System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 232
+
+User Active with Id: 14
+13-08-2023
+19:35
+Message: Object reference not set to an instance of an object.
+Stacktrace:System.NullReferenceException: Object reference not set to an instance of an object.
+   at EmployeeManagement.Utils.CommonFunctions.WriteLogFile(Exception ex) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Utils\CommonFunctions.cs:line 44
+   at EmployeeMangaement.DAL.DatabaseUsers.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeMangaement.DAL\AccessUsers.cs:line 247
+   at EmpployeeManagement.Business.AccessUserBusiness.IsAdmin(Int32 id) in D:\Mindfire-training\Csharp\WebApplication1\EmpployeeManagement.Business\AccessUserBusiness.cs:line 148
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 33
+
+User Active with Id: 15
+13-08-2023
+19:36
+Message: Value cannot be null.
+Parameter name: String
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 35
+
+User Active with Id: 15
+13-08-2023
+19:36
+Message: Value cannot be null.
+Parameter name: String
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 35
+
+User Active with Id: 17
+13-08-2023
+22:27
+Message: Value cannot be null.
+Parameter name: String
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:27
+Message: Value cannot be null.
+Parameter name: String
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:27
+Message: Value cannot be null.
+Parameter name: String
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:28
+Message: Value cannot be null.
+Parameter name: String
+Stacktrace:System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:32
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:34
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:35
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:38
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:41
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 57
+
+User Active with Id: 17
+13-08-2023
+22:43
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 58
+
+User Active with Id: 17
+13-08-2023
+22:49
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 55
+
+User Active with Id: 17
+13-08-2023
+22:49
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 55
+
+User Active with Id: 17
+13-08-2023
+22:52
+Message: Input string was not in a correct format.
+Stacktrace:System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at EmployeeManagement.Web.Dashboard.Page_Load(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\WebApplication1\EmployeeManagement.Web\Dashboard.aspx.cs:line 55
+

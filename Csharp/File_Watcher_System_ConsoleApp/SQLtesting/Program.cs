@@ -20,7 +20,8 @@ namespace SQLtesting
                 string countryName = Console.ReadLine();
                 Console.WriteLine("Enter the country Abr");
                 string countryAbr = Console.ReadLine();
-               country c = new country
+               country c = new country;
+               
                {
                    CountryName= countryName,
                    CountryAbr= countryAbr
@@ -37,7 +38,7 @@ namespace SQLtesting
         //delete country using id 
        public static void DeleteCountries()
         {
-            using(var dbContext = new Test1Entities())
+             using(var dbContext = new Test1Entities())
             {
                 Console.WriteLine("enter the country id which you want to delete");
                 int id = Int32.Parse(Console.ReadLine());

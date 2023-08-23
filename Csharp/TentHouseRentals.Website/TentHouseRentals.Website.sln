@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TentHouseRentals.Web", "TentHouseRentals.Web\TentHouseRentals.Web.csproj", "{8676BF34-F65F-48E0-BD43-6AFB1CCA32D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TentHouseRentals.Utilities", "TentHouseRentals.Utilities\TentHouseRentals.Utilities.csproj", "{E59FCA9E-EFE1-4B0C-88BE-581E9F7DC478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TentHouseRentals.Model", "TentHouseRentals.Model\TentHouseRentals.Model.csproj", "{14323F67-CCDB-46A7-B1C3-155C2F11B008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TentHouseRentals.DALDB", "TentHouseRentals.DALDB\TentHouseRentals.DALDB.csproj", "{B2344B46-232D-43EB-B91D-8FACE3A53ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TentHouseRentals.BusinessAccess", "TentHouseRentals.BusinessAccess\TentHouseRentals.BusinessAccess.csproj", "{5F9EABE8-C7E1-4A2D-82EB-5F48FA80FA09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8676BF34-F65F-48E0-BD43-6AFB1CCA32D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8676BF34-F65F-48E0-BD43-6AFB1CCA32D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8676BF34-F65F-48E0-BD43-6AFB1CCA32D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8676BF34-F65F-48E0-BD43-6AFB1CCA32D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59FCA9E-EFE1-4B0C-88BE-581E9F7DC478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59FCA9E-EFE1-4B0C-88BE-581E9F7DC478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59FCA9E-EFE1-4B0C-88BE-581E9F7DC478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59FCA9E-EFE1-4B0C-88BE-581E9F7DC478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14323F67-CCDB-46A7-B1C3-155C2F11B008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14323F67-CCDB-46A7-B1C3-155C2F11B008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14323F67-CCDB-46A7-B1C3-155C2F11B008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14323F67-CCDB-46A7-B1C3-155C2F11B008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2344B46-232D-43EB-B91D-8FACE3A53ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2344B46-232D-43EB-B91D-8FACE3A53ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2344B46-232D-43EB-B91D-8FACE3A53ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2344B46-232D-43EB-B91D-8FACE3A53ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9EABE8-C7E1-4A2D-82EB-5F48FA80FA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9EABE8-C7E1-4A2D-82EB-5F48FA80FA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9EABE8-C7E1-4A2D-82EB-5F48FA80FA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9EABE8-C7E1-4A2D-82EB-5F48FA80FA09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7BA69B9-1669-4273-9B29-A020C488D23D}
+	EndGlobalSection
+EndGlobal

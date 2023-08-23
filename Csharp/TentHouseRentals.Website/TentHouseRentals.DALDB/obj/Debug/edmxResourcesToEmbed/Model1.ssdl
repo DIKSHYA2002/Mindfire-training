@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TentHouseRentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuantityPresent" Type="int" Nullable="false" />
+    <Property Name="QuantityBooked" Type="int" />
+    <Property Name="PricePerDay" Type="int" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDateTime" Type="datetime" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TentHouseRental.dbo.IndividualTransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IndividualTransactionDetail">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="TransactionOutDate" Type="datetime" Nullable="false" />
+    <Property Name="TransactionInDate" Type="datetime" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TentHouseRental.dbo.ProductTransactionsDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProductTransactionsDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="QuantityPresent" />
+      <PropertyRef Name="TransactionID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuantityPresent" Type="int" Nullable="false" />
+    <Property Name="QuantityBooked" Type="int" />
+    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="TransactionDateTime" Type="datetime" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Transactions_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Transactions1">
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="0..1" />
+    <End Role="Transactions1" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transactions">
+        <PropertyRef Name="TransactionID" />
+      </Principal>
+      <Dependent Role="Transactions1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TentHouseRentalModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndividualTransactionDetail" EntityType="Self.IndividualTransactionDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IndividualTransactionDetail].[TransactionID] AS [TransactionID], 
+    [IndividualTransactionDetail].[TransactionOutDate] AS [TransactionOutDate], 
+    [IndividualTransactionDetail].[TransactionInDate] AS [TransactionInDate], 
+    [IndividualTransactionDetail].[CustomerID] AS [CustomerID], 
+    [IndividualTransactionDetail].[Type] AS [Type], 
+    [IndividualTransactionDetail].[Quantity] AS [Quantity], 
+    [IndividualTransactionDetail].[ProductID] AS [ProductID], 
+    [IndividualTransactionDetail].[ParentID] AS [ParentID]
+    FROM [dbo].[IndividualTransactionDetail] AS [IndividualTransactionDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ProductTransactionsDetails" EntityType="Self.ProductTransactionsDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ProductTransactionsDetails].[ID] AS [ID], 
+    [ProductTransactionsDetails].[Title] AS [Title], 
+    [ProductTransactionsDetails].[QuantityPresent] AS [QuantityPresent], 
+    [ProductTransactionsDetails].[QuantityBooked] AS [QuantityBooked], 
+    [ProductTransactionsDetails].[TransactionID] AS [TransactionID], 
+    [ProductTransactionsDetails].[ProductID] AS [ProductID], 
+    [ProductTransactionsDetails].[Type] AS [Type], 
+    [ProductTransactionsDetails].[TransactionDateTime] AS [TransactionDateTime], 
+    [ProductTransactionsDetails].[Quantity] AS [Quantity]
+    FROM [dbo].[ProductTransactionsDetails] AS [ProductTransactionsDetails]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Transactions_Customers" Association="Self.FK_Transactions_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Products" Association="Self.FK_Transactions_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Transactions1" Association="Self.FK_Transactions_Transactions1">
+      <End Role="Transactions" EntitySet="Transactions" />
+      <End Role="Transactions1" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

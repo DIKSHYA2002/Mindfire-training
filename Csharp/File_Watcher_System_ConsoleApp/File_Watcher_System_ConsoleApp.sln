@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp5", "ConsoleApp5\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLtesting", "SQLtesting\SQLtesting.csproj", "{5771AF02-E539-4A25-BC07-A734EBB53183}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationForm1", "RegistrationForm1\RegistrationForm1.csproj", "{543B2281-A5F0-43F0-8BD3-38DECA01341F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5771AF02-E539-4A25-BC07-A734EBB53183}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5771AF02-E539-4A25-BC07-A734EBB53183}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5771AF02-E539-4A25-BC07-A734EBB53183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543B2281-A5F0-43F0-8BD3-38DECA01341F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543B2281-A5F0-43F0-8BD3-38DECA01341F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543B2281-A5F0-43F0-8BD3-38DECA01341F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543B2281-A5F0-43F0-8BD3-38DECA01341F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

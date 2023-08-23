@@ -1,0 +1,28 @@
+﻿.login-page{
+    width:60%;
+    margin:auto;
+    font-size:1.5rem;
+    border:2px black solid;
+    padding: 1rem;
+    
+}
+
+.input-field {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+  margin: 5%;
+}
+.input-field label{
+    width: 50%;
+
+}
+input{
+    padding:1rem;
+
+}
+input[type=button]{
+    background-color:black;
+    color:white;
+    font-size:1.5rem;
+}
