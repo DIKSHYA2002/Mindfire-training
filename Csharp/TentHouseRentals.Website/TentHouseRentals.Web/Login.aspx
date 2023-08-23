@@ -17,7 +17,7 @@
              <div class="login-container container">
                  <h1 >Login</h1>
             <div class="input-field">
-                     <label for="txtEmail" id="lbltxtEmail">Email *</label>
+                    <label for="txtEmail" id="lbltxtEmail">Email *</label>
                     <input type="email" runat="server" id="txtEmail" refto="lbltxtEmail" />
             </div>
             <div class="input-field" >
@@ -26,7 +26,7 @@
             </div>
             <div class="input-field button">
                 <asp:Button ID="btnLogin" runat="server" Text="Login"    UseSubmitBehavior="false" OnClientClick="if(ValidateLogin()) { return false;};"
-                  OnClick="LoginBtn"   />
+                  OnClick="LoginBtn" />
                  <asp:Button ID="btnReinitialise" runat="server" Text="initialise"  UseSubmitBehavior="false"
                   OnClientClick="if(ValidateLogin()) { return false;};"
                   OnClick="Reinitialise"/>

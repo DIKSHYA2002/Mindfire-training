@@ -28,3 +28,27 @@ Stacktrace:System.Threading.ThreadAbortException: Thread was being aborted.
    at System.Web.HttpResponse.AbortCurrentThread()
    at TentHouseRentals.Web.Reports.btnClickDownloadReportProducts_Click(Object sender, EventArgs e) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.Web\Reports.aspx.cs:line 108
 
+23-08-2023
+22:44
+Message: String was not recognized as a valid DateTime.
+Stacktrace:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at TentHouseRentals.DALDB.UserDAL.<>c.<SubmitTransactions>b__14_0(TransactionsModel2 x) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\UserDAL.cs:line 323
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at TentHouseRentals.DALDB.UserDAL.SubmitTransactions(List`1 transactions) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\UserDAL.cs:line 323
+
+23-08-2023
+22:47
+Message: String was not recognized as a valid DateTime.
+Stacktrace:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at TentHouseRentals.DALDB.UserDAL.<>c.<SubmitTransactions>b__14_0(TransactionsModel2 x) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\UserDAL.cs:line 323
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at TentHouseRentals.DALDB.UserDAL.SubmitTransactions(List`1 transactions) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\UserDAL.cs:line 323
+

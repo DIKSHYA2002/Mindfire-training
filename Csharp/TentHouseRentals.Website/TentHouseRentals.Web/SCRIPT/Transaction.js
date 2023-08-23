@@ -276,8 +276,8 @@ $(document).ready(function () {
                 dataType: "json",
                 async: "false",
                 success: function (response) {
+                    $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
                     if (response.d == "Successful Transaction") {
-                        $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
                         alert("Transactions Succesful");
                         GetTransactionParticular();
                     }
@@ -286,11 +286,13 @@ $(document).ready(function () {
                     }
                 },
                 Error: function (response) {
+                    $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
                     alert(response);
                 }
             });
         }
         else {
+            $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
             alert("select some checkboxes");
         }
 
@@ -326,6 +328,7 @@ $(document).ready(function () {
                     alert(response.d);
                 },
                 Error: function (response) {
+                    $("#btnSaveTransactions").html("SAVE TRANSACTIONS");
                     alert(response);
                 }
             });
