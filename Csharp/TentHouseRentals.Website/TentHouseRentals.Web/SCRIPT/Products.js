@@ -1,4 +1,4 @@
-﻿const  loadingGif = `<img src="./ImageFolder/Loading.gif" style="width:50px; height:50px">`;
+﻿const  loadingGif = `<img src="./ImageFolder/Loading.gif" style="width:30px; height:30px">`;
 $(document).ready(function () {
     
     var modal = document.getElementById("AddProductModal");

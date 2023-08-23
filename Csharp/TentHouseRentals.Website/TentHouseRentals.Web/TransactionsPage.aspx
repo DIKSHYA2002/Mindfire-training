@@ -10,9 +10,9 @@
     <meta charset="utf-8" /> 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/Navbar.css" />
-    <link rel="stylesheet" href="./CSS/Transactions.css"/>
-    <link rel="stylesheet" href="./CSS/Table.css" />
+     <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Navbar.css") %>"  />
+      <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Transactions.css") %>"  />
+      <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Table.css") %>"  />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css" />
 </head>
@@ -134,8 +134,10 @@
 
         </script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="./SCRIPT/Dashboard.js"></script>
-    <script src="./SCRIPT/Transaction.js"></script>
+    
+      <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Dashboard.js") %>" type="text/javascript"></script>
+     <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Transaction.js") %>" type="text/javascript"></script>
+   
   
 </body>
 

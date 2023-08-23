@@ -182,6 +182,7 @@ body.dark .sidebar .toggle {
     height: 100vh;
     top:5%;
     z-index:4;
+  
 }
 @media only screen and (max-width: 850px) {
     .sidebar li a:hover, .sidebar li.active a {

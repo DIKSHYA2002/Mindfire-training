@@ -7,9 +7,8 @@
     <title></title>
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="./CSS/Navbar.css" />
-    <link rel="stylesheet" href="CSS/Customers.css" />
-  
+  <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Navbar.css") %>"  />
+      <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Customers.css") %>"  />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
@@ -29,12 +28,13 @@
                            <div class="customer-name">CUSTOMER-NAME</div>
                            </div>
                       </div>
-                     
             </div>
         </div>
     </form>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-     <script src="./SCRIPT/Dashboard.js"></script>
-    <script src="./SCRIPT/Customers.js"></script>
+  
+      <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Dashboard.js") %>" type="text/javascript"></script>
+       <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Customers.js") %>" type="text/javascript"></script>
+    
 </body>
 </html>

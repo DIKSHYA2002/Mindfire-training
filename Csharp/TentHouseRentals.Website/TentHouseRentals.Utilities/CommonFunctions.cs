@@ -12,14 +12,33 @@ namespace TentHouseRentals.Utilities
     public class CommonFunctions
     {
 
-        public static String GetUpdatedFile( string path)
+        public static String GetUpdatedFile(string path)
         {
-           /* string filePath = Path.GetFullPath(path);*/
-            FileInfo oFileInfo = new FileInfo(path);
-            DateTime lastModifiedTime = oFileInfo.LastWriteTime;
+           
+            string filePath = HttpContext.Current.Server.MapPath(path);
+            FileInfo oFileInfo = new FileInfo(filePath);
+            DateTime lastModifiedTime = oFileInfo.LastAccessTime;
             return path + "?v=" + lastModifiedTime.ToString();
         }
-        public static string GetFilePath()
+
+           public static String GetUpdatedFilePath2(string path)
+        {
+            string filePath = HttpContext.Current.Server.MapPath(path);
+            FileInfo oFileInfo = new FileInfo(filePath);
+            DateTime lastModifiedTime = oFileInfo.LastAccessTime;
+            String newFileName = oFileInfo.Name.Split('.')[0] + "-" + lastModifiedTime.ToString().Replace(" ", "-").Replace(":", "").Replace("-", "") + "-" + "RefreshedFile.css";
+            return newFileName;
+
+        }
+            public static String GetUpdatedFilePath(string path)
+            {
+            string filePath = HttpContext.Current.Server.MapPath(path);
+            FileInfo oFileInfo = new FileInfo(filePath);
+            DateTime lastModifiedTime = oFileInfo.LastWriteTime;
+            String newFileName = oFileInfo.Name.Split('.')[0] + "-" + lastModifiedTime.ToString().Replace(" ", "-").Replace(":","").Replace("-","") + "-" + "RefreshedFile.js";
+             return newFileName;
+            }
+            public static string GetFilePath()
         {
 
             string filepath = ConfigurationManager.AppSettings.Get("LogFilePath") + DateTime.Now.ToShortDateString() + ".Log";
@@ -52,6 +71,7 @@ namespace TentHouseRentals.Utilities
                 }
             }
         }
+
         /* public static int GetSession()
          {
              if (HttpContext.Current.Session != null)

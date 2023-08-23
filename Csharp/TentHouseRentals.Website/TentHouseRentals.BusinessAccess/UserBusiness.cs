@@ -43,7 +43,7 @@ namespace TentHouseRentals.BusinessAccess
 
         public static List<TransactionsModel2> GetCustomerTransactions(String CustomerName)
         {
-            return UserDAL.GetCustomerTransactions(CustomerName);
+            return UserDAL.GetCustomerTransactions(CustomerName).OrderByDescending(s=>s.TransactionDateTime).ToList();
         }
         public static List<TransactionsModel2> GetProductTransactions(int productId)
         {

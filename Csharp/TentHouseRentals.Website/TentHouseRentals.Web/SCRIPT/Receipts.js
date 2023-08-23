@@ -1,4 +1,4 @@
-﻿ 
+﻿const loadingGif = `<div class="transaction-individual"><img src="./ImageFolder/Loading.gif" style="width:5rem; height:5rem"></div>`;
 $(document).ready(function () {
     getProductList();
     function getProductList() {
@@ -56,6 +56,7 @@ $(document).ready(function () {
         e.preventDefault();
         var selectedId = SelectProductName.value;
         var arr = { id: selectedId };
+        $(".product-details").html(loadingGif);
         $.ajax({
             type: "POST",
             url: "Reports.aspx/GetProduct",
@@ -64,6 +65,7 @@ $(document).ready(function () {
             dataType: "json",
             async: "false",
             success: function (response) {
+                $(".product-details").empty();
                 $(".product").remove();
                 var $newDiv = `<div class="product">
                    <img src="./ImageFolder/${response.d.Image}"/>
@@ -80,8 +82,18 @@ $(document).ready(function () {
             }
         });
     })
+
+    $(".report-action").on("click", "#btnProductReport", function (e) {
+        e.preventDefault();
+        window.location.href = "PdfReport.ashx?type=" + "product";
+    })
+    $(".report-action").on("click", "#btnProductDetailedReport", function (e) {
+        e.preventDefault();
+        window.location.href = "PdfReport.ashx?type=" + "detail";
+    })
     function getTransactionList(productId) {
         var arr = { productId: productId };
+     
         $.ajax({
             type: "POST",
             url: "Reports.aspx/GetProductTransactions",
@@ -90,6 +102,7 @@ $(document).ready(function () {
             dataType: "json",
             async: "false",
             success: function (response) {
+               
                 $("#transactionResults .table_row").remove();
                 $(".product-transaction-individuals.error").remove();
                 if (response.d.length != 0)

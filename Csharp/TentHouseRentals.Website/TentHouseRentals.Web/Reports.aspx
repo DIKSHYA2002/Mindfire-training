@@ -9,11 +9,9 @@
     <title></title>
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/Navbar.css" />
-    <link rel="stylesheet" href="./CSS/Reports.css" />
-    <link rel="stylesheet" href="./CSS/Table.css" />
-
-
+      <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Navbar.css") %>"  />
+      <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Reports.css") %>"  />
+      <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Table.css") %>"  />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head> 
 <body>
@@ -23,8 +21,10 @@
         </div>
           <div class="main-section" id="productReports" runat="server" clientidmode="static">
               <div class="report-action">
-                  <asp:Button runat="server" OnClick="btnClickDownloadReportProducts_Click" Text="Product Report" ></asp:Button>
-               <asp:Button runat="server" OnClick="btnDownloadDetail" Text="Detail Report" ></asp:Button>
+                  <button id="btnProductReport">PRODUCT REPORT</button>
+                    <button id="btnProductDetailedReport">DETAIL REPORT</button>
+                  <%--<asp:Button runat="server" OnClick="btnClickDownloadReportProducts_Click" Text="Product Report" ></asp:Button>--%>
+              <%-- <asp:Button runat="server" OnClick="btnDownloadDetail" Text="Detail Report" ></asp:Button>--%>
                 <select name="SelectProductName" id="SelectProductName">
                 </select>
               </div>
@@ -46,8 +46,7 @@
            </div>
     </form>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./SCRIPT/Receipts.js"></script>
-           
-         <script src= "./SCRIPT/Dashboard.js"></script>
+      <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Receipts.js") %>" type="text/javascript"></script>
+      <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Dashboard.js") %>" type="text/javascript"></script>
     </body>
 </html>

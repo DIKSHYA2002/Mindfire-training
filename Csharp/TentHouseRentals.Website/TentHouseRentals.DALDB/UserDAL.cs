@@ -18,9 +18,10 @@ namespace TentHouseRentals.DALDB
             {
                 using(var entities = new TentHouseRentalEntities())
                 {
-                  
+
+               
                     string commands = "TRUNCATE TABLE Transactions;DELETE FROM Customers DBCC CHECKIDENT ('Customers', RESEED, 0);DELETE FROM Products;\r\nDBCC CHECKIDENT ('Products', RESEED, 0);" +
-                        "INSERT INTO Products\r\n           (Title\r\n           ,QuantityPresent\r\n           ,QuantityBooked\r\n           ,PricePerDay\r\n           ,Image)\r\n     VALUES\r\n           ('chairs'\r\n           ,23\r\n           ,0\r\n           ,2500\r\n           ,'20230822114040744plastichcaits.jpg'),\r\n\t\t    ('TentHouse'\r\n           ,22\r\n           ,0\r\n           ,1000\r\n           ,'20230822110456917download (1).jpg'),\r\n\t\t    ('Sound System'\r\n           ,20\r\n           ,0\r\n           ,25000\r\n           ,'20230822114132482soundsystems.jpg'),\r\n\t\t   ('Decorated Table'\r\n           ,200\r\n           ,0\r\n           ,2800\r\n           ,'20230822114203797tables.jpeg');\r\n" + "INSERT INTO Customers\r\n           (Name)\r\n     VALUES\r\n           ('user1'),\r\n\t\t   ('user2'),\r\n\t\t   ('user3'),\r\n\t\t   ('user4'),\r\n\t\t   ('user5');\r\n";
+                        "INSERT INTO Products\r\n           (Title\r\n           ,QuantityPresent\r\n           ,QuantityBooked\r\n           ,PricePerDay\r\n           ,Image)\r\n     VALUES\r\n           ('chairs'\r\n           ,23\r\n           ,0\r\n           ,2500\r\n           ,'20230822114040744plastichcaits.jpg'),\r\n\t\t    ('TentHouse'\r\n           ,22\r\n           ,0\r\n           ,1000\r\n           ,'20230821160921242tentHousetents.jpeg'),\r\n\t\t    ('Sound System'\r\n           ,20\r\n           ,0\r\n           ,25000\r\n           ,'20230822114132482soundsystems.jpg'),\r\n\t\t   ('Decorated Table'\r\n           ,200\r\n           ,0\r\n           ,2800\r\n           ,'20230822114203797tables.jpeg');\r\n" + "INSERT INTO Customers\r\n           (Name)\r\n     VALUES\r\n           ('user1'),\r\n\t\t   ('user2'),\r\n\t\t   ('user3'),\r\n\t\t   ('user4'),\r\n\t\t   ('user5');\r\n";
                     entities.Database.ExecuteSqlCommand(commands);
 
                 }

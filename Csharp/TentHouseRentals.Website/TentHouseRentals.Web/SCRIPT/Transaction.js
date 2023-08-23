@@ -1,4 +1,6 @@
-﻿const loadingGif = `<div class="transaction-individual"><img src="./ImageFolder/Loading.gif" style="width:5rem; height:5rem"></div>`;
+﻿const loadingGif = `<div class="transaction-individual"><img src="./ImageFolder/Loading.gif" style="width:3rem; height:3rem"></div>`;
+const loadingGif2 = `<div class="transaction-individual"><img src="./ImageFolder/Loading2.gif" style="width:3rem; height:3rem"></div>`;
+
 $(document).ready(function () {
 
     $(".out-section-list").on('click', '.deletebutton', function (e) {
@@ -248,6 +250,7 @@ $(document).ready(function () {
     $(".in-section").on("click", "#btnSaveInTransactionsIn", function (e) {
         var childNodes = $(".in-section-list .transaction-individual");
         var transactionArray = [];
+        $("#btnSaveInTransactionsIn").html(loadingGif2);
        childNodes.each(function () {
             if ($(this).find(".transaction-product-buttons .checkReturn").is(':checked') && !$(this).find(".transaction-product-buttons .checkReturn").is(':disabled'))
             {
@@ -274,6 +277,7 @@ $(document).ready(function () {
                 async: "false",
                 success: function (response) {
                     if (response.d == "Successful Transaction") {
+                        $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
                         alert("Transactions Succesful");
                         GetTransactionParticular();
                     }
@@ -296,6 +300,7 @@ $(document).ready(function () {
     $(".out-section-list").on("click", "#btnSaveTransactions", function (e) {
         var childNodes = $(".out-section-list .transaction-individual");
         var transactionArray = [];
+        $("#btnSaveTransactions").html(loadingGif2);
         childNodes.each(function () {
             var transactionObject = {};
             transactionObject["TransactionDateTime"] = $(this).find(".transaction-date").attr("refDate");
@@ -317,6 +322,7 @@ $(document).ready(function () {
                 dataType: "json",
                 async: "false",
                 success: function (response) {
+                    $("#btnSaveTransactions").html("SAVE TRANSACTIONS");
                     alert(response.d);
                 },
                 Error: function (response) {
