@@ -14,6 +14,9 @@ An Inventory Management System for tent house suppplies for rent.It provides a U
 
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/5fef6f32-a1ca-4af3-a5c7-5a1da3475411)
 
+## 5-Transactions(IN)
+![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/12f0955b-656e-4d7e-9bf3-b9dcd42bdf5c)
+
 ## 5-Transactions(OUT)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/8ee5983a-becd-4542-bc12-b1a882966169)
 
