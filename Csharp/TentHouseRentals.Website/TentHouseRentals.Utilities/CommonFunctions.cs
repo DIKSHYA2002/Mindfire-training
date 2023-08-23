@@ -25,7 +25,7 @@ namespace TentHouseRentals.Utilities
         {
             string filePath = HttpContext.Current.Server.MapPath(path);
             FileInfo oFileInfo = new FileInfo(filePath);
-            DateTime lastModifiedTime = oFileInfo.LastAccessTime;
+            DateTime lastModifiedTime = oFileInfo.LastWriteTime;
             String newFileName = oFileInfo.Name.Split('.')[0] + "-" + lastModifiedTime.ToString().Replace(" ", "-").Replace(":", "").Replace("-", "") + "-" + "RefreshedFile.css";
             return newFileName;
 
