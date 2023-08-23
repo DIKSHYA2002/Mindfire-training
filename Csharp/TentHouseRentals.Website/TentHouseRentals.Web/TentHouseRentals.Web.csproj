@@ -138,7 +138,6 @@
     <Content Include="Error.aspx" />
     <Content Include="SCRIPT\Customers.js" />
     <Content Include="CustomersPage.aspx" />
-    <Content Include="Dashboard.aspx" />
     <Content Include="SCRIPT\Dashboard.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -223,13 +222,6 @@
     </Compile>
     <Compile Include="CustomersPage.aspx.designer.cs">
       <DependentUpon>CustomersPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -23,13 +23,6 @@ namespace TentHouseRentals.Web
         }
 
         [WebMethod]
-        public static List<TransactionsModel2> GetCustomerTransactions(String CustomerName)
-        {
-            return UserBusiness.GetCustomerTransactions(CustomerName);
-        }
-
-
-        [WebMethod]
         public static List<IndividualTransactionDetails> GetIndividualTransactionDetails(int customerId)
         {
             List<IndividualTransactionDetails> transact = UserBusiness.GetIndividualTransactionDetails(customerId);
