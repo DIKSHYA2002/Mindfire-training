@@ -12,8 +12,9 @@ namespace TentHouseRentals.Web
         public void ProcessRequest(HttpContext context)
         {
             string path = context.Request.Path;
-            string fileExtension = path.Split('.')[1];
-            string filename = path.Split('/')[1].Split('-')[0] + "." + fileExtension;
+            string[] filepaths = path.Split('/');
+            string fileExtension = filepaths[filepaths.Length-1].Split('.')[filepaths[filepaths.Length - 1].Split('.').Length-1];
+            string filename = filepaths[filepaths.Length - 1].Split('-')[0] + "." + fileExtension;
             String filePath = String.Empty;
             if(fileExtension=="js")
             {
@@ -21,7 +22,7 @@ namespace TentHouseRentals.Web
             }
             else
             {
-                 filePath = HttpContext.Current.Server.MapPath("./CSS") + "\\" + filename;
+               filePath = HttpContext.Current.Server.MapPath("./CSS") + "\\" + filename;
             }
 
             FileInfo file = new FileInfo(filePath);

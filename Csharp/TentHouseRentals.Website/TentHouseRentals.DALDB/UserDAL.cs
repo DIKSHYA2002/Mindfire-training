@@ -38,7 +38,7 @@ namespace TentHouseRentals.DALDB
             using (var entities = new TentHouseRentalEntities())
             {
                 List<IndividualTransactionDetail> individual = entities.IndividualTransactionDetails.Where(s=>s.CustomerID == customerId).ToList();
-                return individual;
+                return individual.OrderByDescending(s=>s.TransactionOutDate).ToList();
             }
         }
      
@@ -303,7 +303,7 @@ namespace TentHouseRentals.DALDB
                            Quantity = tr.Quantity,
                            ParentID = tr.ParentID
                        }).ToList();
-                    return transactionMod;
+                    return transactionMod.OrderByDescending(s=>s.TransactionDateTime).ToList();
                 }
             }
             catch (Exception ex)
