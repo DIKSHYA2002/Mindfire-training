@@ -105,8 +105,8 @@ namespace TentHouseRentals.BusinessAccess
                 QuantityPresent = st.QuantityPresent,
                 Image = st.Image,
                 PricePerDay = st.PricePerDay,
-            }).ToList();
-            return products.OrderBy(s => s.Title).ToList();
+            }).OrderBy(s => s.Title).ToList();
+            return products;
         }
 
         /// <summary>
@@ -131,9 +131,9 @@ namespace TentHouseRentals.BusinessAccess
             {
                 ID = cu.ID,
                 Name = cu.Name,
-            }).ToList();
+            }).OrderBy(s => s.Name).ToList();
 
-            return customers.OrderBy(s => s.Name).ToList();
+            return customers;
         }
 
         /// <summary>
