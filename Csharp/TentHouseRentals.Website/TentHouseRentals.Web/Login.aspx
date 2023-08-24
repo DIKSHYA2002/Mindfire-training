@@ -27,6 +27,8 @@
             <div class="input-field button">
                 <asp:Button ID="btnLogin" runat="server" Text="Login"    UseSubmitBehavior="false" OnClientClick="if(ValidateLogin()) { return false;};"
                   OnClick="LoginBtn" />
+
+
                  <asp:Button ID="btnReinitialise" runat="server" Text="initialise"  UseSubmitBehavior="false"
                   OnClientClick="if(ValidateLogin()) { return false;};"
                   OnClick="Reinitialise"/>

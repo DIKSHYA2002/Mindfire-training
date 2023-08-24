@@ -3,7 +3,6 @@ const loadingGif2 = `<div class="transaction-individual"><img src="./ImageFolder
 
 $(document).ready(function () {
 
-
     $(".out-section-list").on('click', '.deletebutton', function (e) {
         e.preventDefault();
         $(this).closest('.transaction-individual.in').remove();

@@ -35,22 +35,29 @@ namespace TentHouseRentals.Utilities
         }
         public static void WriteLogFile(Exception ex)
         {
-
-            DateTime currentDateTime = DateTime.Now;
-            using (StreamWriter sw = File.AppendText(GetFilePath()))
+            try
             {
-                
-                while (ex.InnerException != null)
+                DateTime currentDateTime = DateTime.Now;
+                using (StreamWriter sw = File.AppendText(GetFilePath()))
                 {
-                    ex = ex.InnerException;
+
+                    while (ex.InnerException != null)
+                    {
+                        ex = ex.InnerException;
+                    }
+                    sw.WriteLine(currentDateTime.ToShortDateString());
+                    sw.WriteLine(currentDateTime.ToString("HH:mm"));
+                    sw.WriteLine($"Message: {ex.Message}");
+                    sw.WriteLine("Stacktrace:" + ex.ToString());
+                    sw.WriteLine();
+
                 }
-                sw.WriteLine(currentDateTime.ToShortDateString());
-                sw.WriteLine(currentDateTime.ToString("HH:mm"));
-                sw.WriteLine($"Message: {ex.Message}");
-                sw.WriteLine("Stacktrace:" + ex.ToString());
-                sw.WriteLine();
-                
             }
+            catch(Exception )
+            {
+
+            }
+           
         }
 
         public static int GetSession()
