@@ -29,22 +29,9 @@ An Inventory Management System for tent house suppplies for rent.It provides a U
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/b86592e6-bc04-43db-b196-2ba4ea081434)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/298a2f4b-b147-47c9-a6d5-7863133ecf77)
 
-## 4 - Database Connection
-```
-1- SQL SERVER NAME -DIKSHYAA-WIN10\SQLEXPRESS
-2- USER NAME - Id from sql authentication
-3- PASSWORD - Password Set During SQL authentication
-```
-~~~
-<configuration>
-<connectionStrings>
-		<add name="TentHouseRentalEntities" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=[SQL SERVER NAME];initial catalog=TentHouseRental;user id=[USER NAME];password=[PASSWORD];MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
-	</connectionStrings>
-</configuration>
-~~~
-##   5 - Build the project
+##   4 - Build the project
 ```(ctrl+shift+ B) (Vs)```
-###  6 - Browse 
+###  5 - Browse 
 ```http://TentHouseRentals.com```
 ##  Sections:
 ## 1-Login Up
