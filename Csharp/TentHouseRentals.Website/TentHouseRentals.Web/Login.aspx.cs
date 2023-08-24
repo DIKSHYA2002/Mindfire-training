@@ -13,14 +13,15 @@ namespace TentHouseRentals.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-                if(Session != null)
-                {
-                    Response.Redirect("ProductsPage.aspx");
-                }
-        
+
+            if (Session["id"] != null)
+            {
+                Response.Redirect("ProductsPage.aspx");
+
+            }
+
         }
-        
+
         protected void LoginBtn(object sender, EventArgs e)
         {
             try
@@ -31,7 +32,7 @@ namespace TentHouseRentals.Web
                 if (id != -1)
                 {
                     Session["id"] = id;
-                    Response.Redirect("ProductsPage.aspx?ID=" + id , false);
+                    Response.Redirect("ProductsPage.aspx?ID=" + id, false);
                 }
                 else
                 {
@@ -46,18 +47,40 @@ namespace TentHouseRentals.Web
 
         }
 
-        protected void   Reinitialise(object sender ,EventArgs e)
+        protected void Reinitialise(object sender, EventArgs e)
         {
-           bool done =  UserBusiness.Reinitialise();
-            if(done)
+
+            try
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Truncated Table Transactions');", true);
+                String email = txtEmail.Value;
+                String password = txtPassword.Value;
+                int id = UserBusiness.IsUser(email, password);
+                if (id != -1)
+                {
+                    Session["id"] = id;
+                    bool done = UserBusiness.Reinitialise();
+                    if (done)
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Truncated Table Transactions');", true);
+
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Failed to truncate');", true);
+                    }
+                  
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Wrong Credentials');", true);
+                }
 
             }
-            else
+            catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Failed to truncate');", true);
+                CommonFunctions.WriteLogFile(ex);
             }
+           
         }
     }
 }
