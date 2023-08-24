@@ -112,8 +112,8 @@ namespace TentHouseRentals.Web
                             {
 
                                 table.AddCell(transaction.TransactionID.ToString());
-                                string formattedDateTime = transaction.TransactionDateTime;
-                                if (DateTime.TryParseExact(transaction.TransactionDateTime, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDateTime))
+                                string formattedDateTime = transaction.TransactionDateTime.ToString();
+                                if (DateTime.TryParseExact(formattedDateTime, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDateTime))
                                 {
                                     formattedDateTime = parsedDateTime.ToString("MM/dd/yyyy hh:mm tt");
                                 }

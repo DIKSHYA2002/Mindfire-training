@@ -3,12 +3,12 @@ const loadingGif2 = `<div class="transaction-individual"><img src="./ImageFolder
 
 $(document).ready(function () {
 
+
     $(".out-section-list").on('click', '.deletebutton', function (e) {
         e.preventDefault();
         $(this).closest('.transaction-individual.in').remove();
         alert("deleted!");
     });
-
     getCustomers();
     $('input[type=radio][name=transactionType]').change(function () {
         if (this.value == 'in') {
@@ -228,6 +228,7 @@ $(document).ready(function () {
         getTransactionParticular();
     })
 
+ 
     function getFormattedDate(datetimestring)
     {
         const date = new Date(datetimestring);

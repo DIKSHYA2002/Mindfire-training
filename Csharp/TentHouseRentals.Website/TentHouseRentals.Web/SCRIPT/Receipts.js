@@ -51,7 +51,14 @@ $(document).ready(function () {
         });
 
     }
-
+    $(".report-action").on("click", "#btnProductReport", function (e) {
+        e.preventDefault();
+        window.location.href = "PdfReport.ashx?type=" + "product";
+    })
+    $(".report-action").on("click", "#btnProductDetailedReport", function (e) {
+        e.preventDefault();
+        window.location.href = "PdfReport.ashx?type=" + "detail";
+    })
     $("#productReports").on("change", "#selectProductName", function (e) {
         e.preventDefault();
         var selectedId = selectProductName.value;
@@ -82,15 +89,6 @@ $(document).ready(function () {
             }
         });
     })
-
-    $(".report-action").on("click", "#btnProductReport", function (e) {
-        e.preventDefault();
-        window.location.href = "PdfReport.ashx?type=" + "product";
-    })
-    $(".report-action").on("click", "#btnProductDetailedReport", function (e) {
-        e.preventDefault();
-        window.location.href = "PdfReport.ashx?type=" + "detail";
-    })
     function getTransactionList(productId) {
         var arr = { productId: productId };
 
@@ -109,7 +107,10 @@ $(document).ready(function () {
                 if (response.d != null) {
                     if (response.d.length != 0 && response.d !== null) {
                         response.d.forEach((item => {
-                            var TransDate = item.TransactionDateTime.substring(0, 16);
+                            var str = item.TransactionDateTime.toString();
+                            var num = parseInt(str.replace(/[^0-9]/g, ""));
+                            var date = new Date(num);
+                            var TransDate = getFormattedDate(date.toISOString().substring(0, 24)); 
                             var $newDiv = `
                   <div class='table_row'>
                     <div class='table_small'>
@@ -159,5 +160,16 @@ $(document).ready(function () {
             }
         });
     }
-
+    function getFormattedDate(datetimestring) {
+        const date = new Date(datetimestring);
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const amOrPm = hours >= 12 ? 'PM' : 'AM';
+        const hours12 = hours % 12 || 12;
+        const timeString = `${hours12}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${amOrPm}`;
+        const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        const resultString = `${dateString} ${timeString}`;
+        return resultString;
+    }
 })

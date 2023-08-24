@@ -35,6 +35,6 @@
         </div>
     </form>
      <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Form.js") %>" type="text/javascript"></script>
-    <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Dashboard.js") %>" type="text/javascript"></script>
+   
 </body>
 </html>

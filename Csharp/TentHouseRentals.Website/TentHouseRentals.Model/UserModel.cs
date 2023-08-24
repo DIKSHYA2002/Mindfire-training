@@ -23,7 +23,7 @@ namespace TentHouseRentals.Model
     public class TransactionsModel2
     {
         public int TransactionID { get; set; }
-        public string TransactionDateTime { get; set; }
+        public System.DateTime TransactionDateTime { get; set; }
         public string CustomerName { get; set; }
         public string ProductName { get; set; }
         public string Type { get; set; }

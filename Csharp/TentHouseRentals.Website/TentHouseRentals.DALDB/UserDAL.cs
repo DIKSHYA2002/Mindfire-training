@@ -357,7 +357,7 @@ namespace TentHouseRentals.DALDB
                      new TransactionsModel2
                      {
                          TransactionID = tr.TransactionID,
-                         TransactionDateTime = tr.TransactionDateTime.ToString(),
+                         TransactionDateTime = (System.DateTime)tr.TransactionDateTime,
                          CustomerName = FindCustomerName(tr.CustomerID),
                          ProductName = GetProductName(tr.ProductID),
                          Type = tr.Type,

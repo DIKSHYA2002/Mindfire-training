@@ -181,6 +181,7 @@
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Navbar.ascx" />
+    <Content Include="SCRIPT\Form.js" />
     <Content Include="SCRIPT\Products.js" />
     <Content Include="ProductsPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
