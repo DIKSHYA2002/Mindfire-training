@@ -5,14 +5,21 @@ An Inventory Management System for tent house suppplies for rent.It provides a U
 ###  1 - Open Visual Studio.
 From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mindfire-training/edit/main/Csharp/TentHouseRentals.Website]
 ###  2 - Build the project
-###  3 - IIS Configurations-(Add Website)
+###  3- Add a domain name to your host file - 
+![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/3a07bd16-b063-4c98-b405-fb22e6747198)
+###  4 - IIS Configurations-(Add Website)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/9593505d-9abf-457e-9924-745d3b93f13f)
-###  4 - Add path of your webconfig File
+###  5 - Add path of your Webforms File
+![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/9cb2074e-e50e-40af-8af7-e3c3c22b3a4d)
+###  6 -  Add the domain name to the path
+![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/b86592e6-bc04-43db-b196-2ba4ea081434)
 ###  5 - Create a database
 ###  6 - Browse  http://[domain name]/Login.aspx
 ##  Sections:
-## 1-Sign Up
-[Only Admin]
+## 1-Login Up
+[Only Admin] [email = User@gmail.com , password  = user123]
+## Initialise Button
+it will initialise the tables-products,customers with 4 to 5 values and transactions will be  empty
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/508ddc14-4526-421c-8135-247f2ab09970)
 ## 2-Product (List)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/a1bfb1dc-b721-4e6f-a4c5-797f8c9aaf92)
@@ -31,7 +38,7 @@ From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mind
 ## 6-Reports(Product,Detailed Transaction Report)(Download in the form of pdf)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/f34a0118-cd91-41a9-af78-0d1ff5766d30)
 
-
+## 7- 
 
 
 
