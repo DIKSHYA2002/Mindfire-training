@@ -80,11 +80,11 @@ $(document).ready(function () {
 
     $(".button-add-transaction").on("click", "#btnAddTransaction", function (e) {
         e.preventDefault();
-        if (ValidateProductTransaction()) {
+        if (validateProductTransaction()) {
             e.preventDefault();
             var customerName = transactionCustomer.value;
             var TransactionDate = dtTransactionDate.value;
-            var transactionFormatDate = GetFormattedDate(TransactionDate);
+            var transactionFormatDate = getFormattedDate(TransactionDate);
             var selectedProductId = $('#id_select2_example').find(":selected").prop("id");
             var selectedProductName = $('#id_select2_example').find(":selected").text();
             var qty = counting.value;
@@ -113,9 +113,7 @@ $(document).ready(function () {
             alert("complete all the required fields");
         }
     })
-
-
-    function ValidateProductTransaction() {
+    function validateProductTransaction() {
         var noerror;
         $(".out-section-form .input-field input[type='text'] ,.out-section-form .input-field input[type='datetime-local'],.out-section-form .input-field input[type='number']").each(function () {
             if ($(this).val().trim() == "") {
@@ -125,6 +123,9 @@ $(document).ready(function () {
             }
             else
             {
+                var labelId = $(this).attr("refto");
+                $(`#${labelId}`).css("color", "green");
+                noerror = false;
                 noerror = true;
             }
         })
@@ -139,7 +140,7 @@ $(document).ready(function () {
 
     }
 
-    function GetTransactionParticular()
+    function getTransactionParticular()
     {
         var customerId = parseInt($("#transactionCustomer2").children(":selected").attr("id"));
         if (customerId > 0) {
@@ -167,7 +168,7 @@ $(document).ready(function () {
                             var str = item.TransactionOutDate.toString();
                             var num = parseInt(str.replace(/[^0-9]/g, ""));
                             var date = new Date(num);
-                            var outDate = GetFormattedDate(date.toISOString().substring(0, 24)); 
+                            var outDate = getFormattedDate(date.toISOString().substring(0, 24)); 
                             var inDate = `<input type="datetime-local" class="retDate" id="DateOf${item.TransactionID}">`;
                             var checkornot = "";
                             var disableornot = "";
@@ -175,7 +176,7 @@ $(document).ready(function () {
                                 var str2 = item.TransactionInDate.toString();
                                 var num2 = parseInt(str2.replace(/[^0-9]/g, ""));
                                 var date = new Date(num2);
-                                var inDate = GetFormattedDate(date.toISOString().substring(0, 24)); 
+                                var inDate = getFormattedDate(date.toISOString().substring(0, 24)); 
                                 checkornot = "checked";
                                 disableornot = "disabled";
                             }
@@ -228,10 +229,10 @@ $(document).ready(function () {
 
     $(".in-section").on("change", "#transactionCustomer2", function (e) {
         e.preventDefault();
-        GetTransactionParticular();
+        getTransactionParticular();
     })
 
-    function GetFormattedDate(datetimestring)
+    function getFormattedDate(datetimestring)
     {
         const date = new Date(datetimestring);
         const hours = date.getHours();
@@ -241,11 +242,10 @@ $(document).ready(function () {
         const hours12 = hours % 12 || 12; 
    
         const timeString = `${hours12}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${amOrPm}`;
-        const dateString = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+        const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
         const resultString = `${dateString} ${timeString}`;
         return resultString;
     }
-
 
     $(".in-section").on("click", "#btnSaveInTransactionsIn", function (e) {
         var childNodes = $(".in-section-list .transaction-individual");
@@ -279,7 +279,7 @@ $(document).ready(function () {
                     $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
                     if (response.d == "Successful Transaction") {
                         alert("Transactions Succesful");
-                        GetTransactionParticular();
+                        getTransactionParticular();
                     }
                     else {
                         alert(response.d);
@@ -326,6 +326,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#btnSaveTransactions").html("SAVE TRANSACTIONS");
                     alert(response.d);
+                    getCustomers();
                 },
                 Error: function (response) {
                     $("#btnSaveTransactions").html("SAVE TRANSACTIONS");

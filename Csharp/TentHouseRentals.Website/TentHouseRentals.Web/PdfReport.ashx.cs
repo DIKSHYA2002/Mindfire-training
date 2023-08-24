@@ -9,13 +9,14 @@ using System.Globalization;
 using TentHouseRentals.BusinessAccess;
 using TentHouseRentals.Model;
 using System.Xml.Linq;
+using System.Web.SessionState;
 
 namespace TentHouseRentals.Web
 {
     /// <summary>
     /// Summary description for PdfReport
     /// </summary>
-    public class PdfReport : IHttpHandler
+    public class PdfReport : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -56,28 +57,38 @@ namespace TentHouseRentals.Web
                     {
                         List<TransactionsModel2> transactionTable = Reports.GetProductTransactions(products[i].ID);
 
-                        PdfPTable tableProduct = new PdfPTable(2);
-                        PdfPCell imageCell = new PdfPCell();
-                        imageCell.Border = PdfPCell.NO_BORDER;
+                        if(transactionTable != null )
+                        {
+                            if(transactionTable.Count > 0)
+                            {
+                                PdfPTable tableProduct = new PdfPTable(2);
+                                PdfPCell imageCell = new PdfPCell();
+                                imageCell.Border = PdfPCell.NO_BORDER;
 
-                        string imagePath = System.Web.HttpContext.Current.Server.MapPath("~/ImageFolder/") + products[i].Image;
+                                string imagePath = System.Web.HttpContext.Current.Server.MapPath("~/ImageFolder/") + products[i].Image;
 
-                        iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
-                        image.ScaleAbsolute(120f, 120f);
+                                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
+                                image.ScaleAbsolute(120f, 120f);
 
-                        imageCell.AddElement(image);
-                        PdfPCell listCell = new PdfPCell();
-                        listCell.Border = PdfPCell.NO_BORDER;
+                                imageCell.AddElement(image);
+                                PdfPCell listCell = new PdfPCell();
+                                listCell.Border = PdfPCell.NO_BORDER;
 
-                        List list = new List(List.ORDERED);
-                        list.Add(new iTextSharp.text.ListItem(""));
-                        list.Add(new iTextSharp.text.ListItem(""));
+                                List list = new List(List.ORDERED);
+                                list.Add(new iTextSharp.text.ListItem(""));
+                                list.Add(new iTextSharp.text.ListItem(""));
 
-                        listCell.AddElement(list);
-                        tableProduct.AddCell(imageCell);
-                        tableProduct.AddCell(listCell);
+                                listCell.AddElement(list);
+                                tableProduct.AddCell(imageCell);
+                                tableProduct.AddCell(listCell);
 
-                        document.Add(tableProduct);
+                                document.Add(tableProduct);
+
+                            }
+                            
+                        }
+                      
+                       
 
                         Paragraph paragraph = new Paragraph("ITEM NAME :" + products[i].Title);
                         paragraph.IndentationLeft = 50f;

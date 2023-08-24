@@ -68,7 +68,7 @@ namespace TentHouseRentals.Web
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Failed to truncate');", true);
                     }
-                  
+
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace TentHouseRentals.Web
             {
                 CommonFunctions.WriteLogFile(ex);
             }
-           
+
         }
     }
 }

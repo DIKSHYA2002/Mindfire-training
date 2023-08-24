@@ -11,25 +11,14 @@ namespace TentHouseRentals.Utilities
 {
     public class CommonFunctions
     {
-
-        public static String GetUpdatedFile(string path)
-        {
-           
-            string filePath = HttpContext.Current.Server.MapPath(path);
-            FileInfo oFileInfo = new FileInfo(filePath);
-            DateTime lastModifiedTime = oFileInfo.LastAccessTime;
-            return path + "?v=" + lastModifiedTime.ToString();
-        }
-
-           public static String GetUpdatedFilePath2(string path)
+             public static String GetUpdatedFilePath2(string path)
         {
             string filePath = HttpContext.Current.Server.MapPath(path);
             FileInfo oFileInfo = new FileInfo(filePath);
             DateTime lastModifiedTime = oFileInfo.LastWriteTime;
             String newFileName = oFileInfo.Name.Split('.')[0] + "-" + lastModifiedTime.ToString().Replace(" ", "-").Replace(":", "").Replace("-", "") + "-" + "RefreshedFile.css";
             return newFileName;
-
-        }
+          }
             public static String GetUpdatedFilePath(string path)
             {
             string filePath = HttpContext.Current.Server.MapPath(path);
@@ -50,37 +39,29 @@ namespace TentHouseRentals.Utilities
             DateTime currentDateTime = DateTime.Now;
             using (StreamWriter sw = File.AppendText(GetFilePath()))
             {
-                /*int Sessionid = -1;*/
-                /*  if (HttpContext.Current.Session != null)
-                  {
-                      Sessionid = GetSession();
-                  }*/
-                /*  if (Sessionid > -1)
-                  {
-                      sw.WriteLine("User Active with Id: " + Sessionid);
-                  }*/
+                
+                while (ex.InnerException != null)
+                {
+                    ex = ex.InnerException;
+                }
                 sw.WriteLine(currentDateTime.ToShortDateString());
                 sw.WriteLine(currentDateTime.ToString("HH:mm"));
                 sw.WriteLine($"Message: {ex.Message}");
                 sw.WriteLine("Stacktrace:" + ex.ToString());
                 sw.WriteLine();
-                if (ex.InnerException != null)
-                {
-
-                    sw.WriteLine(ex.InnerException.ToString());
-                }
+                
             }
         }
 
-        /* public static int GetSession()
-         {
-             if (HttpContext.Current.Session != null)
-             {
-                 int id = Int32.Parse(HttpContext.Current.Session["id"].ToString());
-                 return id;
-             }
-             return -1;
-         }*/
+        public static int GetSession()
+        {
+            if (HttpContext.Current.Session["id"] != null )
+            {
+                int id = Int32.Parse(HttpContext.Current.Session["id"].ToString());
+                return id;
+            }
+            return -1;
+        }
 
 
 

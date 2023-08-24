@@ -4,28 +4,32 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
+using TentHouseRentals.Utilities;
 
 namespace TentHouseRentals.Web
 {
-    public class UpdateFileHandler : IHttpHandler
+    public class UpdateFileHandler : IHttpHandler, IRequiresSessionState
     {
         public void ProcessRequest(HttpContext context)
         {
-            string path = context.Request.Path;
-            string[] filepaths = path.Split('/');
-            string fileExtension = filepaths[filepaths.Length-1].Split('.')[filepaths[filepaths.Length - 1].Split('.').Length-1];
-            string filename = filepaths[filepaths.Length - 1].Split('-')[0] + "." + fileExtension;
-            String filePath = String.Empty;
-            if(fileExtension=="js")
+            try
             {
-                 filePath = HttpContext.Current.Server.MapPath("./SCRIPT") + "\\" + filename;
-            }
-            else
-            {
-               filePath = HttpContext.Current.Server.MapPath("./CSS") + "\\" + filename;
-            }
+                string path = context.Request.Path;
+                string[] filepaths = path.Split('/');
+                string fileExtension = filepaths[filepaths.Length - 1].Split('.')[filepaths[filepaths.Length - 1].Split('.').Length - 1];
+                string filename = filepaths[filepaths.Length - 1].Split('-')[0] + "." + fileExtension;
+                String filePath = String.Empty;
+                if (fileExtension == "js")
+                {
+                    filePath = HttpContext.Current.Server.MapPath("./SCRIPT") + "\\" + filename;
+                }
+                else
+                {
+                    filePath = HttpContext.Current.Server.MapPath("./CSS") + "\\" + filename;
+                }
 
-            FileInfo file = new FileInfo(filePath);
+                FileInfo file = new FileInfo(filePath);
                 if (file.Exists)
                 {
                     context.Response.Clear();
@@ -41,6 +45,11 @@ namespace TentHouseRentals.Web
                     context.Response.Flush();
                 }
             }
+            catch(Exception ex)
+            {
+                CommonFunctions.WriteLogFile(ex);
+            }
+     }
 
         public bool IsReusable
         {

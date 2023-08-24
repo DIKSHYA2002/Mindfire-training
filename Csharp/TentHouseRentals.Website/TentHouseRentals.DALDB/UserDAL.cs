@@ -12,6 +12,12 @@ namespace TentHouseRentals.DALDB
 {
     public class UserDAL
     {
+        /// <summary>
+        /// Initialises the database
+        /// 1-Truncates(products,customers,transactions)
+        /// 2-ReAdds 4 products and 5 customers 
+        /// </summary>
+        /// <returns></returns>
         public static bool Reinitialise()
         {
             try
@@ -33,16 +39,38 @@ namespace TentHouseRentals.DALDB
                 return false;
             }
         }
+
+        /// <summary>
+        /// Input: CustomerId
+        /// Uses the view IndividualTransactionDetail
+        /// Output:Transactions (indate,outdate,transactionId,customername,productid,quantity) related to a customerid
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         public static List<IndividualTransactionDetail> GetTransactionInOutDetails(int customerId)
         {
-            using (var entities = new TentHouseRentalEntities())
+            try
             {
-                List<IndividualTransactionDetail> individual = entities.IndividualTransactionDetails.Where(s=>s.CustomerID == customerId).ToList();
-                return individual.OrderByDescending(s=>s.TransactionOutDate).ToList();
+                using (var entities = new TentHouseRentalEntities())
+                {
+                    List<IndividualTransactionDetail> individual = entities.IndividualTransactionDetails.Where(s => s.CustomerID == customerId).ToList();
+                    return individual.OrderByDescending(s => s.TransactionOutDate).ToList();
+                }
             }
+            catch(Exception e)
+            {
+                CommonFunctions.WriteLogFile(e);
+                return null;
+            }
+           
         }
      
-
+        /// <summary>
+        /// Checks whether it is a user or not 
+        /// </summary>
+        /// <param name="email">string,case-sensitive</param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static int IsUser(String email, String password)
         {
             try
@@ -75,6 +103,12 @@ namespace TentHouseRentals.DALDB
             return -1;
         }
 
+
+        /// <summary>
+        /// Finds the customerId associated with a customerName
+        /// </summary>
+        /// <param name="customerName"></param>
+        /// <returns></returns>
         public static int FindCustomerID(String customerName)
         {
             try
@@ -94,7 +128,11 @@ namespace TentHouseRentals.DALDB
 
         }
 
-
+        /// <summary>
+        /// finds the productid using a productname
+        /// </summary>
+        /// <param name="productName"></param>
+        /// <returns></returns>
         public static int FindProductID(String productName)
         {
             try
@@ -114,6 +152,11 @@ namespace TentHouseRentals.DALDB
 
         }
 
+        /// <summary>
+        /// finds the customername using customer-id
+        /// </summary>
+        /// <param name="CustomerID"></param>
+        /// <returns></returns>
         public static String FindCustomerName(int CustomerID)
         {
             try
@@ -132,6 +175,11 @@ namespace TentHouseRentals.DALDB
             }
 
         }
+        /// <summary>
+        /// submits the product 
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public static string SubmitProduct(Products product)
         {
             try
@@ -149,9 +197,18 @@ namespace TentHouseRentals.DALDB
                     u.PricePerDay = product.PricePerDay;
                     u.Image = product.Image;
                     u.QuantityBooked = 0;
-                    dtContext.Products.Add(u);
-                    dtContext.SaveChanges();
-                    return "Succesfully Added";
+
+                    if(dtContext.Products.FirstOrDefault(s => s.Title == u.Title) == null)
+                    {
+                        dtContext.Products.Add(u);
+                        dtContext.SaveChanges();
+                        return "Succesfully Added";
+                    }
+                    else
+                    {
+                        return "Product Already Exists";
+                    }
+                   
                 }
             }
             catch (Exception ex)
@@ -161,6 +218,10 @@ namespace TentHouseRentals.DALDB
             }
         }
 
+        /// <summary>
+        /// get the list of products
+        /// </summary>
+        /// <returns></returns>
         public static List<Product> GetProducts()
         {
 
@@ -180,14 +241,19 @@ namespace TentHouseRentals.DALDB
             return null;
 
         }
+
+        /// <summary>
+        /// get a particular product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Products GetProduct(int id)
         {
-
             try
             {
                 using (var entities = new TentHouseRentalEntities())
                 {
-                    Product product = entities.Products.Where(s=>s.ID == id).Single();
+                    Product product = entities.Products.SingleOrDefault(s => s.ID == id);
                     Products productnew = new Products();
                     productnew.Image = product.Image;
                     productnew.ID = product.ID;
@@ -205,20 +271,30 @@ namespace TentHouseRentals.DALDB
 
         }
 
+        /// <summary>
+        /// get the product name associated with productid
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public static string GetProductName(int productId)
         {
             using (var entities = new TentHouseRentalEntities())
             {
-                return entities.Products.Where(p => p.ID == productId).First().Title;
+                return entities.Products.FirstOrDefault(p => p.ID == productId).Title;
             }
         }
+        /// <summary>
+        /// Submit the customer to the database
+        /// </summary>
+        /// <param name="customerName"></param>
+        /// <returns></returns>
         public static bool SubmitCustomer(String customerName)
         {
             try
             {
                 using (var dtContext = new TentHouseRentalEntities())
                 {
-                    var customer = dtContext.Customers.Where(s => s.Name == customerName).FirstOrDefault();
+                    var customer = dtContext.Customers.FirstOrDefault(s => s.Name == customerName);
                     if (customer != null)
                     {
                         return false;
@@ -237,6 +313,11 @@ namespace TentHouseRentals.DALDB
                 return false;
             }
         }
+
+        /// <summary>
+        /// Get the list of customers
+        /// </summary>
+        /// <returns></returns>
         public static List<Customer> GetCustomers()
         {
             try
@@ -256,6 +337,12 @@ namespace TentHouseRentals.DALDB
             return null;
 
         }
+
+        /// <summary>
+        /// gets all the transactions associated with a productID
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public static List<TransactionsModel2> GetProductTransactions(int productId)
         {
 
@@ -264,18 +351,23 @@ namespace TentHouseRentals.DALDB
                 using (var entities = new TentHouseRentalEntities())
                 {
                     List<Transaction> transactions = entities.Transactions.Where(t => t.ProductID == productId).ToList();
-                    List<TransactionsModel2> transactionMod = transactions.Select(tr =>
-                      new TransactionsModel2
-                      {
-                          TransactionID = tr.TransactionID,
-                          TransactionDateTime = tr.TransactionDateTime.ToString(),
-                          CustomerName = FindCustomerName(tr.CustomerID),
-                          ProductName = GetProductName(tr.ProductID),
-                          Type = tr.Type,
-                          Quantity = tr.Quantity,
-                          ParentID = tr.ParentID
-                      }).ToList();
-                    return transactionMod;
+                    if(transactions.Count != 0 )
+                    {
+                        List<TransactionsModel2> transactionMod = transactions.Select(tr =>
+                     new TransactionsModel2
+                     {
+                         TransactionID = tr.TransactionID,
+                         TransactionDateTime = tr.TransactionDateTime.ToString(),
+                         CustomerName = FindCustomerName(tr.CustomerID),
+                         ProductName = GetProductName(tr.ProductID),
+                         Type = tr.Type,
+                         Quantity = tr.Quantity,
+                         ParentID = tr.ParentID
+                     }).OrderByDescending(s=>s.TransactionDateTime).ToList();
+                        return transactionMod;
+                    }
+
+                    return null;
 
                 }
             }
@@ -287,37 +379,12 @@ namespace TentHouseRentals.DALDB
             return null;
         }
 
-        public static List<TransactionsModel2> GetCustomerTransactions(String CustomerName)
-        {
-
-            try
-            {
-                using (var entities = new TentHouseRentalEntities())
-                {
-                    int customerId = FindCustomerID(CustomerName);
-                    List<Transaction> transactions = entities.Transactions.Where(t => t.CustomerID == customerId && t.Type == "OUT").ToList();
-
-                    List<TransactionsModel2> transactionMod = transactions.Select(tr =>
-                       new TransactionsModel2
-                       {
-                           TransactionID = tr.TransactionID,
-                           TransactionDateTime = tr.TransactionDateTime.ToString(),
-                           CustomerName = FindCustomerName(tr.CustomerID),
-                           ProductName = GetProductName(tr.ProductID),
-                           Type = tr.Type,
-                           Quantity = tr.Quantity,
-                           ParentID = tr.ParentID
-                       }).ToList();
-                    return transactionMod.OrderByDescending(s=>s.TransactionDateTime).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                CommonFunctions.WriteLogFile(ex);
-
-            }
-            return null;
-        }
+     
+        /// <summary>
+        /// Submit the transactions list
+        /// </summary>
+        /// <param name="transactions"></param>
+        /// <returns></returns>
         public static String SubmitTransactions(List<TransactionsModel2> transactions)
         {
             String resultMessage = "Server Side Error";
@@ -335,6 +402,7 @@ namespace TentHouseRentals.DALDB
                         ParentID = x.ParentID
                     }).ToList();
 
+
                     using (DbContextTransaction transaction = dtContext.Database.BeginTransaction())
                     {
                         try
@@ -342,14 +410,23 @@ namespace TentHouseRentals.DALDB
                             bool flag = false;
                             for (var i = 0; i < list2.Count; i++)
                             {
+
                                 int amount = list2[i].Quantity;
                                 int productid = list2[i].ProductID;
-                                Product product = dtContext.Products.Where(s => s.ID == productid).FirstOrDefault();
+                                Product product = dtContext.Products.FirstOrDefault(s => s.ID == productid);
                                 if (product != null)
                                 {
  
                                     if (list2[i].Type == "OUT")
                                     {
+                                        if(list2[i].CustomerID<=0)
+                                        {
+                                            Customer u = new Customer();
+                                            u.Name = transactions[i].CustomerName;
+                                            dtContext.Customers.Add(u);
+                                            dtContext.SaveChanges();
+                                            list2[i].CustomerID = u.ID;
+                                        }
                                         if (amount <= 0)
                                         {
                                             return "Quantity Should be >0";
@@ -408,12 +485,17 @@ namespace TentHouseRentals.DALDB
 
         }
 
-
+        /// <summary>
+        /// Check the returnDate of a transaction id in the view IndividualtransactionDetails is later then outdate or not
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="transactionId"></param>
+        /// <returns></returns>
         public static bool CheckReturnDateLaterThanOutDateOrNot(DateTime d , int transactionId)
         {
             using(var entities = new TentHouseRentalEntities())
             {
-                var transaction = entities.Transactions.Where(t=>t.TransactionID== transactionId).FirstOrDefault();
+                var transaction = entities.Transactions.FirstOrDefault(t => t.TransactionID == transactionId);
                 if (d <= transaction.TransactionDateTime)
                 {
                     return false;
@@ -425,6 +507,6 @@ namespace TentHouseRentals.DALDB
             }
         }
 
-      
+       
     }
 }

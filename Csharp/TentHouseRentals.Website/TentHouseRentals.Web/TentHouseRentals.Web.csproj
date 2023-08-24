@@ -207,6 +207,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="SCRIPT\SelectTool.js" />
     <Content Include="SCRIPT\Transaction.js" />
     <Content Include="TransactionsPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />

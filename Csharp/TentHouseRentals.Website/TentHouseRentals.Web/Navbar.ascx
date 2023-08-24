@@ -15,7 +15,7 @@
               </a>
             </li>--%>
             <li class="nav-link">
-                  <span class="material-symbols-outlined bx bx-chevron-right toggle ">
+                <span class="material-symbols-outlined bx bx-chevron-right toggle ">
                      chevron_right
                     </span>
               <a href="ProductsPage.aspx" id="productsTab">

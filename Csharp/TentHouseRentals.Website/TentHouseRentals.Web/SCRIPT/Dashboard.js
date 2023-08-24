@@ -9,5 +9,8 @@ toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 });
 
+$("#btnLogout").click(function (e) {
+    Window.location.href = "Login.aspx";
+})
 
 

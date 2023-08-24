@@ -105,11 +105,13 @@ $(document).ready(function () {
                
                 $("#transactionResults .table_row").remove();
                 $(".product-transaction-individuals.error").remove();
-                if (response.d.length != 0)
+
+                if (response.d != null)
                 {
-                    response.d.forEach((item => {
-                   var TransDate = GetFormattedDate(item.TransactionDateTime.substring(0,24)); 
-                        var $newDiv = `
+                    if (response.d.length != 0 && response.d !== null) {
+                        response.d.forEach((item => {
+                            var TransDate = item.TransactionDateTime.substring(0, 16);
+                            var $newDiv = `
                   <div class='table_row'>
                     <div class='table_small'>
                       <div class='table_cell'>ID</div>
@@ -137,10 +139,13 @@ $(document).ready(function () {
                     </div>
                   </div>
               `;
-                        $("#transactionResults").append($newDiv);
+                            $("#transactionResults").append($newDiv);
 
-                    }))
+                        }))
+                    }
+
                 }
+               
                 else
                 {
                     var $newDiv = ` <div class="product-transaction-individuals  error">
@@ -156,25 +161,7 @@ $(document).ready(function () {
             }
         });
     }
-    function GetFormattedDate(datetimestring) {
-        /*const date = new Date(datetimestring);
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const seconds = date.getSeconds();
-        const amOrPm = hours >= 12 ? 'PM' : 'AM';
-        const hours12 = hours % 12 || 12;
-
-        const timeString = `${hours12}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${amOrPm}`;
-        const dateString = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-        const resultString = `${dateString} ${timeString}`;
-        return resultString;*/
-        const [datePart, timePart] = datetimestring.split(' ');
-        const [day, month, year] = datePart.split('-');
-        const date = new Date(year, month - 1, day);
-        const localDateString = date.toLocaleDateString();
-
-        return localDateString;
-    }
+  
 })
 
 

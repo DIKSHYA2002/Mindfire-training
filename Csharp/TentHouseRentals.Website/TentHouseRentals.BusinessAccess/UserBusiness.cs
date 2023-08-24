@@ -11,10 +11,19 @@ namespace TentHouseRentals.BusinessAccess
 {
     public class UserBusiness
     {
+        /// <summary>
+        /// calls the reinitialise() from database
+        /// </summary>
+        /// <returns></returns>
         public static bool Reinitialise()
         {
             return UserDAL.Reinitialise();
         }
+        /// <summary>
+        /// call the individualtransactiondetails view row from database
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         public static List<IndividualTransactionDetails> GetIndividualTransactionDetails(int customerId)
         {
             List<IndividualTransactionDetails> transact = UserDAL.GetTransactionInOutDetails(customerId).Select(
@@ -32,36 +41,60 @@ namespace TentHouseRentals.BusinessAccess
             return transact;
         }
        
+        /// <summary>
+        /// checks if it is a user or not
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static int IsUser(String email, String password)
         {
             return UserDAL.IsUser(email, password);
         }
+        /// <summary>
+        /// submit the product
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public static string SubmitProduct(Products product)
         {
             return UserDAL.SubmitProduct(product);
         }
+        /// <summary>
+        /// get transactions related to a productId
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
 
-        public static List<TransactionsModel2> GetCustomerTransactions(String CustomerName)
-        {
-            return UserDAL.GetCustomerTransactions(CustomerName).OrderByDescending(s=>s.TransactionDateTime).ToList();
-        }
         public static List<TransactionsModel2> GetProductTransactions(int productId)
         {
             return UserDAL.GetProductTransactions(productId);
         }
+
+        /// <summary>
+        /// get productname from id
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public static String GetProductName(int productId)
         {
             return UserDAL.GetProductName(productId);
         }
-      /*  public static int FindCustomerID(String customerName)
-        {
-            int value = UserDAL.FindCustomerID(customerName);
-            return value;
-        }*/
+
+     /// <summary>
+     /// submit the customer
+     /// </summary>
+     /// <param name="customerName"></param>
+     /// <returns></returns>
         public static bool SubmitCustomer(String customerName)
         {
             return UserDAL.SubmitCustomer(customerName);
         }
+
+        /// <summary>
+        /// get productlist from the database
+        /// </summary>
+        /// <returns></returns>
         public static List<Products> GetProducts()
         {
             List<Products> products = UserDAL.GetProducts().Select(st => new Products
@@ -76,12 +109,21 @@ namespace TentHouseRentals.BusinessAccess
             return products.OrderBy(s => s.Title).ToList();
         }
 
+        /// <summary>
+        /// get individual product 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         public static Products GetProduct(int id)
         {
             Products products = UserDAL.GetProduct(id);
             return products;
         }
+        /// <summary>
+        /// get customer list
+        /// </summary>
+        /// <returns></returns>
 
         public static List<Customers> GetCustomers()
         {
@@ -94,7 +136,11 @@ namespace TentHouseRentals.BusinessAccess
             return customers.OrderBy(s => s.Name).ToList();
         }
 
-
+        /// <summary>
+        /// submit the and out transactions
+        /// </summary>
+        /// <param name="transactions"></param>
+        /// <returns></returns>
         public static String SubmitTransactions(List<TransactionsModel2> transactions)
         {
             return UserDAL.SubmitTransactions(transactions);

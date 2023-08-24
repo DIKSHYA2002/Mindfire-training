@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TentHouseRentals.BusinessAccess;
 using TentHouseRentals.Model;
+using TentHouseRentals.Utilities;
 
 namespace TentHouseRentals.Web
 {
@@ -23,15 +24,51 @@ namespace TentHouseRentals.Web
             }
 
         }
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public static bool SubmitCustomer(String customerName)
         {
-            return UserBusiness.SubmitCustomer(customerName);
+
+
+            try
+            {
+                if (CommonFunctions.GetSession()!=-1)
+                     {
+                    return UserBusiness.SubmitCustomer(customerName);
+                    }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                CommonFunctions.WriteLogFile(ex);
+            }
+            return false;
+
         }
-        [WebMethod]
+        [WebMethod(EnableSession=true)]
         public static List<Customers> GetCustomers()
         {
-            return UserBusiness.GetCustomers();
+            try
+            {
+                if (CommonFunctions.GetSession() != -1)
+                {
+
+                    return UserBusiness.GetCustomers();
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                CommonFunctions.WriteLogFile(ex);
+            }
+            return null;
         }
     }
 }

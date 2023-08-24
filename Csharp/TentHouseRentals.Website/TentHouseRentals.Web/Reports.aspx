@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <title></title>
+    <title>Reports</title>
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Navbar.css") %>"  />
@@ -23,8 +23,6 @@
               <div class="report-action">
                   <button id="btnProductReport">PRODUCT REPORT</button>
                     <button id="btnProductDetailedReport">DETAIL REPORT</button>
-                  <%--<asp:Button runat="server" OnClick="btnClickDownloadReportProducts_Click" Text="Product Report" ></asp:Button>--%>
-              <%-- <asp:Button runat="server" OnClick="btnDownloadDetail" Text="Detail Report" ></asp:Button>--%>
                 <select name="SelectProductName" id="SelectProductName">
                 </select>
               </div>

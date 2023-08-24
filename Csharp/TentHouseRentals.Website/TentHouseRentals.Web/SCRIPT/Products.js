@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $('.input-field').on('click', "#btnSubmitProduct", function (e) {
 
-        if (ValidateProductSubmit()) {
+        if (validateProductSubmit()) {
 
             var loadingGif = `<img src="./ImageFolder/Loading.gif" style="width:50px; height:50px">`;
             const fileInput = document.querySelector('#flImage');
@@ -53,7 +53,7 @@ $(document).ready(function () {
     });
 
 
-    function ValidateProductSubmit() {
+    function validateProductSubmit() {
         var noerror;
         $("#AddProductModal .input-field input[type='text'] ,#AddProductModal .input-field input[type='number']").each(function () {
             if ($(this).val().trim() == "") {
@@ -62,6 +62,8 @@ $(document).ready(function () {
                 noerror=false;
             }
             else {
+                var labelId = $(this).attr("refto");
+                $(`#${labelId}`).css("color", "green");
                 noerror = true;
             }
         })
@@ -71,6 +73,10 @@ $(document).ready(function () {
             noerror = false;
             var labelId = $("#flImage").attr("refto");
             $(`#${labelId}`).css("color", "red");
+        }
+        else {
+            var labelId = $("#flImage").attr("refto");
+            $(`#${labelId}`).css("color", "green");
         }
         return noerror;
         

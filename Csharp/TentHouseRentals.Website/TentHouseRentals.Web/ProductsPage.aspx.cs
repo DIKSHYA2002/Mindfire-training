@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TentHouseRentals.BusinessAccess;
 using TentHouseRentals.Model;
+using TentHouseRentals.Utilities;
 
 namespace TentHouseRentals.Web
 {
@@ -22,10 +23,28 @@ namespace TentHouseRentals.Web
                 }
             }
         }
-        [WebMethod]
+        [WebMethod(EnableSession=true)]
         public static List<Products> GetProducts()
         {
-            return UserBusiness.GetProducts();
+            try
+            {
+                if (CommonFunctions.GetSession() != -1)
+                {
+                    return UserBusiness.GetProducts();
+
+                }
+                else
+                {
+
+                    return null;
+                }
+            }
+            catch(Exception ex)
+            {
+                CommonFunctions.WriteLogFile(ex);
+            }
+            return null;
+            
         }
     }
 }
