@@ -8,10 +8,8 @@ From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mind
 ###  3 - IIS Configurations-(Add Website)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/9593505d-9abf-457e-9924-745d3b93f13f)
 ###  4 - Add path of your webconfig File
-###  5- Set Default Document as Login.aspx
-###  5 - Browse
-###  6 - Create a database
-###  7 - Browse  http://[domain name]/Login.aspx
+###  5 - Create a database
+###  6 - Browse  http://[domain name]/Login.aspx
 ##  Sections:
 ## 1-Sign Up
 [Only Admin]
