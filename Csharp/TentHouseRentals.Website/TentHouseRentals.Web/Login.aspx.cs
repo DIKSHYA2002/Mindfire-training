@@ -14,6 +14,11 @@ namespace TentHouseRentals.Web
         protected void Page_Load(object sender, EventArgs e)
         {
            
+                if(Session != null)
+                {
+                    Response.Redirect("ProductsPage.aspx");
+                }
+        
         }
         
         protected void LoginBtn(object sender, EventArgs e)
