@@ -34,16 +34,10 @@ namespace TentHouseRentals.Web
             //Save the File in Folder.
             p.Image = storedFileNAME;
             postedFile.SaveAs(folderPath + storedFileNAME);
-            bool submitProduct = UserBusiness.SubmitProduct(p);
-          
-            string json = new JavaScriptSerializer().Serialize(
-                    new
-                    {
-                        name = p.Title
-                    });
+            string submitProduct = UserBusiness.SubmitProduct(p);
             context.Response.StatusCode = (int)HttpStatusCode.OK;
-            context.Response.ContentType = "text/json";
-            context.Response.Write(json);
+            context.Response.ContentType = "text/plain";
+            context.Response.Write(submitProduct);
             context.Response.End();
         }
 

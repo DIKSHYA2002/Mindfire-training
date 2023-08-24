@@ -36,7 +36,7 @@ namespace TentHouseRentals.BusinessAccess
         {
             return UserDAL.IsUser(email, password);
         }
-        public static bool SubmitProduct(Products product)
+        public static string SubmitProduct(Products product)
         {
             return UserDAL.SubmitProduct(product);
         }

@@ -36,8 +36,9 @@ $(document).ready(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
+                    
                     $("#btnSubmitProduct").html("Add Product");
-                    alert("succesfully Added Product");
+                    alert(response);
                     getProductList();
                 },
                 Error: function (response) {

@@ -132,12 +132,17 @@ namespace TentHouseRentals.DALDB
             }
 
         }
-        public static bool SubmitProduct(Products product)
+        public static string SubmitProduct(Products product)
         {
             try
             {
                 using (var dtContext = new TentHouseRentalEntities())
                 {
+                    if( product.QuantityPresent<=0 || product.PricePerDay <= 0)
+                    {
+                        return "Quantity or Price cannot be negative or zero";
+                    }
+
                     Product u = new Product();
                     u.Title = product.Title;
                     u.QuantityPresent = product.QuantityPresent;
@@ -146,13 +151,13 @@ namespace TentHouseRentals.DALDB
                     u.QuantityBooked = 0;
                     dtContext.Products.Add(u);
                     dtContext.SaveChanges();
-                    return true;
+                    return "Succesfully Added";
                 }
             }
             catch (Exception ex)
             {
                 CommonFunctions.WriteLogFile(ex);
-                return false;
+                return "Failed Transaction";
             }
         }
 
