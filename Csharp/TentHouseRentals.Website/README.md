@@ -11,8 +11,10 @@ From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mind
 ###  5 - Create a database
 ###  6 - Browse  http://[domain name]/Login.aspx
 ##  Sections:
-## 1-Sign Up
-[Only Admin]
+## 1-Login Up
+[Only Admin] [email = User@gmail.com , password  = user123]
+## Initialise Button
+it will initialise the tables-products,customers with 4 to 5 values and transactions will be  empty
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/508ddc14-4526-421c-8135-247f2ab09970)
 ## 2-Product (List)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/a1bfb1dc-b721-4e6f-a4c5-797f8c9aaf92)
@@ -31,7 +33,7 @@ From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mind
 ## 6-Reports(Product,Detailed Transaction Report)(Download in the form of pdf)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/f34a0118-cd91-41a9-af78-0d1ff5766d30)
 
-
+## 7- 
 
 
 
