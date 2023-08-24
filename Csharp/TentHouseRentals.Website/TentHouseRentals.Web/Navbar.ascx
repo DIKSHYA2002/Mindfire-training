@@ -4,16 +4,6 @@
       <div class="menu-bar">
         <div class="menu">
           <ul class="menu-links">
-           <%-- <li class="nav-link">
-                 <span class="material-symbols-outlined bx bx-chevron-right toggle ">
-                     chevron_right
-                    </span>
-              <a href="Dashboard.aspx" id="dashboardTab">
-                  <span class="material-symbols-outlined bx bxs-home-smile icon">home</span>
-                <span class="text nav-text">Home</span>
-                 
-              </a>
-            </li>--%>
             <li class="nav-link">
                 <span class="material-symbols-outlined bx bx-chevron-right toggle ">
                      chevron_right

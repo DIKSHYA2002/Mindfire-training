@@ -25,8 +25,6 @@ $(document).ready(function () {
     });
 
     function getCustomers() {
-       
-        
         $.ajax({
             type: "POST",
             url: "CustomersPage.aspx/GetCustomers",
@@ -144,7 +142,6 @@ $(document).ready(function () {
     {
         var customerId = parseInt($("#transactionCustomer2").children(":selected").attr("id"));
         if (customerId > 0) {
-         /*   $(".in-section-list").find(".theader").html(loadingGif);*/
             var arr = { customerId: customerId };
             $.ajax({
                 type: "POST",
@@ -326,6 +323,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#btnSaveTransactions").html("SAVE TRANSACTIONS");
                     alert(response.d);
+                    getTransactionParticular();
                     getCustomers();
                 },
                 Error: function (response) {
