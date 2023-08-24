@@ -23,7 +23,7 @@
               <div class="report-action">
                   <button id="btnProductReport">PRODUCT REPORT</button>
                     <button id="btnProductDetailedReport">DETAIL REPORT</button>
-                <select name="SelectProductName" id="SelectProductName">
+                <select name="selectProductName" id="selectProductName">
                 </select>
               </div>
               <div class="report-page">

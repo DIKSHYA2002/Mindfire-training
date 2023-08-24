@@ -235,8 +235,7 @@ $(document).ready(function () {
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
         const amOrPm = hours >= 12 ? 'PM' : 'AM';
-        const hours12 = hours % 12 || 12; 
-   
+        const hours12 = hours % 12 || 12;   
         const timeString = `${hours12}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${amOrPm}`;
         const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
         const resultString = `${dateString} ${timeString}`;

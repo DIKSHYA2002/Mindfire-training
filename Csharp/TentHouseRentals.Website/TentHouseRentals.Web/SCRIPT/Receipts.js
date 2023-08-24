@@ -14,7 +14,7 @@ $(document).ready(function () {
                     var $newDiv = `
                     <option value="${item.ID}">${item.Title}</option>
                `;
-                    $("#SelectProductName").append($newDiv);
+                    $("#selectProductName").append($newDiv);
                 }))
                 getProduct1();
             },
@@ -24,7 +24,7 @@ $(document).ready(function () {
         });
     }
     function getProduct1() {
-        var selectedId = SelectProductName.value;
+        var selectedId = selectProductName.value;
         var arr = { id: selectedId };
         $.ajax({
             type: "POST",
@@ -52,9 +52,9 @@ $(document).ready(function () {
 
     }
 
-    $("#productReports").on("change", "#SelectProductName", function (e) {
+    $("#productReports").on("change", "#selectProductName", function (e) {
         e.preventDefault();
-        var selectedId = SelectProductName.value;
+        var selectedId = selectProductName.value;
         var arr = { id: selectedId };
         $(".product-details").html(loadingGif);
         $.ajax({
@@ -93,7 +93,7 @@ $(document).ready(function () {
     })
     function getTransactionList(productId) {
         var arr = { productId: productId };
-     
+
         $.ajax({
             type: "POST",
             url: "Reports.aspx/GetProductTransactions",
@@ -102,12 +102,11 @@ $(document).ready(function () {
             dataType: "json",
             async: "false",
             success: function (response) {
-               
+
                 $("#transactionResults .table_row").remove();
                 $(".product-transaction-individuals.error").remove();
 
-                if (response.d != null)
-                {
+                if (response.d != null) {
                     if (response.d.length != 0 && response.d !== null) {
                         response.d.forEach((item => {
                             var TransDate = item.TransactionDateTime.substring(0, 16);
@@ -145,34 +144,20 @@ $(document).ready(function () {
                     }
 
                 }
-               
-                else
-                {
+
+                else {
                     var $newDiv = ` <div class="product-transaction-individuals  error">
                     <h3> No Transactions Found</h3>
                     </div>`;
                     $(".report-page").append($newDiv);
 
                 }
-               
+
             },
             Error: function (response) {
                 alert(response);
             }
         });
     }
-  
+
 })
-
-
-
-
-
-
-
-
-
-
-
-
-

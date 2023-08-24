@@ -1,7 +1,45 @@
 ﻿const  loadingGif = `<img src="./ImageFolder/Loading.gif" style="width:30px; height:30px">`;
 $(document).ready(function () {
+
+    /*----------------------drag and drop-------- */
+    const fileInputField = $('.file-input');
+    const dropareaField = $('.file-drop-area');
+    const deleteField = $('.item-delete');
+
+    fileInputField.on('dragenter focus click', function () {
+        dropareaField.addClass('is-active');
+    });
+
+    fileInputField.on('dragleave blur drop', function () {
+        dropareaField.removeClass('is-active');
+    });
+
+    fileInputField.on('change', function () {
+        let filesCount = $(this)[0].files.length;
+        let textContainer = $(this).prev();
+
+        if (filesCount === 1) {
+            let fileName = $(this).val().split('\\').pop();
+            textContainer.text(fileName);
+            $('.item-delete').css('display', 'inline-block');
+        } else if (filesCount === 0) {
+            textContainer.text('or drop files here');
+            $('.item-delete').css('display', 'none');
+        } else {
+            textContainer.text(filesCount + ' files selected');
+            $('.item-delete').css('display', 'inline-block');
+        }
+    });
+
+    deleteField.on('click', function () {
+        $('.file-input').val(null);
+        $('.file-msg').text('or drop files here');
+        $('.item-delete').css('display', 'none');
+    });
+
+    /*---------------------Modal Functions-------------------------*/
     
-    var modal = document.getElementById("AddProductModal");
+  
     $(".main-section").on("click", "#btnOpenAddProductModal", function (e) {
         e.preventDefault();
         $("#AddProductModal").css("display", "block");
@@ -10,12 +48,8 @@ $(document).ready(function () {
     $(".closeModal").on("click", function () {
         $("#AddProductModal").css("display", "none");
     })
-    window.onclick = function (event) {
-        if (event.target == $(".main-section")[0]) {
-            modal.style.display = "none";
-        }
-    }
-
+   
+    /*--------------------submit product--------------------*/
     $('.input-field').on('click', "#btnSubmitProduct", function (e) {
 
         if (validateProductSubmit()) {
@@ -52,7 +86,6 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-
     function validateProductSubmit() {
         var noerror;
         $("#AddProductModal .input-field input[type='text'] ,#AddProductModal .input-field input[type='number']").each(function () {
@@ -81,6 +114,8 @@ $(document).ready(function () {
         return noerror;
         
     }
+
+    /*--------------------get product list--------------------*/
     getProductList();
     function getProductList() {
         $(".product-lists").html(`<img src="./ImageFolder/Loading.gif" style="width: 10rem; height: 10rem">`);
@@ -115,37 +150,3 @@ $(document).ready(function () {
     
 })
 
-const $fileInput = $('.file-input');
-const $droparea = $('.file-drop-area');
-const $delete = $('.item-delete');
-
-$fileInput.on('dragenter focus click', function () {
-    $droparea.addClass('is-active');
-});
-
-$fileInput.on('dragleave blur drop', function () {
-    $droparea.removeClass('is-active');
-});
-
-$fileInput.on('change', function () {
-    let filesCount = $(this)[0].files.length;
-    let $textContainer = $(this).prev();
-
-    if (filesCount === 1) {
-        let fileName = $(this).val().split('\\').pop();
-        $textContainer.text(fileName);
-        $('.item-delete').css('display', 'inline-block');
-    } else if (filesCount === 0) {
-        $textContainer.text('or drop files here');
-        $('.item-delete').css('display', 'none');
-    } else {
-        $textContainer.text(filesCount + ' files selected');
-        $('.item-delete').css('display', 'inline-block');
-    }
-});
-
-$delete.on('click', function () {
-    $('.file-input').val(null);
-    $('.file-msg').text('or drop files here');
-    $('.item-delete').css('display', 'none');
-});
