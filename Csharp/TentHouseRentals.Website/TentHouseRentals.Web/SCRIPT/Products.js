@@ -128,9 +128,10 @@ $(document).ready(function () {
             async: "false",
             success: function (response) {
                 $(".product-lists").empty();
-             
-                response.d.forEach((item => {
-                    var $newDiv = `<div class="product">
+
+                if (response.d != null) {
+                    response.d.forEach((item => {
+                        var $newDiv = `<div class="product">
                    <img src="./ImageFolder/${item.Image}"/>
                    <div class="product-details">
                    <div class="product-title info">Name: ${item.Title}</div>
@@ -139,8 +140,10 @@ $(document).ready(function () {
                    <div class="product-rented-quantity info">On Rent: ${item.QuantityBooked}</div> 
                    </div> 
                </div>`;
-                    $(".product-lists").append($newDiv);
-                }))
+                        $(".product-lists").append($newDiv);
+                    }))
+                }
+                
             },
             Error: function (response) {
                 alert(response);

@@ -50,20 +50,28 @@ $(document).ready(function () {
             async: "false",
             success: function (response) {
                 $(".customer-lists").empty();
+
+
                 var $newDiv = `<div class="customer head">
                                    <div class="customer-id">CUSTOMER-ID</div>
                                    <div class="customer-name">CUSTOMER-NAME</div>
                            </div>`;
                 $(".customer-lists").append($newDiv);
 
-                response.d.forEach((item => {
+                if (response.d != null) {
+                    response.d.forEach((item => {
 
-                    var $newDiv = `<div class="customer">
+                        var $newDiv = `<div class="customer">
                                    <div class="customer-id">${item.ID}</div>
                                    <div class="customer-name">${item.Name}</div>
                            </div>`
-                    $(".customer-lists").append($newDiv);
-                }))
+                        $(".customer-lists").append($newDiv);
+                    }))
+                }
+                else {
+                    alert("failed to load");
+                }
+               
             },
             Error: function (response) {
                 alert(response);

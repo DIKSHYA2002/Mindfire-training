@@ -10,13 +10,17 @@ $(document).ready(function () {
             dataType: "json",
             async: "false",
             success: function (response) {
-                response.d.forEach((item => {
-                    var $newDiv = `
+                if (response.d != null)
+                {
+                    response.d.forEach((item => {
+                        var $newDiv = `
                     <option value="${item.ID}">${item.Title}</option>
                `;
-                    $("#selectProductName").append($newDiv);
-                }))
-                getProduct1();
+                        $("#selectProductName").append($newDiv);
+                    }))
+                    getProduct1();
+                }
+               
             },
             Error: function (response) {
                 alert(response);
@@ -34,16 +38,22 @@ $(document).ready(function () {
             dataType: "json",
             async: "false",
             success: function (response) {
-                $(".product").remove();
-                var $newDiv = `<div class="product">
+                if (response.d != null) {
+                    $(".product").remove();
+                    var $newDiv = `<div class="product">
                    <img src="./ImageFolder/${response.d.Image}"/>
                    <div class="product-details">
                    <div class="product-title info">Name: ${response.d.Title}</div>
                    <div class="product-present-quantity info">Quantity : ${response.d.QuantityPresent}</div>
                    </div> 
                </div>`;
-                $(".product-details").append($newDiv);
-                getTransactionList(response.d.ID);
+                    $(".product-details").append($newDiv);
+                    getTransactionList(response.d.ID);
+                }
+                else {
+                    alert("failed to load");
+                }
+               
             },
             Error: function (response) {
                 alert(response);
@@ -74,15 +84,22 @@ $(document).ready(function () {
             success: function (response) {
                 $(".product-details").empty();
                 $(".product").remove();
-                var $newDiv = `<div class="product">
+                if (response.d != null) {
+                    var $newDiv = `<div class="product">
                    <img src="./ImageFolder/${response.d.Image}"/>
                    <div class="product-details">
                    <div class="product-title info">Name: ${response.d.Title}</div>
                    <div class="product-present-quantity info">Quantity : ${response.d.QuantityPresent}</div>
                    </div> 
                </div>`;
-                $(".product-details").append($newDiv);
-                getTransactionList(response.d.ID);
+                    $(".product-details").append($newDiv);
+                    getTransactionList(response.d.ID);
+                }
+                else {
+                    alert("failed to load");
+                }
+              
+              
             },
             Error: function (response) {
                 alert(response);
