@@ -53,8 +53,8 @@ namespace TentHouseRentals.DALDB
             {
                 using (var entities = new TentHouseRentalEntities())
                 {
-                    List<IndividualTransactionDetail> individual = entities.IndividualTransactionDetails.Where(s => s.CustomerID == customerId).ToList();
-                    return individual.OrderByDescending(s => s.TransactionOutDate).ToList();
+                    List<IndividualTransactionDetail> individual = entities.IndividualTransactionDetails.Where(s => s.CustomerID == customerId).OrderByDescending(s => s.TransactionOutDate).ToList();
+                    return individual;
                 }
             }
             catch(Exception e)
@@ -115,7 +115,7 @@ namespace TentHouseRentals.DALDB
             {
                 using (var entities = new TentHouseRentalEntities())
                 {
-                    var Customer = entities.Customers.Where(c => c.Name == customerName).FirstOrDefault();
+                    var Customer = entities.Customers.FirstOrDefault(c => c.Name == customerName);
                     return Customer.ID;
                 }
 
@@ -139,7 +139,7 @@ namespace TentHouseRentals.DALDB
             {
                 using (var entities = new TentHouseRentalEntities())
                 {
-                    var product = entities.Products.Where(c => c.Title == productName).FirstOrDefault();
+                    var product = entities.Products.FirstOrDefault(c => c.Title == productName);
                     return product.ID;
                 }
 
@@ -163,7 +163,7 @@ namespace TentHouseRentals.DALDB
             {
                 using (var entities = new TentHouseRentalEntities())
                 {
-                    var Customer = entities.Customers.Where(c => c.ID == CustomerID).FirstOrDefault();
+                    var Customer = entities.Customers.FirstOrDefault(c => c.ID == CustomerID);
                     return Customer.Name;
                 }
 
