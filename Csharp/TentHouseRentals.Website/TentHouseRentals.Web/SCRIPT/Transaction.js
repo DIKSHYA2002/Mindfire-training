@@ -14,7 +14,6 @@ $(document).ready(function () {
         if (this.value == 'in') {
             $(".in-section").css("display", "flex");
             $(".out-section").css("display", "none");
-          
         }
         else if (this.value == 'out') {
             $(".in-section").css("display", "none");

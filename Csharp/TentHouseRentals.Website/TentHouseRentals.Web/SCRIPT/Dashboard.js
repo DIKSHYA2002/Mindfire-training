@@ -1,16 +1,29 @@
-﻿const body = document.querySelector("body"),
-    sidebar = body.querySelector("nav"),
-    toggle = body.querySelector(".toggle"),
-    searchBtn = body.querySelector(".search-box"),
-    modeSwitch = body.querySelector(".toggle-switch"),
-    modeText = body.querySelector(".mode-text");
+﻿
+$("nav").on("click", ".toggle", function (e) {
+    $("nav").toggleClass("close");
+})
 
-toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-});
 
 $("#btnLogout").click(function (e) {
     Window.location.href = "Login.aspx";
 })
 
-
+function ValidateLogin() {
+    var error;
+    $(".login-container input[type='email'] ,.login-container input[type='password'] ").each(function () {
+        if ($(this).val().trim() == "") {
+            var labelId = $(this).attr("refto");
+            $(`#${labelId}`).css("color", "red");
+            error = true;
+        }
+        else {
+            var labelId = $(this).attr("refto");
+            $(`#${labelId}`).css("color", "green");
+            error = false;
+        }
+    })
+    if (error == true) {
+        alert("complete the form");
+    }
+    return error;
+}

@@ -120,7 +120,6 @@
     <Content Include="bin\EntityFramework.SqlServer.xml" />
     <Content Include="bin\EntityFramework.xml" />
     <Content Include="bin\itextsharp.dll" />
-    <Content Include="bin\itextsharp.xml" />
     <Content Include="bin\itextsharp.xmlworker.dll" />
     <Content Include="bin\Microsoft.AspNet.FriendlyUrls.dll" />
     <Content Include="bin\Microsoft.AspNet.FriendlyUrls.xml" />
@@ -180,9 +179,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Reports.aspx" />
-    <Content Include="SCRIPT\Form.js" />
     <Content Include="Global.asax" />
-    <Content Include="ImageFolder\image.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Navbar.ascx" />
     <Content Include="SCRIPT\Products.js" />
@@ -344,6 +341,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\roslyn\" />
+    <Folder Include="ImageFolder\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

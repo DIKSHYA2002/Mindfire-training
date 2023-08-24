@@ -49,7 +49,8 @@
 }
 
 .table_row > .table_small > .table_cell {
-    padding-top: 3px;
+    height: 50px;
+    padding-top: 11px;
     padding-bottom: 3px;
     color: black;
     border-bottom: #ccc 1px solid;
@@ -70,7 +71,6 @@
 .table_row:last-child > .table_small:first-child > .table_cell:last-child {
     border-bottom-left-radius: 5px;
 }
-
 .table_row:nth-child(2n+3) 
 {
     background: white;
