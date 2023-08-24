@@ -139,7 +139,6 @@
     <Content Include="bin\TentHouseRentals.DALDB.pdb" />
     <Content Include="bin\TentHouseRentals.Model.dll" />
     <Content Include="bin\TentHouseRentals.Model.pdb" />
-    <Content Include="bin\TentHouseRentals.Models.dll" />
     <Content Include="bin\TentHouseRentals.Utilities.dll" />
     <Content Include="bin\TentHouseRentals.Utilities.pdb" />
     <Content Include="bin\TentHouseRentals.Web.dll" />
