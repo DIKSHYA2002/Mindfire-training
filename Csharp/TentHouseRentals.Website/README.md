@@ -2,6 +2,7 @@
 
 An Inventory Management System for tent house suppplies for rent.It provides a User a place to manage transactions and stock related to their business
 # Run the Program
+
 ##  Sections:
 ## 1-Sign Up
 [Only Admin]
