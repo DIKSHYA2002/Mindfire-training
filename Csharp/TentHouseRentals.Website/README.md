@@ -1,7 +1,15 @@
 # ASPNET:Tent House Rentals
 
 An Inventory Management System for tent house suppplies for rent.It provides a User a place to manage transactions and stock related to their business
-
+# Run the Program
+###  1 - Open Visual Studio.
+From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mindfire-training/edit/main/Csharp/TentHouseRentals.Website]
+###  2 - Build the project
+###  3 - IIS Configurations-(Add Website)
+![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/9593505d-9abf-457e-9924-745d3b93f13f)
+###  4 - Add path of your webconfig File
+###  5 - Create a database
+###  6 - Browse  http://[domain name]/Login.aspx
 ##  Sections:
 ## 1-Sign Up
 [Only Admin]
