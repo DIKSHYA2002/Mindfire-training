@@ -51,7 +51,7 @@ namespace TentHouseRentals.DALDB
                 {
                     if ((email != "") && password != "")
                     {
-                        var user = dtContext.Users.Single(x => x.Email == email);
+                        var user = dtContext.Users.Single(x => x.Email.ToUpper() == email.ToUpper());
 
                         if (user.Password == password)
                         {

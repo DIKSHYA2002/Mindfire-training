@@ -26,12 +26,11 @@
                 <div class="in-out-radio-buttons">
                  <div>
                       <input type="radio" name="transactionType" value="out" id="outType" checked/>
-                     <label>OUT</label>
+                     <label for="outType">OUT</label>
                  </div>
                     <div>
                      <input type="radio" name="transactionType" value="in" id="inType" />
-                     <label>IN</label>
-                     
+                     <label for="inType">IN</label>
                  </div>
                 </div>
             </div>

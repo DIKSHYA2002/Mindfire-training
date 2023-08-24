@@ -1,0 +1,12 @@
+24-08-2023
+12:30
+Message: String was not recognized as a valid DateTime.
+Stacktrace:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at TentHouseRentals.DALDB.UserDAL.<>c.<SubmitTransactions>b__14_0(TransactionsModel2 x) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\UserDAL.cs:line 328
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at TentHouseRentals.DALDB.UserDAL.SubmitTransactions(List`1 transactions) in D:\Mindfire-training\Csharp\TentHouseRentals.Website\TentHouseRentals.DALDB\UserDAL.cs:line 328
+
