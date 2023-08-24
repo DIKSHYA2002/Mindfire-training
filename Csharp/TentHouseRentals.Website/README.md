@@ -5,12 +5,14 @@ An Inventory Management System for tent house suppplies for rent.It provides a U
 ###  1 - Open Visual Studio.
 From the Git menu, select Clone Repository. [https://github.com/DIKSHYA2002/Mindfire-training/edit/main/Csharp/TentHouseRentals.Website]
 ###  2 - Build the project
-###  4- Add a domain name to your host file - 
+###  3- Add a domain name to your host file - 
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/3a07bd16-b063-4c98-b405-fb22e6747198)
-###  3 - IIS Configurations-(Add Website)
+###  4 - IIS Configurations-(Add Website)
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/9593505d-9abf-457e-9924-745d3b93f13f)
-###  4 - Add path of your Webforms File
+###  5 - Add path of your Webforms File
 ![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/9cb2074e-e50e-40af-8af7-e3c3c22b3a4d)
+###  6 -  Add the domain name to the path
+![image](https://github.com/DIKSHYA2002/Mindfire-training/assets/78462004/b86592e6-bc04-43db-b196-2ba4ea081434)
 ###  5 - Create a database
 ###  6 - Browse  http://[domain name]/Login.aspx
 ##  Sections:
