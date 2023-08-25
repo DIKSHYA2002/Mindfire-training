@@ -61,7 +61,7 @@ $(document).ready(function () {
             dataType: "json",
             async: "false",
             success: function (response) {
-                console.log(response.d);
+               
                 response.d.forEach((item => {
 
                     if (item.QuantityPresent > 0)
