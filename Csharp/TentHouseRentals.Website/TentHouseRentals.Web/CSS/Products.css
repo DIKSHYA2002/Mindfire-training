@@ -378,7 +378,11 @@ h1 {
 
 
 
-
+.out-of-stock {
+    background-color: black;
+    color: white;
+   text-align:center;
+}
 
 
 
@@ -396,6 +400,7 @@ h1 {
         box-shadow: 0 10px 20px rgba(0,0,0,.1);
     }
 
+    
     .product-lists {
         display: flex;
         flex-direction: row;

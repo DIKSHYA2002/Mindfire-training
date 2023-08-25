@@ -63,10 +63,15 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response.d);
                 response.d.forEach((item => {
-                    var $newDiv = `
-                    <option id="${item.ID}" data-img_src="./ImageFolder/${item.Image}">${item.Title}</option>
-               `;
-                    $("#id_select2_example").append($newDiv);
+
+                    if (item.QuantityPresent > 0)
+                    {
+                        var $newDiv = `
+                            <option id="${item.ID}" data-img_src="./ImageFolder/${item.Image}">${item.Title}</option>
+                       `;
+                        $("#id_select2_example").append($newDiv);
+                    }
+                 
                 }))
             },
             Error: function (response) {
@@ -244,6 +249,7 @@ $(document).ready(function () {
                 Error: function (response) {
                     $("#btnSaveInTransactionsIn").html("SAVE TRANSACTIONS");
                     alert(response);
+
                 }
             });
         }
@@ -282,8 +288,10 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#btnSaveTransactions").html("SAVE TRANSACTIONS");
                     alert(response.d);
-                    getTransactionParticular();
+                    $(".out-section-list .transaction-individual").remove();
+                    getProductList();
                     getCustomers();
+                   
                 },
                 Error: function (response) {
                     $("#btnSaveTransactions").html("SAVE TRANSACTIONS");

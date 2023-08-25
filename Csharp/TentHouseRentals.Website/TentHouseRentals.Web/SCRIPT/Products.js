@@ -131,6 +131,11 @@ $(document).ready(function () {
 
                 if (response.d != null) {
                     response.d.forEach((item => {
+                        var outOfStock = false;
+                        if (item.QuantityPresent <= 0)
+                        {
+                            outOfStock = true;
+                        }
                         var $newDiv = `<div class="product">
                    <img src="./ImageFolder/${item.Image}"/>
                    <div class="product-details">
@@ -138,6 +143,7 @@ $(document).ready(function () {
                    <div class="product-price info">Price/Day : Rs ${item.PricePerDay}</div>
                    <div class="product-present-quantity info">Quantity : ${item.QuantityPresent}</div>
                    <div class="product-rented-quantity info">On Rent: ${item.QuantityBooked}</div> 
+                   <div class ="out-of-stock">${(outOfStock)?"OUT OF STOCK" : ""}</div>
                    </div> 
                </div>`;
                         $(".product-lists").append($newDiv);
