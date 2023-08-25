@@ -55,7 +55,7 @@ namespace TentHouseRentals.Web
                     List<Products> products = UserBusiness.GetProducts();
                     for (int i = 0; i < products.Count; i++)
                     {
-                        List<TransactionsModel2> transactionTable = Reports.GetProductTransactions(products[i].ID);
+                        List<Transactions> transactionTable = Reports.GetProductTransactions(products[i].ID);
 
                         if(transactionTable != null )
                         {

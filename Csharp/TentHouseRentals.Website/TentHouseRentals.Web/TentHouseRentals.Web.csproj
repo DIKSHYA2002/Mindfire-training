@@ -175,7 +175,6 @@
     <Content Include="CustomersPage.aspx" />
     <Content Include="SCRIPT\Common.js" />
     <Content Include="SCRIPT\Dashboard.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Reports.aspx" />
     <Content Include="Global.asax" />
@@ -265,13 +264,6 @@
     </Compile>
     <Compile Include="CustomersPage.aspx.designer.cs">
       <DependentUpon>CustomersPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

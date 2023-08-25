@@ -343,7 +343,7 @@ namespace TentHouseRentals.DALDB
         /// </summary>
         /// <param name="productId"></param>
         /// <returns></returns>
-        public static List<TransactionsModel2> GetProductTransactions(int productId)
+        public static List<Transactions> GetProductTransactions(int productId)
         {
 
             try
@@ -353,8 +353,8 @@ namespace TentHouseRentals.DALDB
                     List<Transaction> transactions = entities.Transactions.Where(t => t.ProductID == productId).ToList();
                     if(transactions.Count != 0 )
                     {
-                        List<TransactionsModel2> transactionMod = transactions.Select(tr =>  
-                     new TransactionsModel2
+                        List<Transactions> transactionMod = transactions.Select(tr =>  
+                     new Transactions
                      {
                          TransactionID = tr.TransactionID,
                          TransactionDateTime = (System.DateTime)tr.TransactionDateTime,
@@ -385,7 +385,7 @@ namespace TentHouseRentals.DALDB
         /// </summary>
         /// <param name="transactions"></param>
         /// <returns></returns>
-        public static String SubmitTransactions(List<TransactionsModel2> transactions)
+        public static String SubmitTransactions(List<Transactions> transactions)
         {
             String resultMessage = "Server Side Error";
             try
@@ -438,7 +438,7 @@ namespace TentHouseRentals.DALDB
                                         }
                                         else
                                         {
-                                            resultMessage = "Invalid Amount" + "Quantity Present : " +                                       product.QuantityPresent;
+                                            resultMessage = "Invalid Amount" + " Quantity Present : " +                                       product.QuantityPresent;
                                             return resultMessage;
                                         }
                                       

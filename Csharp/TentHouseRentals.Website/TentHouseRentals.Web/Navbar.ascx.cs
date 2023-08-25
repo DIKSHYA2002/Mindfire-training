@@ -15,7 +15,7 @@ public partial class Navbar : System.Web.UI.UserControl
         {
           
         }
-        protected void btnClickLogOut(object sender, EventArgs e)
+        protected void BtnClickLogOut(object sender, EventArgs e)
         {
                 Session.Clear();
                 Session.Abandon();

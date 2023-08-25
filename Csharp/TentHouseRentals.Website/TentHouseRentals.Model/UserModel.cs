@@ -20,7 +20,7 @@ namespace TentHouseRentals.Model
         public int ID { get; set; }
         public string Name { get; set; }
     }
-    public class TransactionsModel2
+    public class Transactions
     {
         public int TransactionID { get; set; }
         public System.DateTime TransactionDateTime { get; set; }
@@ -43,12 +43,4 @@ namespace TentHouseRentals.Model
         public Nullable<int> ParentID { get; set; }
     }
 
-  /*  public class Users
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Image { get; set; }
-    }*/
 }

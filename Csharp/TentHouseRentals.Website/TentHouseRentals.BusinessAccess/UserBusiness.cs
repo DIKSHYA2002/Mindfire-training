@@ -66,7 +66,7 @@ namespace TentHouseRentals.BusinessAccess
         /// <param name="productId"></param>
         /// <returns></returns>
 
-        public static List<TransactionsModel2> GetProductTransactions(int productId)
+        public static List<Transactions> GetProductTransactions(int productId)
         {
             return UserDAL.GetProductTransactions(productId);
         }
@@ -141,7 +141,7 @@ namespace TentHouseRentals.BusinessAccess
         /// </summary>
         /// <param name="transactions"></param>
         /// <returns></returns>
-        public static String SubmitTransactions(List<TransactionsModel2> transactions)
+        public static String SubmitTransactions(List<Transactions> transactions)
         {
             return UserDAL.SubmitTransactions(transactions);
         }

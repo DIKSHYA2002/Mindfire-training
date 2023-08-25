@@ -291,7 +291,6 @@ $(document).ready(function () {
                     $(".out-section-list .transaction-individual").remove();
                     getProductList();
                     getCustomers();
-                   
                 },
                 Error: function (response) {
                     $("#btnSaveTransactions").html("SAVE TRANSACTIONS");

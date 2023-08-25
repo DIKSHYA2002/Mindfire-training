@@ -35,7 +35,7 @@ namespace TentHouseRentals.Web
         }
        
         [WebMethod(EnableSession=true)]
-        public static List<TransactionsModel2> GetProductTransactions(int productId)
+        public static List<Transactions> GetProductTransactions(int productId)
         {
             try
             {

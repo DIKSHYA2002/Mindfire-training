@@ -49,7 +49,7 @@ namespace TentHouseRentals.Web
         }
 
         [WebMethod(EnableSession=true)]
-        public static String SubmitTransactions(List<TransactionsModel2> transactions)
+        public static String SubmitTransactions(List<Transactions> transactions)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace TentHouseRentals.Web
                 {
                     if (transactions[0].Type == "OUT")
                     {
-                        List<TransactionsModel2> transactionDb = transactions.Select(x => new TransactionsModel2()
+                        List<Transactions> transactionDb = transactions.Select(x => new Transactions()
                         {
 
                             TransactionDateTime = x.TransactionDateTime,
@@ -72,7 +72,7 @@ namespace TentHouseRentals.Web
                     }
                     else
                     {
-                        List<TransactionsModel2> transactionDb = transactions.Select(x => new TransactionsModel2()
+                        List<Transactions> transactionDb = transactions.Select(x => new Transactions()
                         {
                             TransactionDateTime = x.TransactionDateTime,
                             CustomerName = x.CustomerName,
