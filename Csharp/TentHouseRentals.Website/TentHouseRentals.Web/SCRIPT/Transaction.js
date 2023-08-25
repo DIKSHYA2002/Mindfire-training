@@ -1,4 +1,5 @@
-﻿const loadingGif = `<div class="transaction-individual"><img src="./ImageFolder/Loading.gif" style="width:3rem; height:3rem"></div>`;
+﻿
+const loadingGif = `<div class="transaction-individual"><img src="./ImageFolder/Loading.gif" style="width:3rem; height:3rem"></div>`;
 const loadingGif2 = `<div class="transaction-individual"><img src="./ImageFolder/Loading2.gif" style="width:3rem; height:3rem"></div>`;
 
 $(document).ready(function () {
@@ -76,7 +77,8 @@ $(document).ready(function () {
 
     $(".button-add-transaction").on("click", "#btnAddTransaction", function (e) {
         e.preventDefault();
-        if (validateProductTransaction()) {
+        if (validateProductSubmit("outSectionForm"))
+        {
             e.preventDefault();
             var customerName = transactionCustomer.value;
             var TransactionDate = dtTransactionDate.value;
@@ -109,33 +111,7 @@ $(document).ready(function () {
             alert("complete all the required fields");
         }
     })
-    function validateProductTransaction() {
-        var noerror;
-        $(".out-section-form .input-field input[type='text'] ,.out-section-form .input-field input[type='datetime-local'],.out-section-form .input-field input[type='number']").each(function () {
-            if ($(this).val().trim() == "") {
-                var labelId = $(this).attr("refto");
-                $(`#${labelId}`).css("color", "red");
-                noerror = false;
-            }
-            else
-            {
-                var labelId = $(this).attr("refto");
-                $(`#${labelId}`).css("color", "green");
-                noerror = false;
-                noerror = true;
-            }
-        })
-        var selectedProductId = parseInt($('#id_select2_example').find(":selected").prop("id")); 
-        if (selectedProductId == -1)
-        {
-            noerror = false;
-            $(`#lblProducts`).css("color", "red");
-        }
-
-        return noerror;
-
-    }
-
+  
     function getTransactionParticular()
     {
         var customerId = parseInt($("#transactionCustomer2").children(":selected").attr("id"));
@@ -226,21 +202,6 @@ $(document).ready(function () {
         e.preventDefault();
         getTransactionParticular();
     })
-
- 
-    function getFormattedDate(datetimestring)
-    {
-        const date = new Date(datetimestring);
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const seconds = date.getSeconds();
-        const amOrPm = hours >= 12 ? 'PM' : 'AM';
-        const hours12 = hours % 12 || 12;   
-        const timeString = `${hours12}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${amOrPm}`;
-        const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-        const resultString = `${dateString} ${timeString}`;
-        return resultString;
-    }
 
     $(".in-section").on("click", "#btnSaveInTransactionsIn", function (e) {
         var childNodes = $(".in-section-list .transaction-individual");

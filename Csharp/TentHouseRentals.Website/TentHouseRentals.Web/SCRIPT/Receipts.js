@@ -177,7 +177,7 @@ $(document).ready(function () {
             }
         });
     }
-    function getFormattedDate(datetimestring) {
+    /*function getFormattedDate(datetimestring) {
         const date = new Date(datetimestring);
         const hours = date.getHours();
         const minutes = date.getMinutes();
@@ -188,5 +188,5 @@ $(document).ready(function () {
         const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
         const resultString = `${dateString} ${timeString}`;
         return resultString;
-    }
+    }*/
 })

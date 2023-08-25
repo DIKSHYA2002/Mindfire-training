@@ -1,7 +1,6 @@
 ﻿
 /*select 2 tool for showing images in dropdown*/
 
-
 function custom_template(obj) {
     var data = $(obj.element).data();
     var text = $(obj.element).text();

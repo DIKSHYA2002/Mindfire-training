@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Login-TentHouseRentals</title>
     <link rel="stylesheet" href="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath2("./CSS/Form.css") %>"  />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
    
@@ -14,7 +14,7 @@
 <body>
     <form id="form1" runat="server" >
         <div class="form-container">
-             <div class="login-container container">
+             <div class="login-container container" id="formLogin">
                  <h1 >Login</h1>
             <div class="input-field">
                     <label for="txtEmail" id="lbltxtEmail">Email *</label>
@@ -30,13 +30,12 @@
 
 
                  <asp:Button ID="btnReinitialise" runat="server" Text="initialise"  UseSubmitBehavior="false"
-                  OnClientClick="if(ValidateLogin()) { return false;};"
+              OnClientClick="if(ValidateLogin()) { return false;};"
                   OnClick="Reinitialise"/>
             </div>
         </div> 
         </div>
     </form>
-     <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Form.js") %>" type="text/javascript"></script>
-   
+     <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Common.js") %>" type="text/javascript"></script>
 </body>
 </html>

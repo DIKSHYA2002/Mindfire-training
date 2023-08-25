@@ -51,8 +51,8 @@ $(document).ready(function () {
    
     /*--------------------submit product--------------------*/
     $('.input-field').on('click', "#btnSubmitProduct", function (e) {
-
-        if (validateProductSubmit()) {
+          
+        if (validateProductSubmit("AddProductModal")) {
 
             var loadingGif = `<img src="./ImageFolder/Loading.gif" style="width:50px; height:50px">`;
             const fileInput = document.querySelector('#flImage');
@@ -86,7 +86,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    function validateProductSubmit() {
+    /*function validateProductSubmit() {
         var noerror;
         $("#AddProductModal .input-field input[type='text'] ,#AddProductModal .input-field input[type='number']").each(function () {
             if ($(this).val().trim() == "") {
@@ -113,7 +113,7 @@ $(document).ready(function () {
         }
         return noerror;
         
-    }
+    }*/
 
     /*--------------------get product list--------------------*/
     getProductList();

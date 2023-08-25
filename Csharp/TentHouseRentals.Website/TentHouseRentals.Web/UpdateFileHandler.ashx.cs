@@ -34,7 +34,12 @@ namespace TentHouseRentals.Web
                 {
                     context.Response.Clear();
                     context.Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
-                    context.Response.ContentType = "text/" + fileExtension;
+                    if (fileExtension == "js")
+                        context.Response.AddHeader("Content-Type","application/javascript");
+                    else
+                    {
+                        context.Response.ContentType = "text/css";
+                    }
                     var refresh = new TimeSpan(365, 0, 0, 0);
                     context.Response.Cache.SetExpires(DateTime.Now.Add(refresh));
                     context.Response.Cache.SetMaxAge(refresh);

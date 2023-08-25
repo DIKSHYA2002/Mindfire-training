@@ -353,7 +353,7 @@ namespace TentHouseRentals.DALDB
                     List<Transaction> transactions = entities.Transactions.Where(t => t.ProductID == productId).ToList();
                     if(transactions.Count != 0 )
                     {
-                        List<TransactionsModel2> transactionMod = transactions.Select(tr =>
+                        List<TransactionsModel2> transactionMod = transactions.Select(tr =>  
                      new TransactionsModel2
                      {
                          TransactionID = tr.TransactionID,

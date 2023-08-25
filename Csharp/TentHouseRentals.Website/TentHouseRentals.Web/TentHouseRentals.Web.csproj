@@ -173,6 +173,7 @@
     <Content Include="obj\Debug\TentHouseRentals.Web.dll" />
     <Content Include="obj\Debug\TentHouseRentals.Web.pdb" />
     <Content Include="CustomersPage.aspx" />
+    <Content Include="SCRIPT\Common.js" />
     <Content Include="SCRIPT\Dashboard.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -180,7 +181,6 @@
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Navbar.ascx" />
-    <Content Include="SCRIPT\Form.js" />
     <Content Include="SCRIPT\Products.js" />
     <Content Include="ProductsPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />

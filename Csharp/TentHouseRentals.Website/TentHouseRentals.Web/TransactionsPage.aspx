@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Transactions</title>
+    <title>Transactions-TentHouseRentals</title>
     <meta charset="utf-8" /> 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@
             </div>
 
             <div class="out-section">
-                <div class="out-section-form">
+                <div class="out-section-form" id="outSectionForm">
                     <div class="input-field">
                          <label for="transactionCustomer" id="lblCustomerName">CUSTOMER :</label>
                         <input name="transactionCustomer" list="customerList"  id="transactionCustomer" refto="lblCustomerName" type="text" autocomplete="off"/>
@@ -117,9 +117,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
       <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Dashboard.js") %>" type="text/javascript"></script>
+    
      <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Transaction.js") %>" type="text/javascript"></script>
-   
-  
 </body>
 
 </html>

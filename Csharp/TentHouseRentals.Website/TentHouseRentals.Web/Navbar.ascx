@@ -40,3 +40,4 @@
 
          <asp:Button runat="server" Text="Log Out" ID="btnLogout" onclick="btnClickLogOut" ClientIDMode="static" UseSubmitBehavior="false"/>
 
+ <script src="<%=TentHouseRentals.Utilities.CommonFunctions.GetUpdatedFilePath("./SCRIPT/Common.js") %>" type="text/javascript"></script>
